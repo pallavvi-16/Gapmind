@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GapMind | AI Interview</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Gap<span>Mind</span>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="assessment.html">
+                Assessment
+            </a>
+
+            <a href="placement.html">
+                Placement
+            </a>
+
+            <a href="interview.html"
+               class="active">
+                AI Interview
+            </a>
+
+            <a href="index.html"
+               class="login">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- INTERVIEW PAGE -->
+
+    <main class="interview-page">
+
+
+        <!-- HEADER -->
+
+        <section class="interview-header">
+
+            <div>
+
+                <div class="badge">
+                    GAPMIND AI INTERVIEW
+                </div>
+
+                <h1>
+                    Practice Like
+                    <span class="gradient-text">
+                        It's Real.
+                    </span>
+                </h1>
+
+                <p>
+                    Enter an adaptive interview environment
+                    where GapMind evaluates not only what
+                    you answer, but how you approach the problem.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INTERVIEW SETUP -->
+
+        <section
+            class="interview-setup"
+            id="interviewSetup"
+        >
+
+
+            <div class="setup-title">
+
+                <span class="card-label">
+                    START INTERVIEW
+                </span>
+
+                <h2>
+                    Configure your interview
+                </h2>
+
+                <p>
+                    Choose the type of interview you want
+                    to practice.
+                </p>
+
+            </div>
+
+
+
+            <div class="interview-types">
+
+
+                <!-- TECHNICAL -->
+
+                <label class="interview-type">
+
+                    <input
+                        type="radio"
+                        name="interviewType"
+                        value="technical"
+                    >
+
+                    <div class="interview-type-content">
+
+                        <div class="interview-type-icon orange">
+                            &lt;/&gt;
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Technical Interview
+                            </h3>
+
+                            <p>
+                                Programming, DSA and
+                                CS fundamentals.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+
+                <!-- HR -->
+
+                <label class="interview-type">
+
+                    <input
+                        type="radio"
+                        name="interviewType"
+                        value="hr"
+                    >
+
+                    <div class="interview-type-content">
+
+                        <div class="interview-type-icon purple">
+                            ◎
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                HR Interview
+                            </h3>
+
+                            <p>
+                                Behavioral, communication
+                                and situational questions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+
+                <!-- MIXED -->
+
+                <label class="interview-type">
+
+                    <input
+                        type="radio"
+                        name="interviewType"
+                        value="mixed"
+                    >
+
+                    <div class="interview-type-content">
+
+                        <div class="interview-type-icon cyan">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Full Mock Interview
+                            </h3>
+
+                            <p>
+                                Technical + HR combined
+                                interview simulation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+            </div>
+
+
+
+            <div class="interview-options">
+
+                <div>
+
+                    <span>
+                        DIFFICULTY
+                    </span>
+
+                    <select>
+
+                        <option>
+                            Choose difficulty
+                        </option>
+
+                        <option>
+                            Beginner
+                        </option>
+
+                        <option>
+                            Intermediate
+                        </option>
+
+                        <option>
+                            Advanced
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        INTERVIEW LENGTH
+                    </span>
+
+                    <select>
+
+                        <option>
+                            Choose length
+                        </option>
+
+                        <option>
+                            5 Questions
+                        </option>
+
+                        <option>
+                            10 Questions
+                        </option>
+
+                        <option>
+                            15 Questions
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <button
+                class="primary-btn interview-start-btn"
+                onclick="startInterview()"
+            >
+                Start AI Interview →
+            </button>
+
+
+        </section>
+
+
+
+        <!-- INTERVIEW ROOM -->
+
+        <section
+            class="interview-room"
+            id="interviewRoom"
+        >
+
+
+            <!-- ROOM HEADER -->
+
+            <div class="room-header">
+
+                <div>
+
+                    <span class="card-label">
+                        LIVE INTERVIEW
+                    </span>
+
+                    <h2>
+                        Technical Interview
+                    </h2>
+
+                </div>
+
+
+                <div class="room-status">
+
+                    <span class="status-dot"></span>
+
+                    AI INTERVIEWER ACTIVE
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUESTION -->
+
+            <div class="interviewer-card">
+
+
+                <div class="ai-avatar">
+
+                    <div class="ai-core">
+                        ✦
+                    </div>
+
+                </div>
+
+
+                <div class="interviewer-message">
+
+                    <span class="card-label">
+                        AI INTERVIEWER
+                    </span>
+
+                    <h2>
+                        Tell me about a project you
+                        have worked on and explain
+                        one technical challenge you faced.
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ANSWER -->
+
+            <div class="answer-section">
+
+
+                <div class="answer-header">
+
+                    <span class="card-label">
+                        YOUR RESPONSE
+                    </span>
+
+                    <span class="word-count">
+                        0 words
+                    </span>
+
+                </div>
+
+
+                <textarea
+                    id="answerBox"
+                    placeholder="Type your answer here..."
+                ></textarea>
+
+
+                <div class="answer-actions">
+
+                    <span>
+                        Be specific. Explain your
+                        reasoning, not just the result.
+                    </span>
+
+                    <button
+                        class="primary-btn"
+                        onclick="submitAnswer()"
+                    >
+                        Submit Answer →
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- FEEDBACK -->
+
+        <section
+            class="interview-feedback"
+            id="interviewFeedback"
+        >
+
+
+            <div class="feedback-header">
+
+                <div>
+
+                    <span class="card-label">
+                        AI EVALUATION
+                    </span>
+
+                    <h2>
+                        Interview Feedback
+                    </h2>
+
+                </div>
+
+                <div class="feedback-score" id="feedbackScore">
+                    --
+                </div>
+
+            </div>
+
+
+
+            <div
+                id="evaluationStatus"
+                style="
+                    margin-bottom:16px;
+                    color:#999;
+                    font-size:12px;
+                "
+            ></div>
+
+            <div class="feedback-grid">
+
+
+                <div class="feedback-card">
+
+                    <span>
+                        WHAT WENT WELL
+                    </span>
+
+                    <h3>
+                        Awaiting AI analysis
+                    </h3>
+
+                    <p>
+                        GapMind will identify the strongest
+                        aspects of your response.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feedback-card">
+
+                    <span>
+                        NEEDS IMPROVEMENT
+                    </span>
+
+                    <h3>
+                        Awaiting AI analysis
+                    </h3>
+
+                    <p>
+                        GapMind will identify specific areas
+                        where your response can improve.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feedback-card">
+
+                    <span>
+                        COMMUNICATION
+                    </span>
+
+                    <h3>
+                        Awaiting AI analysis
+                    </h3>
+
+                    <p>
+                        Your clarity, structure and confidence
+                        will be evaluated.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="feedback-next">
+
+                <span class="card-label">
+                    GAPMIND RECOMMENDATION
+                </span>
+
+                <h2>
+                    Your improvement plan will appear here.
+                </h2>
+
+                <a
+                    href="placement.html"
+                    class="primary-btn"
+                >
+                    Update My Roadmap →
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <footer>
+
+        © 2026 GapMind — Student Intelligence Platform
+
+    </footer>
+
+
+
+    <script>
+
+        /* ==========================================
+           GAPMIND AI INTERVIEW SIMULATOR
+        ========================================== */
+
+        const interviewQuestions = {
+
+            technical: [
+                {
+                    question:
+                        "Explain the difference between an array and a linked list. When would you use each?",
+                    keywords: [
+                        "array",
+                        "linked list",
+                        "memory",
+                        "index",
+                        "insertion"
+                    ]
+                },
+                {
+                    question:
+                        "What is the difference between a stack and a queue? Give one real-world use case for each.",
+                    keywords: [
+                        "stack",
+                        "queue",
+                        "lifo",
+                        "fifo",
+                        "use"
+                    ]
+                },
+                {
+                    question:
+                        "What is time complexity? Explain what O(n) means with an example.",
+                    keywords: [
+                        "time complexity",
+                        "o(n)",
+                        "linear",
+                        "input",
+                        "algorithm"
+                    ]
+                },
+                {
+                    question:
+                        "What is a database transaction and what do ACID properties mean?",
+                    keywords: [
+                        "transaction",
+                        "acid",
+                        "atomicity",
+                        "consistency",
+                        "isolation",
+                        "durability"
+                    ]
+                },
+                {
+                    question:
+                        "What is the difference between a process and a thread?",
+                    keywords: [
+                        "process",
+                        "thread",
+                        "memory",
+                        "execution",
+                        "concurrent"
+                    ]
+                }
+            ],
+
+            hr: [
+                {
+                    question:
+                        "Tell me about yourself and highlight the skills that make you suitable for a placement role.",
+                    keywords: [
+                        "education",
+                        "skills",
+                        "project",
+                        "goal",
+                        "strength"
+                    ]
+                },
+                {
+                    question:
+                        "Tell me about a challenging project you worked on and how you handled the challenge.",
+                    keywords: [
+                        "project",
+                        "challenge",
+                        "problem",
+                        "solution",
+                        "result"
+                    ]
+                },
+                {
+                    question:
+                        "What is one weakness you are currently working on, and what are you doing to improve it?",
+                    keywords: [
+                        "weakness",
+                        "improve",
+                        "practice",
+                        "learning",
+                        "progress"
+                    ]
+                },
+                {
+                    question:
+                        "Describe a situation where you had a disagreement with a teammate. How did you handle it?",
+                    keywords: [
+                        "team",
+                        "communication",
+                        "disagreement",
+                        "listen",
+                        "solution"
+                    ]
+                },
+                {
+                    question:
+                        "Where do you see yourself in the next three to five years?",
+                    keywords: [
+                        "career",
+                        "learn",
+                        "growth",
+                        "role",
+                        "goal"
+                    ]
+                }
+            ],
+
+            mixed: [
+                {
+                    question:
+                        "Tell me about a project you built and explain the most important technical decision you made.",
+                    keywords: [
+                        "project",
+                        "technical",
+                        "decision",
+                        "problem",
+                        "solution"
+                    ]
+                },
+                {
+                    question:
+                        "Explain what a data structure is and give an example you have used in a project.",
+                    keywords: [
+                        "data structure",
+                        "array",
+                        "list",
+                        "stack",
+                        "queue"
+                    ]
+                },
+                {
+                    question:
+                        "Describe a difficult problem you faced while working with a team and how you solved it.",
+                    keywords: [
+                        "team",
+                        "problem",
+                        "communication",
+                        "solution",
+                        "result"
+                    ]
+                },
+                {
+                    question:
+                        "What is time complexity and why is it important when writing code?",
+                    keywords: [
+                        "time complexity",
+                        "algorithm",
+                        "input",
+                        "performance",
+                        "o(n)"
+                    ]
+                },
+                {
+                    question:
+                        "Why should a company hire you for a technical role?",
+                    keywords: [
+                        "skills",
+                        "learn",
+                        "project",
+                        "team",
+                        "contribute"
+                    ]
+                }
+            ]
+        };
+
+        let interviewState = {
+            type: null,
+            difficulty: "Intermediate",
+            totalQuestions: 5,
+            currentIndex: 0,
+            questions: [],
+            scores: [],
+            answers: []
+        };
+
+
+        function startInterview() {
+
+            const selected =
+                document.querySelector(
+                    'input[name="interviewType"]:checked'
+                );
+
+            if (!selected) {
+                alert(
+                    "Please choose an interview type."
+                );
+                return;
+            }
+
+            const selects =
+                document.querySelectorAll(
+                    ".interview-options select"
+                );
+
+            const difficulty =
+                selects[0]?.value &&
+                !selects[0].value.toLowerCase().includes("choose")
+                    ? selects[0].value
+                    : "Intermediate";
+
+            const lengthText =
+                selects[1]?.value || "5 Questions";
+
+            const requestedLength =
+                parseInt(lengthText, 10);
+
+            interviewState.type = selected.value;
+            interviewState.difficulty = difficulty;
+            interviewState.totalQuestions =
+                Number.isFinite(requestedLength)
+                    ? requestedLength
+                    : 5;
+
+            const pool =
+                interviewQuestions[
+                    interviewState.type
+                ];
+
+            interviewState.questions =
+                shuffle([...pool]).slice(
+                    0,
+                    Math.min(
+                        interviewState.totalQuestions,
+                        pool.length
+                    )
+                );
+
+            interviewState.currentIndex = 0;
+            interviewState.scores = [];
+            interviewState.answers = [];
+
+            const setup =
+                document.getElementById(
+                    "interviewSetup"
+                );
+
+            if (setup) {
+                setup.style.display = "none";
+            }
+
+
+            // Save the final score so Placement Intelligence can use it.
+            localStorage.setItem(
+                "lastInterviewScore",
+                String(finalScore)
+            );
+
+            localStorage.setItem(
+                "lastInterviewQuestionCount",
+                String(scores.length)
+            );
+
+            localStorage.setItem(
+                "lastInterviewType",
+                interviewState.type
+            );
+
+            localStorage.setItem(
+                "lastInterviewCompletedAt",
+                new Date().toISOString()
+            );
+
+            const room =
+                document.getElementById(
+                    "interviewRoom"
+                );
+
+            room.classList.add("show");
+
+            updateRoomHeader();
+            showQuestion();
+
+            room.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+
+        function showQuestion() {
+
+            const current =
+                interviewState.questions[
+                    interviewState.currentIndex
+                ];
+
+            if (!current) {
+                finishInterview();
+                return;
+            }
+
+            const questionElement =
+                document.querySelector(
+                    ".interviewer-message h2"
+                );
+
+            if (questionElement) {
+                questionElement.textContent =
+                    current.question;
+            }
+
+            const answerBox =
+                document.getElementById(
+                    "answerBox"
+                );
+
+            answerBox.value = "";
+            answerBox.disabled = false;
+
+            const submitButton =
+                document.querySelector(
+                    '.answer-actions button'
+                );
+
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent =
+                    "Submit Answer →";
+            }
+
+            const feedback =
+                document.getElementById(
+                    "interviewFeedback"
+                );
+
+            feedback.classList.remove("show");
+
+            const status =
+                document.getElementById(
+                    "evaluationStatus"
+                );
+
+            if (status) {
+                status.textContent =
+                    `Question ${
+                        interviewState.currentIndex + 1
+                    } of ${
+                        interviewState.questions.length
+                    } • ${interviewState.difficulty}`;
+            }
+
+            updateWordCount();
+
+            window.scrollTo({
+                top: document
+                    .getElementById("interviewRoom")
+                    .offsetTop - 80,
+                behavior: "smooth"
+            });
+        }
+
+
+        function submitAnswer() {
+
+            const answerBox =
+                document.getElementById(
+                    "answerBox"
+                );
+
+            const answer =
+                answerBox.value.trim();
+
+            if (answer.length === 0) {
+                alert(
+                    "Please enter your answer first."
+                );
+                return;
+            }
+
+            const current =
+                interviewState.questions[
+                    interviewState.currentIndex
+                ];
+
+            const evaluation =
+                evaluateAnswer(
+                    answer,
+                    current.keywords,
+                    interviewState.type
+                );
+
+            interviewState.scores.push(
+                evaluation.score
+            );
+
+            interviewState.answers.push({
+                question: current.question,
+                answer: answer,
+                score: evaluation.score
+            });
+
+            answerBox.disabled = true;
+
+            const submitButton =
+                document.querySelector(
+                    '.answer-actions button'
+                );
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent =
+                    "Answer Evaluated ✓";
+            }
+
+            showFeedback(evaluation);
+
+            document
+                .getElementById("interviewFeedback")
+                .classList.add("show");
+
+            document
+                .getElementById("interviewFeedback")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+
+        function evaluateAnswer(
+            answer,
+            keywords,
+            type
+        ) {
+
+            const normalized =
+                answer.toLowerCase();
+
+            const words =
+                normalized
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+            const matched =
+                keywords.filter(
+                    keyword =>
+                        normalized.includes(
+                            keyword.toLowerCase()
+                        )
+                );
+
+            const keywordScore =
+                keywords.length
+                    ? matched.length /
+                      keywords.length
+                    : 0;
+
+            let score =
+                35 +
+                keywordScore * 45;
+
+            if (words.length >= 30) {
+                score += 10;
+            } else if (words.length >= 15) {
+                score += 5;
+            }
+
+            if (
+                normalized.includes("because") ||
+                normalized.includes("example") ||
+                normalized.includes("for example") ||
+                normalized.includes("result")
+            ) {
+                score += 5;
+            }
+
+            score =
+                Math.round(
+                    Math.min(100, score)
+                );
+
+            const strong =
+                score >= 80;
+
+            const needsWork =
+                score < 60;
+
+            let communication;
+
+            if (words.length >= 35) {
+                communication = "Strong";
+            } else if (words.length >= 18) {
+                communication = "Good";
+            } else {
+                communication = "Needs Practice";
+            }
+
+            let improvement;
+
+            if (needsWork) {
+                improvement =
+                    "Add more relevant details, explain your reasoning, and support your answer with an example.";
+            } else if (!strong) {
+                improvement =
+                    "Your answer has a good base. Make it more structured and include a concrete example.";
+            } else {
+                improvement =
+                    "Strong response. Keep using clear reasoning and concrete examples.";
+            }
+
+            return {
+                score: score,
+                communication: communication,
+                matched: matched,
+                improvement: improvement,
+                strong: strong
+            };
+        }
+
+
+        function showFeedback(evaluation) {
+
+            const scoreElement =
+                document.getElementById(
+                    "feedbackScore"
+                ) ||
+                document.querySelector(
+                    ".feedback-score"
+                );
+
+            if (scoreElement) {
+                scoreElement.textContent =
+                    `${evaluation.score}%`;
+            }
+
+            const cards =
+                document.querySelectorAll(
+                    ".feedback-card"
+                );
+
+            if (cards.length >= 3) {
+
+                cards[0].querySelector("h3").textContent =
+                    evaluation.strong
+                        ? "Clear and relevant response"
+                        : "Good starting point";
+
+                cards[0].querySelector("p").textContent =
+                    evaluation.matched.length
+                        ? `Relevant concepts detected: ${evaluation.matched.slice(0, 4).join(", ")}.`
+                        : "Your response was received. Add more role-specific concepts next time.";
+
+                cards[1].querySelector("h3").textContent =
+                    evaluation.score < 60
+                        ? "Needs more depth"
+                        : "Can be strengthened";
+
+                cards[1].querySelector("p").textContent =
+                    evaluation.improvement;
+
+                cards[2].querySelector("h3").textContent =
+                    evaluation.communication;
+
+                cards[2].querySelector("p").textContent =
+                    "Communication is estimated from answer length, structure, and clarity.";
+            }
+
+            const recommendation =
+                document.querySelector(
+                    ".feedback-next h2"
+                );
+
+            if (recommendation) {
+
+                if (evaluation.score >= 85) {
+                    recommendation.textContent =
+                        "Excellent response. Move to harder interview questions and timed mock rounds.";
+                } else if (evaluation.score >= 70) {
+                    recommendation.textContent =
+                        "Good response. Practice more role-specific questions and improve answer structure.";
+                } else {
+                    recommendation.textContent =
+                        "Focus on fundamentals, structured answers, and explaining your reasoning with examples.";
+                }
+            }
+
+            const status =
+                document.getElementById(
+                    "evaluationStatus"
+                );
+
+            if (status) {
+                status.textContent =
+                    `Question ${
+                        interviewState.currentIndex + 1
+                    } evaluated • Score: ${
+                        evaluation.score
+                    }%`;
+            }
+
+            const feedbackNext =
+                document.querySelector(
+                    ".feedback-next"
+                );
+
+            let nextButton =
+                document.getElementById(
+                    "nextInterviewQuestion"
+                );
+
+            if (!nextButton) {
+
+                nextButton =
+                    document.createElement(
+                        "button"
+                    );
+
+                nextButton.id =
+                    "nextInterviewQuestion";
+
+                nextButton.className =
+                    "primary-btn";
+
+                feedbackNext.appendChild(
+                    nextButton
+                );
+            }
+
+            if (
+                interviewState.currentIndex <
+                interviewState.questions.length - 1
+            ) {
+
+                nextButton.textContent =
+                    "Next Question →";
+
+                nextButton.onclick =
+                    function() {
+
+                        interviewState.currentIndex++;
+
+                        showQuestion();
+                    };
+
+            } else {
+
+                nextButton.textContent =
+                    "View Final Report →";
+
+                nextButton.onclick =
+                    finishInterview;
+            }
+        }
+
+
+        function finishInterview() {
+
+            const scores =
+                interviewState.scores;
+
+            const total =
+                scores.reduce(
+                    (sum, score) =>
+                        sum + score,
+                    0
+                );
+
+            const finalScore =
+                scores.length
+                    ? Math.round(
+                        total / scores.length
+                    )
+                    : 0;
+
+            const room =
+                document.getElementById(
+                    "interviewRoom"
+                );
+
+            room.classList.remove("show");
+
+            const feedback =
+                document.getElementById(
+                    "interviewFeedback"
+                );
+
+            feedback.classList.add("show");
+
+            const scoreElement =
+                document.getElementById(
+                    "feedbackScore"
+                ) ||
+                document.querySelector(
+                    ".feedback-score"
+                );
+
+            scoreElement.textContent =
+                `${finalScore}%`;
+
+            const cards =
+                document.querySelectorAll(
+                    ".feedback-card"
+                );
+
+            if (cards.length >= 3) {
+
+                cards[0].querySelector("h3").textContent =
+                    `${scores.length} questions completed`;
+
+                cards[0].querySelector("p").textContent =
+                    `You completed a ${interviewState.type} interview at ${interviewState.difficulty} difficulty.`;
+
+                cards[1].querySelector("h3").textContent =
+                    finalScore >= 80
+                        ? "Interview ready"
+                        : finalScore >= 60
+                            ? "Almost ready"
+                            : "Needs more practice";
+
+                cards[1].querySelector("p").textContent =
+                    getFinalFeedback(
+                        finalScore
+                    );
+
+                cards[2].querySelector("h3").textContent =
+                    getAverageCommunication();
+
+                cards[2].querySelector("p").textContent =
+                    "Overall communication estimate from your completed responses.";
+            }
+
+            const recommendation =
+                document.querySelector(
+                    ".feedback-next h2"
+                );
+
+            if (recommendation) {
+                recommendation.textContent =
+                    getFinalFeedback(
+                        finalScore
+                    );
+            }
+
+            const status =
+                document.getElementById(
+                    "evaluationStatus"
+                );
+
+            if (status) {
+                status.textContent =
+                    `🏆 Final Interview Score: ${finalScore}%`;
+            }
+
+            let restart =
+                document.getElementById(
+                    "restartInterview"
+                );
+
+            if (!restart) {
+
+                restart =
+                    document.createElement(
+                        "button"
+                    );
+
+                restart.id =
+                    "restartInterview";
+
+                restart.className =
+                    "secondary-btn";
+
+                restart.style.marginLeft =
+                    "10px";
+
+                restart.textContent =
+                    "Practice Again";
+
+                restart.onclick =
+                    function() {
+                        location.reload();
+                    };
+
+                feedback
+                    .querySelector(
+                        ".feedback-next"
+                    )
+                    .appendChild(
+                        restart
+                    );
+            }
+
+            feedback.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+
+        function getFinalFeedback(score) {
+
+            if (score >= 85) {
+                return "Excellent interview performance. Focus on advanced questions and company-specific mock interviews.";
+            }
+
+            if (score >= 70) {
+                return "Good interview performance. Keep practicing structured answers and role-specific questions.";
+            }
+
+            if (score >= 50) {
+                return "You have a foundation to build on. Practice regularly and focus on explaining concepts clearly.";
+            }
+
+            return "Start with fundamentals and practice short, structured answers before moving to harder questions.";
+        }
+
+
+        function getAverageCommunication() {
+
+            const values =
+                interviewState.answers.map(
+                    item => {
+
+                        const words =
+                            item.answer
+                                .trim()
+                                .split(/\s+/)
+                                .filter(Boolean)
+                                .length;
+
+                        return words >= 35
+                            ? 3
+                            : words >= 18
+                                ? 2
+                                : 1;
+                    }
+                );
+
+            const average =
+                values.length
+                    ? values.reduce(
+                        (a, b) => a + b,
+                        0
+                    ) / values.length
+                    : 0;
+
+            return average >= 2.5
+                ? "Strong"
+                : average >= 1.7
+                    ? "Good"
+                    : "Needs Practice";
+        }
+
+
+        function updateRoomHeader() {
+
+            const heading =
+                document.querySelector(
+                    ".room-header h2"
+                );
+
+            if (!heading) return;
+
+            const type =
+                interviewState.type;
+
+            heading.textContent =
+                type === "technical"
+                    ? "Technical Interview"
+                    : type === "hr"
+                        ? "HR Interview"
+                        : "Full Mock Interview";
+        }
+
+
+        function shuffle(array) {
+
+            for (
+                let i = array.length - 1;
+                i > 0;
+                i--
+            ) {
+
+                const j =
+                    Math.floor(
+                        Math.random() *
+                        (i + 1)
+                    );
+
+                [
+                    array[i],
+                    array[j]
+                ] = [
+                    array[j],
+                    array[i]
+                ];
+            }
+
+            return array;
+        }
+
+
+        function updateWordCount() {
+
+            const answerBox =
+                document.getElementById(
+                    "answerBox"
+                );
+
+            if (!answerBox) return;
+
+            const words =
+                answerBox.value
+                    .trim()
+                    .split(/\s+/)
+                    .filter(Boolean)
+                    .length;
+
+            const count =
+                document.querySelector(
+                    ".word-count"
+                );
+
+            if (count) {
+                count.textContent =
+                    words + " words";
+            }
+        }
+
+
+        const answerBox =
+            document.getElementById(
+                "answerBox"
+            );
+
+        if (answerBox) {
+
+            answerBox.addEventListener(
+                "input",
+                updateWordCount
+            );
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GapMind | Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ==========================================
+           DYNAMIC PROFILE
+        ========================================== */
+
+        .student-welcome {
+            margin-top: 18px;
+            color: #aaa;
+            font-size: 15px;
+        }
+
+        .student-welcome strong {
+            color: white;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .profile-detail {
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 9px;
+            background: rgba(255,255,255,0.025);
+        }
+
+        .profile-detail small {
+            display: block;
+            color: #666;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+
+        .profile-detail strong {
+            color: #ddd;
+            font-size: 13px;
+        }
+
+        .skill-list,
+        .role-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .data-pill {
+            padding: 7px 11px;
+            border-radius: 7px;
+            border: 1px solid rgba(255,106,0,0.25);
+            background: rgba(255,106,0,0.07);
+            color: #ddd;
+            font-size: 11px;
+        }
+
+        .role-pill {
+            border-color: rgba(155,92,255,0.3);
+            background: rgba(155,92,255,0.08);
+        }
+
+        .profile-loading {
+            color: #777;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
+        .profile-error {
+            color: #ff7070;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
+        .assessment-summary {
+            margin-top: 18px;
+        }
+
+        .assessment-score {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .assessment-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .assessment-meta span {
+            padding: 7px 10px;
+            border-radius: 7px;
+            border: 1px solid rgba(0, 220, 255, 0.22);
+            background: rgba(0, 220, 255, 0.06);
+            color: #ddd;
+            font-size: 11px;
+        }
+
+        .assessment-date {
+            color: #666;
+            font-size: 11px;
+            margin-top: 12px;
+        }
+
+        .gap-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .gap-card {
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 9px;
+            background: rgba(255,255,255,0.025);
+        }
+
+        .gap-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gap-skill {
+            color: #ddd;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .gap-level {
+            font-size: 10px;
+            padding: 5px 8px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.06);
+            color: #bbb;
+        }
+
+        .gap-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 9px;
+            color: #999;
+            font-size: 11px;
+        }
+
+        .gap-accuracy {
+            margin-top: 8px;
+            height: 5px;
+            border-radius: 99px;
+            background: rgba(255,255,255,0.07);
+            overflow: hidden;
+        }
+
+        .gap-accuracy-fill {
+            height: 100%;
+            border-radius: 99px;
+            background: #00d4ff;
+        }
+
+        .recommendation-box {
+            margin-top: 14px;
+            padding: 13px;
+            border: 1px solid rgba(155,92,255,0.22);
+            border-radius: 9px;
+            background: rgba(155,92,255,0.06);
+        }
+
+        .recommendation-title {
+            color: #bbb;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .recommendation-text {
+            color: #ddd;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .roadmap-box {
+            margin-top: 18px;
+            padding: 14px;
+            border: 1px solid rgba(0,220,255,0.18);
+            border-radius: 10px;
+            background: rgba(0,220,255,0.035);
+        }
+
+        .roadmap-title {
+            color: #bbb;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .roadmap-item {
+            display: grid;
+            grid-template-columns: 48px 1fr;
+            gap: 10px;
+            align-items: center;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .roadmap-item:last-child {
+            border-bottom: 0;
+        }
+
+        .roadmap-day {
+            color: #888;
+            font-size: 10px;
+        }
+
+        .roadmap-topic {
+            color: #ddd;
+            font-size: 12px;
+        }
+
+        .roadmap-subtitle {
+            color: #777;
+            font-size: 10px;
+            margin-top: 3px;
+        }
+
+        .progress-box {
+            margin-top: 18px;
+            padding: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.025);
+        }
+
+        .progress-title {
+            color: #bbb;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .progress-stat {
+            padding: 10px 8px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.035);
+            text-align: center;
+        }
+
+        .progress-stat-value {
+            color: #ddd;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .progress-stat-label {
+            color: #777;
+            font-size: 9px;
+            margin-top: 3px;
+        }
+
+        .progress-history {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .progress-row {
+            display: grid;
+            grid-template-columns: 72px 1fr 42px;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            color: #888;
+        }
+
+        .progress-bar {
+            height: 5px;
+            border-radius: 99px;
+            background: rgba(255,255,255,0.07);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 99px;
+            background: #00d4ff;
+        }
+
+        .progress-change {
+            margin-top: 11px;
+            color: #aaa;
+            font-size: 11px;
+        }
+
+        @media (max-width: 700px) {
+
+            .profile-details {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION
+    ========================================== -->
+
+    <nav>
+
+        <div class="logo">
+            Gap<span>Mind</span>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="dashboard.html"
+               class="active">
+
+                Dashboard
+
+            </a>
+
+
+            <a href="assessment.html">
+
+                Assessment
+
+            </a>
+
+
+            <a href="placement.html">
+
+                Placement
+
+            </a>
+
+
+            <a href="interview.html">
+
+                AI Interview
+
+            </a>
+
+
+            <a href="index.html"
+               class="login">
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         DASHBOARD
+    ========================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- ==========================================
+             HEADER
+        ========================================== -->
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <div class="badge">
+                    STUDENT INTELLIGENCE CENTER
+                </div>
+
+
+                <h1>
+
+                    Your Growth
+
+                    <span class="gradient-text">
+                        Command Center.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Understand where you stand,
+                    identify your gaps and decide
+                    what to work on next.
+
+                </p>
+
+
+                <!-- DYNAMIC WELCOME -->
+
+                <div
+                    id="studentWelcome"
+                    class="student-welcome"
+                >
+
+                    Loading your profile...
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             QUICK ACTIONS
+        ========================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <div class="dashboard-card large-card">
+
+                <div class="card-top">
+
+                    <div>
+
+                        <span class="card-label">
+                            AI ANALYSIS
+                        </span>
+
+
+                        <h2>
+                            Discover Your Skill Gaps
+                        </h2>
+
+                    </div>
+
+
+                    <div class="card-icon orange">
+                        ✦
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    Take an assessment and let
+                    GapMind identify the concepts
+                    you need to strengthen.
+
+                </p>
+
+
+                <a href="assessment.html"
+                   class="card-action">
+
+                    Start Assessment →
+
+                </a>
+
+            </div>
+
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon purple">
+                    ◈
+                </div>
+
+
+                <span class="card-label">
+                    PLACEMENT
+                </span>
+
+
+                <h2>
+                    Placement Preparation
+                </h2>
+
+
+                <p>
+
+                    Build a personalized preparation
+                    path for your target role.
+
+                </p>
+
+
+                <a href="placement.html"
+                   class="card-action purple-text">
+
+                    Prepare for Placement →
+
+                </a>
+
+            </div>
+
+
+
+            <div class="dashboard-card">
+
+                <div class="card-icon cyan">
+                    ◎
+                </div>
+
+
+                <span class="card-label">
+                    INTERVIEW
+                </span>
+
+
+                <h2>
+                    AI Interview Simulator
+                </h2>
+
+
+                <p>
+
+                    Practice technical and HR
+                    interviews with adaptive feedback.
+
+                </p>
+
+
+                <a href="interview.html"
+                   class="card-action cyan-text">
+
+                    Start Interview →
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==========================================
+             STUDENT STATE
+        ========================================== -->
+
+        <section class="dashboard-section">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        YOUR INTELLIGENCE
+                    </span>
+
+
+                    <h2>
+                        Your Current State
+                    </h2>
+
+                </div>
+
+
+                <span class="coming-soon">
+                    AI ANALYSIS
+                </span>
+
+            </div>
+
+
+
+            <div class="state-grid">
+
+
+                <!-- ACADEMIC PROFILE -->
+
+                <div class="state-card">
+
+                    <span class="state-icon">
+                        ◉
+                    </span>
+
+
+                    <h3>
+                        Academic Profile
+                    </h3>
+
+
+                    <p>
+
+                        Your academic information
+                        from your GapMind profile.
+
+                    </p>
+
+
+                    <div
+                        id="academicData"
+                        class="profile-loading"
+                    >
+
+                        Loading...
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TECHNICAL SKILLS -->
+
+                <div class="state-card">
+
+                    <span class="state-icon">
+                        ◈
+                    </span>
+
+
+                    <h3>
+                        Technical Skills
+                    </h3>
+
+
+                    <p>
+
+                        Your profile skills and
+                        latest assessment performance.
+
+                    </p>
+
+
+                    <div
+                        id="skillsData"
+                        class="skill-list"
+                    >
+                    </div>
+
+                    <div
+                        id="assessmentData"
+                        class="assessment-summary"
+                    >
+                        <div class="profile-loading">
+                            Loading assessment...
+                        </div>
+                    </div>
+
+                    <div
+                        id="gapData"
+                        class="gap-list"
+                    >
+                    </div>
+
+                    <div
+                        id="recommendationData"
+                    >
+                    </div>
+
+                    <div id="roadmapData"></div>
+
+                    <div id="progressData"></div>
+
+                </div>
+
+
+
+                <!-- PLACEMENT READINESS -->
+
+                <div class="state-card">
+
+                    <span class="state-icon">
+                        ◎
+                    </span>
+
+
+                    <h3>
+                        Placement Readiness
+                    </h3>
+
+
+                    <p>
+
+                        Your target roles, preparation
+                        level and latest assessment readiness.
+
+                    </p>
+
+
+                    <div
+                        id="placementData"
+                        class="profile-loading"
+                    >
+
+                        Loading...
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             PROFILE INFORMATION
+        ========================================== -->
+
+        <section class="dashboard-section">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        YOUR PROFILE
+                    </span>
+
+
+                    <h2>
+                        Profile Overview
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                id="profileDetails"
+                class="profile-details"
+            >
+
+                <div class="profile-loading">
+
+                    Loading profile...
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             NEXT MOVE
+        ========================================== -->
+
+        <section class="next-move">
+
+
+            <div class="next-move-content">
+
+                <span class="card-label">
+                    YOUR NEXT MOVE
+                </span>
+
+
+                <h2>
+
+                    Let GapMind find
+                    your starting point.
+
+                </h2>
+
+
+                <p>
+
+                    Complete your first assessment
+                    to generate your personalized
+                    learning and placement roadmap.
+
+                </p>
+
+
+                <a href="assessment.html"
+                   class="primary-btn">
+
+                    Begin Assessment →
+
+                </a>
+
+            </div>
+
+
+
+            <div class="next-move-orb">
+
+                <div class="small-orb"></div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <footer>
+
+        © 2026 GapMind — Student Intelligence Platform
+
+    </footer>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+
+        async function loadStudentProfile() {
+
+
+            /* ==========================================
+               GET STUDENT ID
+
+               IMPORTANT:
+               LOGIN SAVES IT IN LOCAL STORAGE
+            ========================================== */
+
+            const studentId =
+                localStorage.getItem("student_id");
+
+
+            /* ==========================================
+               CHECK LOGIN
+            ========================================== */
+
+            if (!studentId) {
+
+                document.getElementById(
+                    "studentWelcome"
+                ).innerHTML = `
+
+                    <span class="profile-error">
+
+                        No profile found.
+                        Please create your profile first.
+
+                    </span>
+
+                `;
+
+
+                document.getElementById(
+                    "academicData"
+                ).textContent =
+                    "Profile not found.";
+
+
+                document.getElementById(
+                    "placementData"
+                ).textContent =
+                    "Profile not found.";
+
+
+                return;
+
+            }
+
+
+            try {
+
+
+                /* ======================================
+                   GET STUDENT FROM FLASK
+                ====================================== */
+
+                const response =
+                    await fetch(
+                        `http://127.0.0.1:5000/api/students/${studentId}`
+                    );
+
+
+                const student =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        student.error ||
+                        "Unable to load profile."
+                    );
+
+                }
+
+
+
+                /* ======================================
+                   WELCOME
+                ====================================== */
+
+                document.getElementById(
+                    "studentWelcome"
+                ).innerHTML = `
+
+                    Welcome back,
+
+                    <strong>
+
+                        ${escapeHTML(student.name)}
+
+                    </strong>
+
+                    👋
+
+                `;
+
+
+
+                /* ======================================
+                   ACADEMIC PROFILE
+                ====================================== */
+
+                document.getElementById(
+                    "academicData"
+                ).innerHTML = `
+
+                    <div class="profile-details">
+
+                        <div class="profile-detail">
+
+                            <small>
+                                Degree
+                            </small>
+
+                            <strong>
+                                ${escapeHTML(
+                                    student.degree || "—"
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-detail">
+
+                            <small>
+                                Branch
+                            </small>
+
+                            <strong>
+                                ${escapeHTML(
+                                    student.branch || "—"
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-detail">
+
+                            <small>
+                                CGPA
+                            </small>
+
+                            <strong>
+                                ${student.cgpa ?? "—"}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-detail">
+
+                            <small>
+                                Graduation
+                            </small>
+
+                            <strong>
+                                ${student.graduation_year || "—"}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+
+                /* ======================================
+                   SKILLS
+                ====================================== */
+
+                const skills =
+                    student.skills
+
+                        ? student.skills
+                            .split(",")
+                            .map(
+                                skill =>
+                                    skill.trim()
+                            )
+                            .filter(Boolean)
+
+                        : [];
+
+
+                const skillsContainer =
+                    document.getElementById(
+                        "skillsData"
+                    );
+
+
+                if (skills.length === 0) {
+
+                    skillsContainer.innerHTML = `
+
+                        <div class="profile-loading">
+
+                            No skills added yet.
+
+                        </div>
+
+                    `;
+
+                }
+
+                else {
+
+                    skillsContainer.innerHTML =
+                        skills.map(
+                            skill => `
+
+                                <span class="data-pill">
+
+                                    ${escapeHTML(skill)}
+
+                                </span>
+
+                            `
+                        ).join("");
+
+                }
+
+
+
+                /* ======================================
+                   TARGET ROLES
+                ====================================== */
+
+                const roles =
+                    student.target_role
+
+                        ? student.target_role
+                            .split(",")
+                            .map(
+                                role =>
+                                    role.trim()
+                            )
+                            .filter(Boolean)
+
+                        : [];
+
+
+                const rolesHTML =
+                    roles.length
+
+                        ? roles.map(
+                            role => `
+
+                                <span
+                                    class="data-pill role-pill"
+                                >
+
+                                    ${escapeHTML(role)}
+
+                                </span>
+
+                            `
+                        ).join("")
+
+                        : `
+
+                            <span class="profile-loading">
+
+                                No target role selected.
+
+                            </span>
+
+                        `;
+
+
+
+                /* ======================================
+                   PLACEMENT
+                ====================================== */
+
+                document.getElementById(
+                    "placementData"
+                ).innerHTML = `
+
+                    <div>
+
+                        <small
+                            style="
+                                display:block;
+                                color:#666;
+                                margin-bottom:8px;
+                                font-size:11px;
+                            "
+                        >
+
+                            TARGET ROLES
+
+                        </small>
+
+
+                        <div class="role-list">
+
+                            ${rolesHTML}
+
+                        </div>
+
+
+                        <div
+                            style="
+                                margin-top:18px;
+                                color:#999;
+                                font-size:12px;
+                            "
+                        >
+
+                            Preparation:
+                            <strong id="preparationLevel">
+                                Calculating...
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+
+                /* ======================================
+                   LOAD LATEST ASSESSMENT
+                ====================================== */
+
+                await loadAssessmentResult(
+                    studentId
+                );
+
+
+                /* ======================================
+                   FULL PROFILE
+                ====================================== */
+
+                document.getElementById(
+                    "profileDetails"
+                ).innerHTML = `
+
+                    <div class="profile-detail">
+
+                        <small>
+                            NAME
+                        </small>
+
+                        <strong>
+
+                            ${escapeHTML(
+                                student.name
+                            )}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <small>
+                            EMAIL
+                        </small>
+
+                        <strong>
+
+                            ${escapeHTML(
+                                student.email
+                            )}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <small>
+                            COLLEGE
+                        </small>
+
+                        <strong>
+
+                            ${escapeHTML(
+                                student.college
+                            )}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <small>
+                            BRANCH
+                        </small>
+
+                        <strong>
+
+                            ${escapeHTML(
+                                student.branch
+                            )}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <small>
+                            DEGREE
+                        </small>
+
+                        <strong>
+
+                            ${escapeHTML(
+                                student.degree
+                            )}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <small>
+                            CGPA
+                        </small>
+
+                        <strong>
+
+                            ${student.cgpa}
+
+                        </strong>
+
+                    </div>
+
+                `;
+
+
+            }
+
+            catch (error) {
+
+
+                console.error(
+                    "Dashboard error:",
+                    error
+                );
+
+
+                document.getElementById(
+                    "studentWelcome"
+                ).innerHTML = `
+
+                    <span class="profile-error">
+
+                        Unable to load your profile.
+
+                    </span>
+
+                `;
+
+            }
+
+        }
+
+
+
+
+        /* ==========================================
+           LOAD LATEST ASSESSMENT
+        ========================================== */
+
+        async function loadAssessmentResult(studentId) {
+
+            const assessmentContainer =
+                document.getElementById("assessmentData");
+
+            const gapContainer =
+                document.getElementById("gapData");
+
+            try {
+
+                const response =
+                    await fetch(
+                        `http://127.0.0.1:5000/api/assessment-results/${studentId}`
+                    );
+
+                const data =
+                    await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error(
+                        data.error || "Unable to load assessment."
+                    );
+                }
+
+                const results =
+                    data.results || [];
+
+                renderProgressTracking(results);
+
+                if (results.length === 0) {
+
+                    assessmentContainer.innerHTML = `
+                        <div class="profile-loading">
+                            Complete an assessment to see your score.
+                        </div>
+                    `;
+
+                    gapContainer.innerHTML = "";
+
+                    return;
+                }
+
+                const latest = results[0];
+
+                const score =
+                    Number(latest.score ?? 0);
+
+                const correct =
+                    Number(latest.correct_answers ?? 0);
+
+                const total =
+                    Number(latest.total_questions ?? 0);
+
+                const skills =
+                    latest.skills_assessed
+                        ? String(latest.skills_assessed)
+                            .split(",")
+                            .map(skill => skill.trim())
+                            .filter(Boolean)
+                        : [];
+
+                const skillsHTML =
+                    skills.length
+                        ? skills.map(
+                            skill => `
+                                <span>
+                                    ${escapeHTML(skill)}
+                                </span>
+                            `
+                        ).join("")
+                        : `
+                            <span>
+                                Assessment completed
+                            </span>
+                        `;
+
+                assessmentContainer.innerHTML = `
+                    <div class="assessment-score">
+                        ${score}%
+                    </div>
+
+                    <div style="
+                        color:#999;
+                        font-size:12px;
+                    ">
+                        Latest Assessment
+                    </div>
+
+                    <div class="assessment-meta">
+                        <span>
+                            ${correct}/${total} correct
+                        </span>
+                    </div>
+
+                    <div class="assessment-meta">
+                        ${skillsHTML}
+                    </div>
+                `;
+
+                await loadSkillGaps(studentId);
+
+                const placementContainer =
+                    document.getElementById("placementData");
+
+                const existingPlacement =
+                    placementContainer.innerHTML;
+
+                placementContainer.innerHTML =
+                    existingPlacement +
+                    `
+                        <div style="
+                            margin-top:18px;
+                            color:#999;
+                            font-size:12px;
+                        ">
+                            Latest Assessment Readiness:
+                            <strong style="color:#ddd;">
+                                ${score}%
+                            </strong>
+                        </div>
+                    `;
+
+                /* ======================================
+                   SMART PREPARATION LEVEL
+                ====================================== */
+
+                const preparationLevel =
+                    score >= 95
+                        ? "Placement Ready"
+                        : score >= 85
+                            ? "Advanced"
+                            : score >= 70
+                                ? "Intermediate"
+                                : score >= 50
+                                    ? "Developing"
+                                    : "Beginner";
+
+                const preparationElement =
+                    document.getElementById(
+                        "preparationLevel"
+                    );
+
+                if (preparationElement) {
+                    preparationElement.textContent =
+                        preparationLevel;
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Assessment dashboard error:",
+                    error
+                );
+
+                assessmentContainer.innerHTML = `
+                    <div class="profile-error">
+                        Unable to load assessment data.
+                    </div>
+                `;
+            }
+        }
+
+
+        /* ==========================================
+           PROGRESS TRACKING
+        ========================================== */
+
+        function renderProgressTracking(results) {
+
+            const container =
+                document.getElementById("progressData");
+
+            if (!container) return;
+
+            if (!results || results.length === 0) {
+                container.innerHTML = `
+                    <div class="progress-box">
+                        <div class="progress-title">
+                            📈 Your Progress
+                        </div>
+                        <div class="roadmap-subtitle">
+                            Complete an assessment to start
+                            tracking your progress.
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            const history = [...results].reverse().slice(-7);
+
+            const scores = history.map(
+                item => Number(item.score || 0)
+            );
+
+            const latest = scores[scores.length - 1] || 0;
+            const first = scores[0] || 0;
+            const best = Math.max(...scores);
+            const improvement = latest - first;
+
+            const changeText =
+                improvement > 0
+                    ? `📈 Improvement: +${improvement}%`
+                    : improvement < 0
+                        ? `📉 Change: ${improvement}%`
+                        : `→ Change: 0%`;
+
+            container.innerHTML = `
+                <div class="progress-box">
+
+                    <div class="progress-title">
+                        📈 Your Progress
+                    </div>
+
+                    <div class="progress-stats">
+
+                        <div class="progress-stat">
+                            <div class="progress-stat-value">
+                                ${latest}%
+                            </div>
+                            <div class="progress-stat-label">
+                                Latest
+                            </div>
+                        </div>
+
+                        <div class="progress-stat">
+                            <div class="progress-stat-value">
+                                ${best}%
+                            </div>
+                            <div class="progress-stat-label">
+                                Best Score
+                            </div>
+                        </div>
+
+                        <div class="progress-stat">
+                            <div class="progress-stat-value">
+                                ${results.length}
+                            </div>
+                            <div class="progress-stat-label">
+                                Assessments
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="progress-change">
+                        ${changeText}
+                    </div>
+
+                    <div class="progress-history">
+                        ${history.map((item, index) => {
+
+                            const score = Math.max(
+                                0,
+                                Math.min(
+                                    100,
+                                    Number(item.score || 0)
+                                )
+                            );
+
+                            return `
+                                <div class="progress-row">
+                                    <span>
+                                        Assessment ${index + 1}
+                                    </span>
+
+                                    <div class="progress-bar">
+                                        <div
+                                            class="progress-fill"
+                                            style="width:${score}%"
+                                        ></div>
+                                    </div>
+
+                                    <span>
+                                        ${score}%
+                                    </span>
+                                </div>
+                            `;
+                        }).join("")}
+                    </div>
+
+                </div>
+            `;
+        }
+
+
+        /* ==========================================
+           PERSONALIZED LEARNING ROADMAP
+        ========================================== */
+
+        function renderLearningRoadmap(gaps) {
+
+            const container =
+                document.getElementById(
+                    "roadmapData"
+                );
+
+            if (!container) {
+                return;
+            }
+
+            if (!gaps || gaps.length === 0) {
+
+                container.innerHTML = `
+                    <div class="roadmap-box">
+                        <div class="roadmap-title">
+                            7-Day Learning Roadmap
+                        </div>
+                        <div class="roadmap-subtitle">
+                            Complete an assessment to generate
+                            your personalized roadmap.
+                        </div>
+                    </div>
+                `;
+
+                return;
+            }
+
+            const sorted =
+                [...gaps].sort(
+                    (a, b) =>
+                        Number(a.accuracy || 0) -
+                        Number(b.accuracy || 0)
+                );
+
+            const priority = sorted[0];
+
+            const accuracy =
+                Number(priority.accuracy || 0);
+
+            const skill =
+                String(
+                    priority.skill_name || "Programming"
+                );
+
+            let topics;
+
+            if (accuracy < 50) {
+                topics = [
+                    ["Day 1", `${skill} fundamentals`, "Revise the core concepts"],
+                    ["Day 2", `${skill} syntax & basics`, "Practice simple examples"],
+                    ["Day 3", `${skill} problem solving`, "Solve beginner problems"],
+                    ["Day 4", "Arrays & Strings", "Build basic coding confidence"],
+                    ["Day 5", "Debugging practice", "Find and fix common mistakes"],
+                    ["Day 6", "Timed coding practice", "Solve 3 focused problems"],
+                    ["Day 7", "Mini assessment", "Measure improvement"]
+                ];
+            } else if (accuracy < 70) {
+                topics = [
+                    ["Day 1", `${skill} core concepts`, "Strengthen weak fundamentals"],
+                    ["Day 2", "Arrays & Strings", "Practice common patterns"],
+                    ["Day 3", "Functions & problem solving", "Solve focused problems"],
+                    ["Day 4", "Data structures", "Learn the most-used structures"],
+                    ["Day 5", "Searching & Sorting", "Practice standard algorithms"],
+                    ["Day 6", "Placement coding", "Solve timed questions"],
+                    ["Day 7", "Mock assessment", "Recheck your weakest areas"]
+                ];
+            } else if (accuracy < 85) {
+                topics = [
+                    ["Day 1", `${skill} revision`, "Review mistakes from the assessment"],
+                    ["Day 2", "Intermediate problems", "Solve pattern-based questions"],
+                    ["Day 3", "Data Structures", "Strengthen implementation skills"],
+                    ["Day 4", "Algorithms", "Practice searching and sorting"],
+                    ["Day 5", "Problem solving", "Solve medium-level questions"],
+                    ["Day 6", "Placement practice", "Complete a timed set"],
+                    ["Day 7", "Mock assessment", "Target remaining weak areas"]
+                ];
+            } else {
+                topics = [
+                    ["Day 1", `${skill} advanced topics`, "Move beyond the fundamentals"],
+                    ["Day 2", "Data Structures & Algorithms", "Practice advanced patterns"],
+                    ["Day 3", "Medium coding problems", "Build speed and accuracy"],
+                    ["Day 4", "Advanced problem solving", "Solve placement-level questions"],
+                    ["Day 5", "Mock coding round", "Practice under time pressure"],
+                    ["Day 6", "Interview preparation", "Explain solutions clearly"],
+                    ["Day 7", "Placement mock", "Test overall readiness"]
+                ];
+            }
+
+            container.innerHTML = `
+                <div class="roadmap-box">
+
+                    <div class="roadmap-title">
+                        🗺️ Personalized 7-Day Roadmap
+                    </div>
+
+                    <div class="roadmap-subtitle">
+                        Built from your current
+                        ${escapeHTML(skill)}
+                        performance (${accuracy.toFixed(2)}% accuracy).
+                    </div>
+
+                    <div style="margin-top:10px;">
+                        ${topics.map(day => `
+                            <div class="roadmap-item">
+
+                                <div class="roadmap-day">
+                                    ${day[0]}
+                                </div>
+
+                                <div>
+                                    <div class="roadmap-topic">
+                                        ${escapeHTML(day[1])}
+                                    </div>
+
+                                    <div class="roadmap-subtitle">
+                                        ${escapeHTML(day[2])}
+                                    </div>
+                                </div>
+
+                            </div>
+                        `).join("")}
+                    </div>
+
+                </div>
+            `;
+        }
+
+
+        /* ==========================================
+           LOAD SKILL GAPS
+        ========================================== */
+
+        async function loadSkillGaps(studentId) {
+
+            const gapContainer =
+                document.getElementById("gapData");
+
+            try {
+
+                const response =
+                    await fetch(
+                        `http://127.0.0.1:5000/api/skill-gaps/${studentId}`
+                    );
+
+                const data =
+                    await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error(
+                        data.error || "Unable to load skill gaps."
+                    );
+                }
+
+                const gaps =
+                    data.gaps || [];
+
+                if (gaps.length === 0) {
+
+                    gapContainer.innerHTML = `
+                        <div class="profile-loading">
+                            No skill gaps detected yet.
+                        </div>
+                    `;
+
+                    return;
+                }
+
+                gapContainer.innerHTML = `
+                    ${gaps.map(gap => {
+
+                        const accuracy =
+                            Math.max(
+                                0,
+                                Math.min(
+                                    100,
+                                    Number(gap.accuracy || 0)
+                                )
+                            );
+
+                        return `
+                            <div class="gap-card">
+
+                                <div class="gap-card-top">
+
+                                    <span class="gap-skill">
+                                        ${escapeHTML(
+                                            gap.skill_name
+                                        )}
+                                    </span>
+
+                                    <span class="gap-level">
+                                        ${escapeHTML(
+                                            gap.gap_level
+                                        )}
+                                    </span>
+
+                                </div>
+
+                                <div class="gap-stats">
+
+                                    <span>
+                                        ${Number(
+                                            gap.correct_answers || 0
+                                        )}/${Number(
+                                            gap.questions_attempted || 0
+                                        )} correct
+                                    </span>
+
+                                    <span>
+                                        ${accuracy.toFixed(2)}% accuracy
+                                    </span>
+
+                                </div>
+
+                                <div class="gap-accuracy">
+                                    <div
+                                        class="gap-accuracy-fill"
+                                        style="width:${accuracy}%"
+                                    ></div>
+                                </div>
+
+                            </div>
+                        `;
+
+                    }).join("")}
+                `;
+
+                renderRecommendations(gaps);
+                renderLearningRoadmap(gaps);
+
+            } catch (error) {
+
+                console.error(
+                    "Skill gap dashboard error:",
+                    error
+                );
+
+                gapContainer.innerHTML = `
+                    <div class="profile-error">
+                        Unable to load skill gap analysis.
+                    </div>
+                `;
+            }
+        }
+
+        /* ==========================================
+           SMART RECOMMENDATION ENGINE
+        ========================================== */
+
+        function renderRecommendations(gaps) {
+
+            let container =
+                document.getElementById(
+                    "recommendationData"
+                );
+
+            if (!container) {
+                return;
+            }
+
+            if (!gaps || gaps.length === 0) {
+
+                container.innerHTML = `
+                    <div class="recommendation-box">
+                        <div class="recommendation-title">
+                            Recommended Next Step
+                        </div>
+                        <div class="recommendation-text">
+                            Complete an assessment to receive
+                            a personalized recommendation.
+                        </div>
+                    </div>
+                `;
+
+                return;
+            }
+
+            const sortedGaps =
+                [...gaps].sort(
+                    (a, b) =>
+                        Number(a.accuracy || 0) -
+                        Number(b.accuracy || 0)
+                );
+
+            const priority =
+                sortedGaps[0];
+
+            const accuracy =
+                Number(priority.accuracy || 0);
+
+            const skill =
+                escapeHTML(
+                    priority.skill_name || "this skill"
+                );
+
+            let message = "";
+
+            if (accuracy < 50) {
+
+                message =
+                    `Focus first on ${skill}. ` +
+                    `Your accuracy is ${accuracy.toFixed(2)}%. ` +
+                    `Revise the fundamentals and practice ` +
+                    `targeted questions before moving to advanced topics.`;
+
+            } else if (accuracy < 70) {
+
+                message =
+                    `Practice ${skill} more consistently. ` +
+                    `Your current accuracy is ${accuracy.toFixed(2)}%. ` +
+                    `Strengthen the core concepts with focused practice.`;
+
+            } else if (accuracy < 85) {
+
+                message =
+                    `Strengthen ${skill}. ` +
+                    `You're at ${accuracy.toFixed(2)}% accuracy. ` +
+                    `Review mistakes and solve a few more ` +
+                    `intermediate-level problems.`;
+
+            } else {
+
+                message =
+                    `${skill} is a strong area at ` +
+                    `${accuracy.toFixed(2)}% accuracy. ` +
+                    `Move to advanced topics and placement-level problems.`;
+            }
+
+            container.innerHTML = `
+                <div class="recommendation-box">
+                    <div class="recommendation-title">
+                        🎯 Recommended Next Step
+                    </div>
+
+                    <div class="recommendation-text">
+                        ${message}
+                    </div>
+                </div>
+            `;
+        }
+
+
+        /* ==========================================
+           BASIC HTML ESCAPING
+        ========================================== */
+
+        function escapeHTML(value) {
+
+            if (
+                value === null ||
+                value === undefined
+            ) {
+
+                return "";
+
+            }
+
+
+            return String(value)
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+
+        /* ==========================================
+           LOAD PROFILE
+        ========================================== */
+
+        loadStudentProfile();
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GapMind | Placement Roadmap</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
+            .intelligence-panel {
+                margin-top: 24px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .intel-card {
+                padding: 18px;
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 12px;
+                background: rgba(255,255,255,0.025);
+            }
+
+            .intel-card h3 {
+                margin: 0 0 12px;
+                font-size: 12px;
+                color: #ccc;
+            }
+
+            .intel-row {
+                display: grid;
+                grid-template-columns: 105px 1fr 48px;
+                align-items: center;
+                gap: 8px;
+                margin: 10px 0;
+                color: #999;
+                font-size: 10px;
+            }
+
+            .intel-bar {
+                height: 6px;
+                border-radius: 99px;
+                background: rgba(255,255,255,0.07);
+                overflow: hidden;
+            }
+
+            .intel-fill {
+                height: 100%;
+                border-radius: 99px;
+                background: #00d4ff;
+            }
+
+            .intel-score {
+                font-size: 32px;
+                font-weight: 700;
+                margin: 5px 0;
+            }
+
+            .intel-status {
+                font-size: 11px;
+                color: #aaa;
+            }
+
+            .intel-list {
+                margin: 0;
+                padding-left: 18px;
+                color: #aaa;
+                font-size: 11px;
+                line-height: 1.8;
+            }
+
+            .intel-action {
+                margin-top: 14px;
+                padding: 12px;
+                border-radius: 9px;
+                background: rgba(0,212,255,0.05);
+                color: #ccc;
+                font-size: 11px;
+                line-height: 1.5;
+            }
+
+            @media (max-width: 760px) {
+                .intelligence-panel {
+                    grid-template-columns: 1fr;
+                }
+            }
+        
+/* ===== PHASE 3 COMPANY PREPARATION ===== */
+.phase3-section{display:none;margin-top:42px;padding:28px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:#0d0d0d;}
+.phase3-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:22px;}
+.phase3-head h2{margin:5px 0 8px;font-size:28px;}
+.phase3-head p{color:#aaa;max-width:700px;margin:0;line-height:1.6;}
+.phase3-progress-wrap{min-width:190px;text-align:right;}
+.phase3-progress-bar{height:8px;background:#242424;border-radius:99px;overflow:hidden;margin:10px 0 6px;}
+.phase3-progress-fill{height:100%;width:0%;background:#18c8c8;border-radius:99px;transition:width .3s;}
+.phase3-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+.phase3-card{border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;background:#111;}
+.phase3-card h3{margin:0 0 8px;}
+.phase3-card p{color:#aaa;line-height:1.55;min-height:48px;}
+.phase3-card .track-status{font-size:12px;color:#888;margin:12px 0;}
+.phase3-card.completed{border-color:rgba(24,200,200,.45);}
+.phase3-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.phase3-btn{border:1px solid #333;background:#181818;color:#fff;border-radius:9px;padding:9px 13px;cursor:pointer;}
+.phase3-btn.primary{border-color:#18c8c8;background:rgba(24,200,200,.12);}
+.phase3-panel{display:none;margin-top:14px;padding-top:14px;border-top:1px solid #292929;color:#cfcfcf;line-height:1.65;}
+.phase3-panel.open{display:block;}
+.phase3-panel h4{color:#fff;margin:10px 0 6px;}
+.phase3-list{padding-left:20px;}
+.phase3-quiz{margin-top:12px;}
+.phase3-q{padding:12px;border:1px solid #292929;border-radius:10px;margin:10px 0;background:#0c0c0c;}
+.phase3-q label{display:block;margin:8px 0;color:#bbb;cursor:pointer;}
+.phase3-submit{margin-top:8px;}
+@media(max-width:800px){.phase3-grid{grid-template-columns:1fr}.phase3-head{flex-direction:column}.phase3-progress-wrap{text-align:left;width:100%;}}
+</style>
+<style id="roadmap-click-fix">
+.roadmap-clickable {
+    cursor: pointer;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.roadmap-clickable:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,117,24,.55);
+    box-shadow: 0 12px 35px rgba(0,0,0,.22);
+}
+.roadmap-clickable:focus-visible {
+    outline: 2px solid #ff7518;
+    outline-offset: 4px;
+}
+.roadmap-modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(6px);
+}
+.roadmap-modal.open { display:flex; }
+.roadmap-modal-card {
+    width:min(520px,100%);
+    padding:28px;
+    border:1px solid rgba(255,117,24,.35);
+    border-radius:16px;
+    background:#111;
+    box-shadow:0 24px 80px rgba(0,0,0,.5);
+}
+.roadmap-modal-card h2 { margin:6px 0 10px; }
+.roadmap-modal-card p { color:#aaa; line-height:1.6; font-size:13px; }
+.roadmap-modal-card ul { color:#bbb; line-height:1.8; font-size:12px; }
+.roadmap-modal-actions { display:flex; gap:10px; margin-top:20px; }
+.roadmap-modal-actions button,
+.roadmap-modal-actions a {
+    border:1px solid rgba(255,117,24,.5);
+    border-radius:8px;
+    padding:10px 16px;
+    background:#181818;
+    color:#fff;
+    text-decoration:none;
+    cursor:pointer;
+    font-size:12px;
+}
+.roadmap-modal-actions a {
+    background:#ff7518;
+    border-color:#ff7518;
+}
+</style>
+<style id="phase2-learning-style">
+.dsa-section{margin-top:38px}.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.topic-card{padding:24px;text-align:left;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:#111;color:#fff;cursor:pointer;transition:.2s}
+.topic-card:hover{transform:translateY(-3px);border-color:rgba(255,117,24,.55)}.topic-card>span{color:#ff7518;font-size:11px;font-weight:700}
+.topic-card h3{margin:9px 0 7px}.topic-card p{color:#999;font-size:12px;line-height:1.55;min-height:55px}.topic-card small{color:#777}
+.topic-bar{height:5px;background:#242424;border-radius:10px;overflow:hidden;margin:16px 0 8px}.topic-bar i{display:block;width:0;height:100%;background:#ff7518;transition:.3s}
+.topic-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.82)}
+.topic-modal.open{display:flex}.topic-modal-box{position:relative;width:min(850px,100%);max-height:90vh;overflow:auto;padding:30px;border:1px solid rgba(255,117,24,.35);border-radius:16px;background:#111}
+.topic-close{position:absolute;right:18px;top:9px;border:0;background:none;color:#aaa;font-size:29px;cursor:pointer}.topic-tabs{display:flex;gap:7px;margin:22px 0 18px;flex-wrap:wrap}
+.topic-tab{padding:9px 13px;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:#171717;color:#aaa;cursor:pointer;font-size:11px}.topic-tab.active{background:#ff7518;color:#fff;border-color:#ff7518}
+.topic-panel{color:#aaa;font-size:13px;line-height:1.7}.topic-panel h4{color:#fff;margin:18px 0 7px}.topic-panel h5{color:#ff7518;margin:15px 0 5px}.topic-panel ul{padding-left:20px}.topic-panel li{margin:5px 0}
+.learning-card{padding:16px;margin:12px 0;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:#161616}.learning-card strong{color:#fff}.learning-card p{margin:6px 0}
+.algorithm-step{padding:11px 13px;margin:8px 0;border-left:2px solid #ff7518;background:#171717;border-radius:4px}
+.code-box{padding:18px;background:#090909;border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:auto}.code-box pre{margin:0;color:#ddd;font-size:12px;line-height:1.6}
+.problem-card{padding:16px;margin:12px 0;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:#161616}.problem-card .difficulty{float:right;font-size:9px;padding:4px 7px;border-radius:10px;background:rgba(255,117,24,.12);color:#ff7518}
+.mcq-card{padding:17px;margin:13px 0;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:#161616}.mcq-card strong{display:block;color:#fff;margin-bottom:10px}.mcq-card label{display:block;margin:8px 0;color:#aaa;cursor:pointer}
+.submit-topic{width:100%;margin-top:15px;padding:12px;border:0;border-radius:8px;background:#ff7518;color:#fff;font-weight:700;cursor:pointer}
+.progress-box{text-align:right}.progress-box span{display:block;color:#777;font-size:9px;letter-spacing:1px}.progress-box strong{font-size:25px}
+@media(max-width:850px){.topic-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.topic-grid{grid-template-columns:1fr}.topic-modal-box{padding:22px}}
+</style>
+<style id="phase2-open-style">
+.phase2-highlight {
+    animation: phase2Pulse 1.2s ease;
+}
+@keyframes phase2Pulse {
+    0% { transform: translateY(8px); opacity: .65; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav>
+<div class="logo">
+            Gap<span>Mind</span>
+</div>
+<div class="nav-links">
+<a href="dashboard.html">
+                Dashboard
+            </a>
+<a href="assessment.html">
+                Assessment
+            </a>
+<a class="active" href="placement.html">
+                Placement
+            </a>
+<a href="interview.html">
+                AI Interview
+            </a>
+<a class="login" href="index.html">
+                Logout
+            </a>
+</div>
+</nav>
+<!-- PLACEMENT PAGE -->
+<main class="placement-page">
+<!-- HEADER -->
+<section class="placement-header">
+<div>
+<div class="badge">
+                    PLACEMENT INTELLIGENCE
+                </div>
+<h1>
+                    Your Roadmap to
+                    <span class="gradient-text">
+                        Placement.
+                    </span>
+</h1>
+<p>
+                    GapMind turns your skill gaps into
+                    an actionable preparation roadmap.
+                    Instead of wondering what to study,
+                    know exactly what comes next.
+                </p>
+</div>
+<div class="readiness-card">
+<span>
+                    PLACEMENT READINESS
+                </span>
+<div class="readiness-score" id="readinessScore">
+                    --
+                </div>
+<small id="readinessLabel">
+                    Loading your readiness...
+                </small>
+</div>
+</section>
+<!-- TARGET ROLE -->
+<section class="target-role-section">
+<div>
+<span class="card-label">
+                    TARGET ROLE
+                </span>
+<h2>
+                    Your target role
+                </h2>
+<p>
+                    Your roadmap will be personalized
+                    around the role you want to pursue.
+                </p>
+</div>
+<div class="role-selector">
+<span>
+                    ROLE
+                </span>
+<strong>
+                    Not selected yet
+                </strong>
+</div>
+</section>
+<!-- ROADMAP -->
+<section class="roadmap-section">
+<div class="section-heading">
+<div>
+<span class="card-label">
+                        PREPARATION ROADMAP
+                    </span>
+<h2>
+                        Your Placement Journey
+                    </h2>
+</div>
+<span class="coming-soon">
+                    PERSONALIZED BY AI
+                </span>
+</div>
+<div class="roadmap">
+<!-- PHASE 01 -->
+<div class="roadmap-item roadmap-clickable" onclick="openRoadmapPhase(1)" onkeydown="handleRoadmapKey(event, 1)" role="button" tabindex="0">
+<div class="roadmap-marker">
+<span>
+                            01
+                        </span>
+</div>
+<div class="roadmap-content">
+<div class="roadmap-top">
+<div>
+<span class="phase-label">
+                                    PHASE 01
+                                </span>
+<h3>
+                                    Build Your Foundation
+                                </h3>
+</div>
+<span class="phase-status">
+                                PENDING
+                            </span>
+</div>
+<p>
+                            Strengthen the core concepts
+                            required for technical interviews.
+                        </p>
+<div class="roadmap-skills">
+<span>
+                                Programming
+                            </span>
+<span>
+                                OOP
+                            </span>
+<span>
+                                DBMS
+                            </span>
+<span>
+                                Operating Systems
+                            </span>
+</div>
+<div class="phase-progress">
+<div class="phase-progress-bar">
+<div style="width:0%">
+</div>
+</div>
+<span>
+                                0%
+                            </span>
+</div>
+</div>
+</div>
+<!-- PHASE 02 -->
+<div class="roadmap-item roadmap-clickable" onclick="openRoadmapPhase(2)" onkeydown="handleRoadmapKey(event, 2)" role="button" tabindex="0">
+<div class="roadmap-marker purple-marker">
+<span>
+                            02
+                        </span>
+</div>
+<div class="roadmap-content">
+<div class="roadmap-top">
+<div>
+<span class="phase-label">
+                                    PHASE 02
+                                </span>
+<h3>
+                                    Master Problem Solving
+                                </h3>
+</div>
+<span class="phase-status">
+                                ACTIVE
+                            </span>
+</div>
+<p>
+                            Develop the ability to solve
+                            coding problems efficiently.
+                        </p>
+<div class="roadmap-skills">
+<span>
+                                Arrays
+                            </span>
+<span>
+                                Strings
+                            </span>
+<span>
+                                Recursion
+                            </span>
+<span>
+                                Trees
+                            </span>
+<span>
+                                Graphs
+                            </span>
+</div>
+<div class="phase-progress">
+<div class="phase-progress-bar">
+<div class="purple-progress" style="width:0%">
+</div>
+</div>
+<span>
+                                0%
+                            </span>
+</div>
+</div>
+</div>
+<!-- PHASE 03 -->
+<div class="roadmap-item roadmap-clickable" onclick="openRoadmapPhase(3)" onkeydown="handleRoadmapKey(event, 3)" role="button" tabindex="0">
+<div class="roadmap-marker cyan-marker">
+<span>
+                            03
+                        </span>
+</div>
+<div class="roadmap-content">
+<div class="roadmap-top">
+<div>
+<span class="phase-label">
+                                    PHASE 03
+                                </span>
+<h3>
+                                    Company Preparation
+                                </h3>
+</div>
+<span class="phase-status">
+                                LOCKED
+                            </span>
+</div>
+<p>
+                            Prepare specifically for the
+                            companies and roles you target.
+                        </p>
+<div class="roadmap-skills">
+<span>
+                                Aptitude
+                            </span>
+<span>
+                                Coding
+                            </span>
+<span>
+                                CS Fundamentals
+                            </span>
+<span>
+                                Resume
+                            </span>
+</div>
+<div class="phase-progress">
+<div class="phase-progress-bar">
+<div class="cyan-progress" style="width:0%">
+</div>
+</div>
+<span>
+                                0%
+                            </span>
+</div>
+</div>
+</div>
+<!-- PHASE 04 -->
+<div class="roadmap-item roadmap-clickable" onclick="openRoadmapPhase(4)" onkeydown="handleRoadmapKey(event, 4)" role="button" tabindex="0">
+<div class="roadmap-marker orange-marker">
+<span>
+                            04
+                        </span>
+</div>
+<div class="roadmap-content">
+<div class="roadmap-top">
+<div>
+<span class="phase-label">
+                                    PHASE 04
+                                </span>
+<h3>
+                                    Interview Readiness
+                                </h3>
+</div>
+<span class="phase-status">
+                                LOCKED
+                            </span>
+</div>
+<p>
+                            Simulate real interviews and
+                            eliminate your final weaknesses.
+                        </p>
+<div class="roadmap-skills">
+<span>
+                                Technical Interview
+                            </span>
+<span>
+                                HR
+                            </span>
+<span>
+                                Communication
+                            </span>
+<span>
+                                Mock Interviews
+                            </span>
+</div>
+<div class="phase-progress">
+<div class="phase-progress-bar">
+<div class="orange-progress" style="width:0%">
+</div>
+</div>
+<span>
+                                0%
+                            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PHASE 03 COMPANY PREPARATION -->
+<section class="dsa-section" id="dsaPractice">
+<div class="section-title">
+<div>
+<span class="card-label">PHASE 02</span>
+<h2>Master Problem Solving</h2>
+<p>Learn concepts, patterns, algorithms and code before testing yourself.</p>
+</div>
+<div class="progress-box">
+<span>TOPICS MASTERED</span>
+<strong id="dsaOverallProgress">0%</strong>
+</div>
+</div>
+<p class="phase2-progress-note">Study the learning sections and practice the code problems. Only the <b>MCQ</b> counts as topic completion.</p>
+<div class="topic-grid">
+<button class="topic-card" onclick="openTopic('Arrays')"><span>01</span><h3>Arrays</h3><p>Fundamentals, searching, sorting, prefix sum, two pointers and sliding window.</p><div class="topic-bar"><i id="bar-Arrays"></i></div><small id="topic-Arrays">0 / 1 assessment</small></button>
+<button class="topic-card" onclick="openTopic('Strings')"><span>02</span><h3>Strings</h3><p>Manipulation, hashing, palindrome, anagrams and sliding-window patterns.</p><div class="topic-bar"><i id="bar-Strings"></i></div><small id="topic-Strings">0 / 1 assessment</small></button>
+<button class="topic-card" onclick="openTopic('Recursion')"><span>03</span><h3>Recursion</h3><p>Base cases, recursion trees, subsequences and backtracking.</p><div class="topic-bar"><i id="bar-Recursion"></i></div><small id="topic-Recursion">0 / 1 assessment</small></button>
+<button class="topic-card" onclick="openTopic('Trees')"><span>04</span><h3>Trees</h3><p>Binary trees, BSTs, traversals, depth and interview problems.</p><div class="topic-bar"><i id="bar-Trees"></i></div><small id="topic-Trees">0 / 1 assessment</small></button>
+<button class="topic-card" onclick="openTopic('Graphs')"><span>05</span><h3>Graphs</h3><p>Representation, BFS, DFS, shortest paths and connectivity.</p><div class="topic-bar"><i id="bar-Graphs"></i></div><small id="topic-Graphs">0 / 1 assessment</small></button>
+</div>
+</section><section class="phase3-section" id="companyPreparation">
+<div class="phase3-head">
+<div>
+<span class="phase-label">PHASE 03</span>
+<h2>Company Preparation</h2>
+<p>Prepare for the areas companies commonly evaluate: aptitude, coding, CS fundamentals and resume readiness. Study first, then complete each track assessment.</p>
+</div>
+<div class="phase3-progress-wrap">
+<strong id="phase3ProgressText">0 / 4 tracks</strong>
+<div class="phase3-progress-bar"><div class="phase3-progress-fill" id="phase3ProgressFill"></div></div>
+<span id="phase3ProgressPercent">0%</span>
+</div>
+</div>
+<div class="phase3-grid">
+<article class="phase3-card" data-track="aptitude">
+<span class="phase-label">01</span><h3>Aptitude</h3>
+<p>Quantitative aptitude, logical reasoning and speed-based placement questions.</p>
+<div class="track-status" id="status-aptitude">Not completed</div>
+<div class="phase3-actions"><button class="phase3-btn" onclick="togglePhase3Panel('aptitude-learn')">📖 Study</button><button class="phase3-btn primary" onclick="togglePhase3Panel('aptitude-quiz')">📝 Assessment</button></div>
+<div class="phase3-panel" id="aptitude-learn"><h4>What to study</h4><ul class="phase3-list"><li>Percentages, ratios, averages and profit &amp; loss.</li><li>Time &amp; work, time-speed-distance and simple probability.</li><li>Number series, syllogisms, coding-decoding and logical patterns.</li><li>Practice with a timer and eliminate options before calculating everything.</li></ul></div>
+<div class="phase3-panel phase3-quiz" id="aptitude-quiz"><h4>Quick Assessment</h4><div class="phase3-q"><b>1. If 20% of a number is 40, what is the number?</b><label><input name="aptitude1" type="radio" value="0"/> 120</label><label><input name="aptitude1" type="radio" value="1"/> 200</label><label><input name="aptitude1" type="radio" value="0"/> 240</label></div><div class="phase3-q"><b>2. A train travels 120 km in 2 hours. Its average speed is:</b><label><input name="aptitude2" type="radio" value="0"/> 40 km/h</label><label><input name="aptitude2" type="radio" value="1"/> 60 km/h</label><label><input name="aptitude2" type="radio" value="0"/> 80 km/h</label></div><button class="phase3-btn primary phase3-submit" onclick="submitPhase3Quiz('aptitude',['aptitude1','aptitude2'],2)">Submit Assessment</button></div>
+</article>
+<article class="phase3-card" data-track="coding">
+<span class="phase-label">02</span><h3>Coding</h3>
+<p>Company-style coding practice focused on patterns, complexity and clean implementation.</p>
+<div class="track-status" id="status-coding">Not completed</div>
+<div class="phase3-actions"><button class="phase3-btn" onclick="togglePhase3Panel('coding-learn')">📖 Study</button><button class="phase3-btn primary" onclick="togglePhase3Panel('coding-quiz')">📝 Assessment</button></div>
+<div class="phase3-panel" id="coding-learn"><h4>What to study</h4><ul class="phase3-list"><li>Arrays, strings, hashing, two pointers and sliding window.</li><li>Stacks, queues, linked lists, trees and graphs.</li><li>Always state time and space complexity before finalizing a solution.</li><li>Practice edge cases: empty input, duplicates, one element and large input.</li></ul><h4>Practice set</h4><p>Two Sum · Reverse Array · Valid Parentheses · Binary Search · Maximum Subarray · BFS/DFS.</p></div>
+<div class="phase3-panel phase3-quiz" id="coding-quiz"><h4>Quick Assessment</h4><div class="phase3-q"><b>1. Binary search on a sorted array runs in:</b><label><input name="coding1" type="radio" value="0"/> O(n)</label><label><input name="coding1" type="radio" value="1"/> O(log n)</label><label><input name="coding1" type="radio" value="0"/> O(n²)</label></div><div class="phase3-q"><b>2. Which structure is commonly used for BFS?</b><label><input name="coding2" type="radio" value="1"/> Queue</label><label><input name="coding2" type="radio" value="0"/> Stack</label><label><input name="coding2" type="radio" value="0"/> Heap only</label></div><button class="phase3-btn primary phase3-submit" onclick="submitPhase3Quiz('coding',['coding1','coding2'],2)">Submit Assessment</button></div>
+</article>
+<article class="phase3-card" data-track="cs">
+<span class="phase-label">03</span><h3>CS Fundamentals</h3>
+<p>Revise the core technical subjects that frequently appear in placement interviews.</p>
+<div class="track-status" id="status-cs">Not completed</div>
+<div class="phase3-actions"><button class="phase3-btn" onclick="togglePhase3Panel('cs-learn')">📖 Study</button><button class="phase3-btn primary" onclick="togglePhase3Panel('cs-quiz')">📝 Assessment</button></div>
+<div class="phase3-panel" id="cs-learn"><h4>What to study</h4><ul class="phase3-list"><li>DBMS: keys, normalization, SQL, joins and transactions.</li><li>Operating Systems: processes, threads, scheduling, deadlocks and memory.</li><li>OOP: encapsulation, inheritance, polymorphism and abstraction.</li><li>Computer networks: OSI/TCP-IP, HTTP, DNS and common protocols.</li></ul></div>
+<div class="phase3-panel phase3-quiz" id="cs-quiz"><h4>Quick Assessment</h4><div class="phase3-q"><b>1. Which SQL command is used to retrieve data?</b><label><input name="cs1" type="radio" value="1"/> SELECT</label><label><input name="cs1" type="radio" value="0"/> DELETE</label><label><input name="cs1" type="radio" value="0"/> ALTER</label></div><div class="phase3-q"><b>2. Which OOP concept hides internal implementation details?</b><label><input name="cs2" type="radio" value="0"/> Inheritance</label><label><input name="cs2" type="radio" value="1"/> Abstraction</label><label><input name="cs2" type="radio" value="0"/> Overloading</label></div><button class="phase3-btn primary phase3-submit" onclick="submitPhase3Quiz('cs',['cs1','cs2'],2)">Submit Assessment</button></div>
+</article>
+<article class="phase3-card" data-track="resume">
+<span class="phase-label">04</span><h3>Resume</h3>
+<p>Turn your projects, skills and achievements into a placement-ready one-page resume.</p>
+<div class="track-status" id="status-resume">Not completed</div>
+<div class="phase3-actions"><button class="phase3-btn" onclick="togglePhase3Panel('resume-learn')">📖 Study</button><button class="phase3-btn primary" onclick="togglePhase3Panel('resume-quiz')">📝 Assessment</button></div>
+<div class="phase3-panel" id="resume-learn"><h4>Resume checklist</h4><ul class="phase3-list"><li>Keep it concise and tailored to the target role.</li><li>Use measurable impact for projects and achievements.</li><li>Include GitHub/LinkedIn and explain your strongest projects clearly.</li><li>Check spelling, consistency, dates and formatting before applying.</li></ul></div>
+<div class="phase3-panel phase3-quiz" id="resume-quiz"><h4>Quick Assessment</h4><div class="phase3-q"><b>1. A strong project bullet should preferably include:</b><label><input name="resume1" type="radio" value="1"/> Action + what you built + measurable result</label><label><input name="resume1" type="radio" value="0"/> Only the project title</label><label><input name="resume1" type="radio" value="0"/> A long paragraph of responsibilities</label></div><div class="phase3-q"><b>2. For most student placement resumes, the best default is:</b><label><input name="resume2" type="radio" value="1"/> Clear, concise and role-focused</label><label><input name="resume2" type="radio" value="0"/> As many pages as possible</label><label><input name="resume2" type="radio" value="0"/> Only academic marks</label></div><button class="phase3-btn primary phase3-submit" onclick="submitPhase3Quiz('resume',['resume1','resume2'],2)">Submit Assessment</button></div>
+</article>
+</div>
+</section>
+<!-- PLACEMENT INTELLIGENCE -->
+<section class="intelligence-panel">
+<div class="intel-card">
+<h3>READINESS BREAKDOWN</h3>
+<div class="intel-row">
+<span>Assessment</span>
+<div class="intel-bar">
+<div class="intel-fill" id="assessmentFill" style="width:0%"></div>
+</div>
+<strong id="assessmentValue">--</strong>
+</div>
+<div class="intel-row">
+<span>Skill Strength</span>
+<div class="intel-bar">
+<div class="intel-fill" id="skillFill" style="width:0%"></div>
+</div>
+<strong id="skillValue">--</strong>
+</div>
+<div class="intel-row">
+<span>Interview</span>
+<div class="intel-bar">
+<div class="intel-fill" id="interviewFill" style="width:0%"></div>
+</div>
+<strong id="interviewValue">--</strong>
+</div>
+</div>
+<div class="intel-card">
+<h3>PLACEMENT SNAPSHOT</h3>
+<div class="intel-score" id="intelScore">
+                    --
+                </div>
+<div class="intel-status" id="intelStatus">
+                    Complete an assessment to calculate readiness.
+                </div>
+<div class="intel-action" id="intelAction">
+                    Your next best action will appear here.
+                </div>
+</div>
+<div class="intel-card">
+<h3>YOUR STRENGTHS</h3>
+<ul class="intel-list" id="strengthList">
+<li>Loading...</li>
+</ul>
+</div>
+<div class="intel-card">
+<h3>FOCUS AREAS</h3>
+<ul class="intel-list" id="weaknessList">
+<li>Loading...</li>
+</ul>
+</div>
+</section>
+<!-- NEXT ACTION -->
+<section class="placement-next">
+<div>
+<span class="card-label">
+                    GAPMIND RECOMMENDATION
+                </span>
+<h2>
+                    Your next action
+                </h2>
+<p>
+                    Once your assessment is analyzed,
+                    GapMind will recommend the single
+                    highest-impact action you should
+                    take next.
+                </p>
+</div>
+<div class="next-action-box">
+<span>
+                    NEXT BEST ACTION
+                </span>
+<strong>
+                    Complete your assessment
+                </strong>
+<a class="primary-btn" href="assessment.html">
+                    Take Assessment →
+                </a>
+</div>
+</section>
+</main>
+<!-- PHASE 02 - MASTER PROBLEM SOLVING -->
+
+<div class="topic-modal" id="topicModal">
+<div class="topic-modal-box">
+<button class="topic-close" onclick="closeTopic()">×</button>
+<span class="card-label" id="topicLabel">TOPIC</span>
+<h2 id="topicTitle"></h2>
+<p id="topicIntro"></p>
+<div class="topic-tabs">
+<button class="topic-tab active" onclick="showTopicTab('learn',this)">📖 Learn</button>
+<button class="topic-tab" onclick="showTopicTab('patterns',this)">🧠 Patterns</button>
+<button class="topic-tab" onclick="showTopicTab('algorithms',this)">⚙️ Algorithms</button>
+<button class="topic-tab" onclick="showTopicTab('code',this)">💻 Code</button>
+<button class="topic-tab" onclick="showTopicTab('mcq',this)">📝 MCQ</button>
+<button class="topic-tab" onclick="showTopicTab('interview',this)">🎯 Interview</button>
+</div>
+<div class="topic-panel" id="topic-learn"></div>
+<div class="topic-panel" id="topic-patterns" style="display:none"></div>
+<div class="topic-panel" id="topic-algorithms" style="display:none"></div>
+<div class="topic-panel" id="topic-code" style="display:none"></div>
+<div class="topic-panel" id="topic-mcq" style="display:none"></div>
+<div class="topic-panel" id="topic-interview" style="display:none"></div>
+</div>
+</div>
+<footer>
+
+        © 2026 GapMind — Student Intelligence Platform
+
+    </footer>
+<script>
+
+        /*
+         * Placement Intelligence
+         *
+         * Uses the existing localStorage session and the
+         * existing backend APIs when available.
+         * If interview data is not available yet, it is
+         * displayed as pending rather than inventing a score.
+         */
+
+        let placementData = {
+            assessment: null,
+            skills: [],
+            interview: null
+        };
+
+
+        async function updatePlacementIntelligence() {
+
+            const studentId =
+                localStorage.getItem("student_id") ||
+                localStorage.getItem("studentId") ||
+                sessionStorage.getItem("student_id") ||
+                sessionStorage.getItem("studentId");
+
+            if (!studentId) {
+                showPlacementEmpty();
+                return;
+            }
+
+            try {
+
+                /*
+                 * These endpoints are intentionally requested
+                 * only if they exist in the current backend.
+                 */
+                const assessmentResponse =
+                    await fetch(
+                        `http://127.0.0.1:5000/api/assessment-results/${studentId}`
+                    );
+
+                if (assessmentResponse.ok) {
+
+                    const data =
+                        await assessmentResponse.json();
+
+                    placementData.assessment =
+                        extractAssessment(data);
+                }
+
+            } catch (error) {
+                console.log(
+                    "Assessment data unavailable:",
+                    error
+                );
+            }
+
+
+            try {
+
+                const gapResponse =
+                    await fetch(
+                        `http://127.0.0.1:5000/api/skill-gaps/${studentId}`
+                    );
+
+                if (gapResponse.ok) {
+
+                    const data =
+                        await gapResponse.json();
+
+                    placementData.skills =
+                        Array.isArray(data)
+                            ? data
+                            : (
+                                data.skill_gaps ||
+                                data.gaps ||
+                                []
+                            );
+                }
+
+            } catch (error) {
+                console.log(
+                    "Skill gap data unavailable:",
+                    error
+                );
+            }
+
+
+            try {
+
+                const interviewScore =
+                    localStorage.getItem(
+                        "lastInterviewScore"
+                    );
+
+                if (interviewScore !== null) {
+                    placementData.interview =
+                        Number(interviewScore);
+                }
+
+            } catch (error) {
+                console.log(
+                    "Interview score unavailable:",
+                    error
+                );
+            }
+
+
+            renderPlacementIntelligence();
+        }
+
+
+        function extractAssessment(data) {
+
+            const results =
+                data.results ||
+                data.assessment_results ||
+                (
+                    Array.isArray(data)
+                        ? data
+                        : []
+                );
+
+            if (!results.length) {
+                return null;
+            }
+
+            return results[results.length - 1];
+        }
+
+
+        function renderPlacementIntelligence() {
+
+            const assessment =
+                Number(
+                    placementData.assessment?.score
+                );
+
+            const skills =
+                placementData.skills || [];
+
+            const skillAverage =
+                skills.length
+                    ? skills.reduce(
+                        (sum, item) =>
+                            sum +
+                            Number(
+                                item.accuracy || 0
+                            ),
+                        0
+                    ) / skills.length
+                    : null;
+
+            const interview =
+                placementData.interview;
+
+
+            setBar(
+                "assessment",
+                Number.isFinite(assessment)
+                    ? assessment
+                    : 0
+            );
+
+            setBar(
+                "skill",
+                skillAverage !== null
+                    ? skillAverage
+                    : 0
+            );
+
+            setBar(
+                "interview",
+                interview !== null &&
+                Number.isFinite(interview)
+                    ? interview
+                    : 0
+            );
+
+
+            document.getElementById(
+                "assessmentValue"
+            ).textContent =
+                Number.isFinite(assessment)
+                    ? `${Math.round(assessment)}%`
+                    : "--";
+
+
+            document.getElementById(
+                "skillValue"
+            ).textContent =
+                skillAverage !== null
+                    ? `${Math.round(skillAverage)}%`
+                    : "--";
+
+
+            document.getElementById(
+                "interviewValue"
+            ).textContent =
+                interview !== null &&
+                Number.isFinite(interview)
+                    ? `${Math.round(interview)}%`
+                    : "--";
+
+
+            /*
+             * Weighted score:
+             * Assessment 40%
+             * Skill strength 35%
+             * Interview 25%
+             *
+             * Missing interview data is excluded and the
+             * remaining available components are normalized.
+             */
+            const components = [];
+
+            if (Number.isFinite(assessment)) {
+                components.push(
+                    [assessment, 0.40]
+                );
+            }
+
+            if (skillAverage !== null) {
+                components.push(
+                    [skillAverage, 0.35]
+                );
+            }
+
+            if (
+                interview !== null &&
+                Number.isFinite(interview)
+            ) {
+                components.push(
+                    [interview, 0.25]
+                );
+            }
+
+
+            let readiness = null;
+
+            if (components.length) {
+
+                const weightTotal =
+                    components.reduce(
+                        (sum, item) =>
+                            sum + item[1],
+                        0
+                    );
+
+                readiness =
+                    components.reduce(
+                        (sum, item) =>
+                            sum +
+                            item[0] *
+                            item[1],
+                        0
+                    ) / weightTotal;
+            }
+
+
+            const scoreElement =
+                document.getElementById(
+                    "readinessScore"
+                );
+
+            const intelScore =
+                document.getElementById(
+                    "intelScore"
+                );
+
+            const label =
+                document.getElementById(
+                    "readinessLabel"
+                );
+
+            const status =
+                document.getElementById(
+                    "intelStatus"
+                );
+
+
+            if (readiness === null) {
+
+                scoreElement.textContent =
+                    "--";
+
+                intelScore.textContent =
+                    "--";
+
+                label.textContent =
+                    "Complete your assessment";
+
+                status.textContent =
+                    "Not enough performance data yet.";
+
+            } else {
+
+                const rounded =
+                    Math.round(readiness);
+
+                scoreElement.textContent =
+                    `${rounded}%`;
+
+                intelScore.textContent =
+                    `${rounded}%`;
+
+                if (rounded >= 85) {
+
+                    label.textContent =
+                        "Placement Ready";
+
+                    status.textContent =
+                        "Strong placement readiness";
+
+                } else if (rounded >= 70) {
+
+                    label.textContent =
+                        "Almost Ready";
+
+                    status.textContent =
+                        "Keep strengthening your weak areas";
+
+                } else if (rounded >= 50) {
+
+                    label.textContent =
+                        "Needs Preparation";
+
+                    status.textContent =
+                        "Focused preparation recommended";
+
+                } else {
+
+                    label.textContent =
+                        "Early Preparation";
+
+                    status.textContent =
+                        "Build your core skills first";
+                }
+            }
+
+
+            renderStrengthsAndWeaknesses(
+                skills
+            );
+
+            renderNextAction(
+                assessment,
+                skillAverage,
+                interview,
+                readiness
+            );
+        }
+
+
+        function setBar(prefix, value) {
+
+            const safe =
+                Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        Number(value) || 0
+                    )
+                );
+
+            const fill =
+                document.getElementById(
+                    prefix + "Fill"
+                );
+
+            if (fill) {
+                fill.style.width =
+                    safe + "%";
+            }
+        }
+
+
+        function renderStrengthsAndWeaknesses(
+            skills
+        ) {
+
+            const strengths =
+                document.getElementById(
+                    "strengthList"
+                );
+
+            const weaknesses =
+                document.getElementById(
+                    "weaknessList"
+                );
+
+
+            if (!skills.length) {
+
+                strengths.innerHTML =
+                    "<li>Complete an assessment to identify strengths.</li>";
+
+                weaknesses.innerHTML =
+                    "<li>Complete an assessment to identify focus areas.</li>";
+
+                return;
+            }
+
+
+            const sorted =
+                [...skills].sort(
+                    (a, b) =>
+                        Number(b.accuracy || 0) -
+                        Number(a.accuracy || 0)
+                );
+
+
+            strengths.innerHTML =
+                sorted
+                    .filter(
+                        item =>
+                            Number(
+                                item.accuracy || 0
+                            ) >= 70
+                    )
+                    .slice(0, 3)
+                    .map(
+                        item =>
+                            `<li>${escapeHTML(
+                                item.skill_name ||
+                                "Skill"
+                            )} — ${Math.round(
+                                Number(
+                                    item.accuracy || 0
+                                )
+                            )}%</li>`
+                    )
+                    .join("") ||
+                "<li>No strong area identified yet.</li>";
+
+
+            weaknesses.innerHTML =
+                sorted
+                    .slice()
+                    .reverse()
+                    .slice(0, 3)
+                    .map(
+                        item =>
+                            `<li>${escapeHTML(
+                                item.skill_name ||
+                                "Skill"
+                            )} — ${Math.round(
+                                Number(
+                                    item.accuracy || 0
+                                )
+                            )}%</li>`
+                    )
+                    .join("") ||
+                "<li>No focus area identified yet.</li>";
+        }
+
+
+        function renderNextAction(
+            assessment,
+            skillAverage,
+            interview,
+            readiness
+        ) {
+
+            const action =
+                document.getElementById(
+                    "intelAction"
+                );
+
+            if (!action) return;
+
+
+            if (
+                skillAverage !== null &&
+                skillAverage < 70
+            ) {
+
+                action.textContent =
+                    "🎯 Prioritize your weakest technical skill and complete targeted practice before moving to advanced topics.";
+
+            } else if (
+                interview === null
+            ) {
+
+                action.textContent =
+                    "🎤 Start the AI Interview Simulator to measure your communication and interview readiness.";
+
+            } else if (
+                interview < 70
+            ) {
+
+                action.textContent =
+                    "💬 Practice structured interview answers and complete another mock interview.";
+
+            } else if (
+                readiness !== null &&
+                readiness >= 85
+            ) {
+
+                action.textContent =
+                    "🚀 You are in a strong position. Move to company-specific preparation and placement-level mock rounds.";
+
+            } else {
+
+                action.textContent =
+                    "📚 Keep practicing your weaker areas and retake assessments to track improvement.";
+            }
+        }
+
+
+        function showPlacementEmpty() {
+
+            document.getElementById(
+                "readinessScore"
+            ).textContent = "--";
+
+            document.getElementById(
+                "intelScore"
+            ).textContent = "--";
+
+            document.getElementById(
+                "readinessLabel"
+            ).textContent =
+                "Log in to view placement readiness.";
+
+            document.getElementById(
+                "intelStatus"
+            ).textContent =
+                "No student session was found.";
+        }
+
+
+        function escapeHTML(value) {
+
+            return String(value)
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            updatePlacementIntelligence
+        );
+
+    </script>
+<div class="roadmap-modal" id="roadmapModal" onclick="closeRoadmapModal(event)">
+<div class="roadmap-modal-card" onclick="event.stopPropagation()">
+<span class="card-label" id="roadmapModalPhase">PHASE</span>
+<h2 id="roadmapModalTitle">Roadmap Phase</h2>
+<p id="roadmapModalDescription"></p>
+<ul id="roadmapModalList"></ul>
+<div class="roadmap-modal-actions">
+<a href="#" id="roadmapModalLink" style="display:none;"></a>
+<button onclick="closeRoadmapModal()" type="button">Close</button>
+</div>
+</div>
+</div>
+<script id="roadmap-click-script">
+function openRoadmapPhase(phase) {
+    // PHASE 02 is now unlocked and opens the actual learning section.
+    if (Number(phase) === 2) {
+        const modal = document.getElementById("roadmapModal");
+        if (modal) modal.classList.remove("open");
+
+        const section = document.getElementById("dsaPractice");
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+            setTimeout(function () {
+                section.classList.add("phase2-highlight");
+                setTimeout(function () {
+                    section.classList.remove("phase2-highlight");
+                }, 1200);
+            }, 500);
+        }
+        return;
+    }
+
+    // PHASE 04 is available only after all Phase 3 tracks are complete.
+    if (Number(phase) === 4 && window.phase3Complete && !window.phase3Complete()) {
+        alert("Complete all 4 Phase 3 tracks first.");
+        return;
+    }
+
+    // PHASE 03 opens the actual Company Preparation module once Phase 2 is complete.
+    if (Number(phase) === 3) {
+        if (typeof phase2Complete === "function" && !phase2Complete()) {
+            const p = getProgress();
+            const done = TOPICS.filter(t => p[t] === true || Number(p[t] || 0) >= 1).length;
+            alert("Complete all 5 Phase 2 topic MCQs first. Progress: " + done + "/5.");
+            return;
+        }
+        const section = document.getElementById("companyPreparation");
+        const modal = document.getElementById("roadmapModal");
+        if (modal) modal.classList.remove("open");
+        if (section) section.scrollIntoView({behavior:"smooth", block:"start"});
+        return;
+    }
+
+    const data = {
+        1: {
+            phase: "PHASE 01",
+            title: "Build Your Foundation",
+            description: "Strengthen the core concepts required for technical interviews.",
+            items: ["Programming", "OOP", "DBMS", "Operating Systems"],
+            link: "assessment.html",
+            linkText: "Take Assessment →"
+        },
+        2: {
+            phase: "PHASE 02",
+            title: "Master Problem Solving",
+            description: "Develop the ability to solve coding problems efficiently.",
+            items: ["Arrays", "Strings", "Recursion", "Trees", "Graphs"]
+        },
+        3: {
+            phase: "PHASE 03",
+            title: "Company Preparation",
+            description: "Prepare specifically for the companies and roles you target.",
+            items: ["Aptitude", "Coding", "CS Fundamentals", "Resume"]
+        },
+        4: {
+            phase: "PHASE 04",
+            title: "Interview Readiness",
+            description: "Simulate real interviews and eliminate your final weaknesses.",
+            items: ["Technical Interview", "HR", "Communication", "Mock Interviews"],
+            link: "interview.html",
+            linkText: "Start AI Interview →"
+        }
+    };
+
+    const item = data[phase];
+    if (!item) return;
+
+    document.getElementById("roadmapModalPhase").textContent = item.phase;
+    document.getElementById("roadmapModalTitle").textContent = item.title;
+    document.getElementById("roadmapModalDescription").textContent = item.description;
+    document.getElementById("roadmapModalList").innerHTML =
+        item.items.map(x => `<li>${x}</li>`).join("");
+
+    const link = document.getElementById("roadmapModalLink");
+    if (item.link) {
+        link.href = item.link;
+        link.textContent = item.linkText;
+        link.style.display = "inline-block";
+    } else {
+        link.style.display = "none";
+    }
+
+    document.getElementById("roadmapModal").classList.add("open");
+}
+
+function closeRoadmapModal(event) {
+    if (event && event.target !== document.getElementById("roadmapModal")) return;
+    document.getElementById("roadmapModal").classList.remove("open");
+}
+
+function handleRoadmapKey(event, phase) {
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openRoadmapPhase(phase);
+    }
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        const modal = document.getElementById("roadmapModal");
+        if (modal) modal.classList.remove("open");
+    }
+});
+</script>
+<script id="phase2-learning-script">
+const phase2Data = {'Arrays': {'intro': 'Arrays are the starting point for many placement problems. Learn the structure first, then recognize patterns instead of memorizing solutions.', 'learn': '<h4>1. Array Fundamentals</h4><p>An array stores elements in indexed positions, normally in contiguous memory. Accessing arr[i] is O(1).</p>\n<h4>2. Common Operations</h4><ul><li>Traversal: O(n)</li><li>Search in an unsorted array: O(n)</li><li>Binary search on sorted data: O(log n)</li><li>Insertion/deletion in the middle: O(n)</li></ul>\n<h4>3. Important Interview Ideas</h4><p>Watch for sorted arrays, subarrays, contiguous ranges, duplicates, target sums, maximum/minimum values and in-place operations.</p>', 'patterns': '<div class="learning-card"><strong>Two Pointers</strong><p>Use two indexes that move through the array. Common for sorted pair-sum, reversing and partitioning.</p></div>\n<div class="learning-card"><strong>Sliding Window</strong><p>Maintain a moving contiguous window instead of recomputing every subarray.</p></div>\n<div class="learning-card"><strong>Prefix Sum</strong><p>Precompute cumulative sums so range-sum queries can be answered quickly.</p></div>\n<div class="learning-card"><strong>Hashing</strong><p>Store values or frequencies in a hash table to turn many O(n²) lookups into O(n) average-time solutions.</p></div>', 'algorithms': '<h4>Binary Search</h4><div class="algorithm-step">1. Keep low and high boundaries.</div><div class="algorithm-step">2. Compute mid.</div><div class="algorithm-step">3. Compare the middle value with the target.</div><div class="algorithm-step">4. Discard the half that cannot contain the target.</div><div class="algorithm-step">5. Repeat until found or the range becomes empty.</div><p><b>Time:</b> O(log n), <b>Space:</b> O(1)</p>\n<h4>Kadane\'s Algorithm</h4><div class="algorithm-step">1. Keep current sum and best sum.</div><div class="algorithm-step">2. Add each element to current sum.</div><div class="algorithm-step">3. If starting fresh is better, reset current sum to the current element.</div><div class="algorithm-step">4. Update the best sum.</div><p><b>Time:</b> O(n), <b>Space:</b> O(1)</p>', 'code': '<h4>Problem: Two Sum</h4><p>Find two indexes whose values add to a target.</p><div class="code-box"><pre>vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; a, int target) {\n    unordered_map&lt;int,int&gt; seen;\n\n    for (int i = 0; i &lt; a.size(); i++) {\n        int need = target - a[i];\n\n        if (seen.count(need))\n            return {seen[need], i};\n\n        seen[a[i]] = i;\n    }\n    return {};\n}</pre></div><p><b>Complexity:</b> O(n) average time, O(n) space.</p>\n<div class="problem-card"><span class="difficulty">EASY</span><strong>Reverse an Array</strong><p>Reverse the array in-place using two pointers.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Maximum Subarray</strong><p>Use Kadane\'s algorithm to find the maximum possible contiguous sum.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Rotate Array</strong><p>Explore the reversal technique for O(n) time and O(1) extra space.</p></div>', 'mcq': [['You have a sorted array of 1 million values. Which search is most appropriate for a single exact-value lookup?', ['Binary search', 'Linear search only', 'Bubble sort', 'DFS'], 0], ['For the array [2,7,11,15] and target 9, what does a hash-map Two Sum solution find?', ['2 and 7', '7 and 11', '2 and 11', '11 and 15'], 0], ['Which pattern is most suitable for a fixed-size contiguous range?', ['Sliding window', 'DFS', 'BST insertion', 'Recursion only'], 0], ['What is the key benefit of prefix sums?', ['Fast range aggregation after preprocessing', 'Constant-time sorting', 'Removing all duplicates', 'Avoiding arrays'], 0], ["Kadane's algorithm solves which classic problem?", ['Maximum subarray sum', 'Shortest path', 'Tree traversal', 'String matching'], 0]], 'interview': ['Why is array indexing O(1)?', 'When would you choose a hash map instead of sorting?', 'Explain the difference between subarray and subsequence.', 'How can you rotate an array in O(n) time and O(1) space?']}, 'Strings': {'intro': 'String problems reward pattern recognition: frequency maps, two pointers, sliding windows and careful handling of indexes.', 'learn': '<h4>1. String Basics</h4><p>A string is a sequence of characters. Traversing n characters takes O(n).</p>\n<h4>2. Useful Tools</h4><ul><li>Character frequency array/map</li><li>Two pointers</li><li>Sliding window</li><li>Stack for bracket-like matching</li></ul>\n<h4>3. Common Traps</h4><p>Distinguish substring (contiguous) from subsequence (not necessarily contiguous). Pay attention to case, spaces and duplicate characters.</p>', 'patterns': '<div class="learning-card"><strong>Frequency Counting</strong><p>Count occurrences of each character to solve anagrams and duplicate-character problems.</p></div>\n<div class="learning-card"><strong>Two Pointers</strong><p>Move from both ends for palindrome and reversal problems.</p></div>\n<div class="learning-card"><strong>Sliding Window</strong><p>Expand and shrink a window to find longest/shortest valid substrings.</p></div>\n<div class="learning-card"><strong>Stack</strong><p>Useful for balanced parentheses and nested-character problems.</p></div>', 'algorithms': '<h4>Palindrome Check</h4><div class="algorithm-step">1. Set left to the first character and right to the last.</div><div class="algorithm-step">2. Compare s[left] and s[right].</div><div class="algorithm-step">3. If different, return false.</div><div class="algorithm-step">4. Move both inward until they meet.</div><p><b>Time:</b> O(n), <b>Space:</b> O(1)</p>\n<h4>Longest Substring Without Repeating Characters</h4><div class="algorithm-step">1. Keep a left boundary and a frequency/map.</div><div class="algorithm-step">2. Expand right one character at a time.</div><div class="algorithm-step">3. If a duplicate makes the window invalid, move left.</div><div class="algorithm-step">4. Record the largest valid window.</div><p><b>Time:</b> O(n) average with hashing.</p>', 'code': '<h4>Problem: Valid Palindrome</h4><div class="code-box"><pre>bool isPalindrome(string s) {\n    int l = 0, r = s.size() - 1;\n\n    while (l &lt; r) {\n        if (s[l] != s[r])\n            return false;\n        l++;\n        r--;\n    }\n    return true;\n}</pre></div>\n<div class="problem-card"><span class="difficulty">EASY</span><strong>Valid Anagram</strong><p>Compare character frequencies in two strings.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Longest Substring Without Repeating Characters</strong><p>Use a sliding window with a set or frequency map.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Group Anagrams</strong><p>Use a canonical key such as sorted characters or frequency counts.</p></div>', 'mcq': [['Which is a substring?', ['A contiguous part of a string', 'Characters chosen with arbitrary gaps', 'Only the first character', 'A sorted string'], 0], ['Which structure is useful for checking anagrams efficiently?', ['Frequency map', 'Queue only', 'Binary tree only', 'Graph'], 0], ['For a palindrome, which approach can use O(1) extra space?', ['Two pointers', 'Hash map only', 'BFS', 'Heap'], 0], ['A sliding window is especially useful for:', ['Contiguous substring constraints', 'Tree height only', 'Sorting linked lists', 'Graph edges'], 0], ['What is the usual traversal cost of a string of length n?', ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'], 2]], 'interview': ['What is the difference between substring and subsequence?', 'How would you find the first non-repeating character?', 'Why is a frequency array sometimes better than a hash map?', 'Explain sliding window with a string example.']}, 'Recursion': {'intro': 'Recursion is a way to define a problem in terms of smaller versions of itself. It is the foundation of backtracking and many tree algorithms.', 'learn': '<h4>1. Anatomy of Recursion</h4><ul><li>Base case: the stopping condition.</li><li>Recursive case: reduces the problem.</li><li>Call stack: stores active calls.</li></ul>\n<h4>2. Recursion Tree</h4><p>Visualize each function call as a node. Branching tells you how many calls are created and helps estimate complexity.</p>\n<h4>3. Backtracking</h4><p>Choose → explore → undo. This is used for subsets, permutations, N-Queens and maze problems.</p>', 'patterns': '<div class="learning-card"><strong>Decrease and Conquer</strong><p>Reduce n to n-1, such as factorial or sum of first n numbers.</p></div>\n<div class="learning-card"><strong>Divide and Conquer</strong><p>Split into smaller independent parts, solve them and combine results. Merge sort is a classic example.</p></div>\n<div class="learning-card"><strong>Backtracking</strong><p>Make a choice, recursively explore it, then undo the choice before trying another option.</p></div>\n<div class="learning-card"><strong>Memoization</strong><p>Cache repeated recursive states to avoid recomputing the same subproblem.</p></div>', 'algorithms': '<h4>Generate All Subsequences</h4><div class="algorithm-step">1. At each index, choose to include the current element.</div><div class="algorithm-step">2. Recursively solve the remaining elements.</div><div class="algorithm-step">3. Undo the choice.</div><div class="algorithm-step">4. Choose to exclude the element and recurse again.</div><p>There are 2ⁿ possible subsequences.</p>', 'code': '<h4>Factorial</h4><div class="code-box"><pre>int factorial(int n) {\n    if (n &lt;= 1)\n        return 1;\n\n    return n * factorial(n - 1);\n}</pre></div>\n<h4>Backtracking Skeleton</h4><div class="code-box"><pre>void solve(int index) {\n    if (index == n) {\n        saveAnswer();\n        return;\n    }\n\n    choose(index);\n    solve(index + 1);\n    undo(index);\n\n    skip(index);\n    solve(index + 1);\n}</pre></div>\n<div class="problem-card"><span class="difficulty">EASY</span><strong>Power of a Number</strong><p>Implement xⁿ recursively.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Generate Subsets</strong><p>Use include/exclude recursion.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Generate Permutations</strong><p>Choose an unused element at each level and backtrack.</p></div>', 'mcq': [['What must every terminating recursive solution have?', ['A reachable base case', 'A queue', 'A graph', 'A database'], 0], ['Which structure stores active recursive calls?', ['Call stack', 'Queue', 'Heap', 'Hash table'], 0], ['How many subsequences can an n-element array have?', ['n', '2n', '2ⁿ', 'n²'], 2], ['Backtracking follows which basic idea?', ['Choose, explore, undo', 'Sort, delete, print', 'Hash, search, stop', 'Queue, pop, push'], 0], ['Memoization primarily reduces:', ['Repeated subproblem computation', 'Array indexing', 'Input size', 'Compiler time'], 0]], 'interview': ['What is the difference between recursion and iteration?', 'How do you identify a good base case?', 'Why can naive recursive Fibonacci be slow?', 'Explain backtracking using permutations.']}, 'Trees': {'intro': 'Trees model hierarchical data. Placement questions frequently test traversals, BST properties, recursion and complexity.', 'learn': '<h4>1. Tree Terminology</h4><ul><li>Root: top node.</li><li>Parent/child: direct hierarchy.</li><li>Leaf: node with no children.</li><li>Height: longest downward path measured by the chosen convention.</li></ul>\n<h4>2. Binary Tree</h4><p>Each node has at most two children.</p>\n<h4>3. Binary Search Tree</h4><p>For a valid BST, values in the left subtree are smaller and values in the right subtree are larger, subject to the duplicate convention used.</p>', 'patterns': '<div class="learning-card"><strong>DFS Traversals</strong><p>Preorder = Root-Left-Right, Inorder = Left-Root-Right, Postorder = Left-Right-Root.</p></div>\n<div class="learning-card"><strong>BFS / Level Order</strong><p>Use a queue to process nodes level by level.</p></div>\n<div class="learning-card"><strong>BST Search</strong><p>At every node, choose left or right based on comparison.</p></div>\n<div class="learning-card"><strong>Tree Recursion</strong><p>Many tree problems reduce to solving the left and right subtree and combining the answers.</p></div>', 'algorithms': '<h4>Inorder Traversal</h4><div class="algorithm-step">1. If node is null, return.</div><div class="algorithm-step">2. Traverse the left subtree.</div><div class="algorithm-step">3. Process the current node.</div><div class="algorithm-step">4. Traverse the right subtree.</div><p>Inorder traversal of a BST is sorted under the standard BST ordering.</p>\n<h4>Level Order Traversal</h4><div class="algorithm-step">1. Push root into a queue.</div><div class="algorithm-step">2. Pop one node and process it.</div><div class="algorithm-step">3. Push its children.</div><div class="algorithm-step">4. Continue until the queue is empty.</div>', 'code': '<h4>Inorder Traversal</h4><div class="code-box"><pre>void inorder(Node* root) {\n    if (root == NULL) return;\n\n    inorder(root-&gt;left);\n    cout &lt;&lt; root-&gt;data &lt;&lt; " ";\n    inorder(root-&gt;right);\n}</pre></div>\n<h4>Maximum Depth</h4><div class="code-box"><pre>int maxDepth(Node* root) {\n    if (root == NULL)\n        return 0;\n\n    return 1 + max(maxDepth(root-&gt;left),\n                   maxDepth(root-&gt;right));\n}</pre></div>\n<div class="problem-card"><span class="difficulty">EASY</span><strong>Maximum Depth of Binary Tree</strong><p>Return the maximum number of nodes on a root-to-leaf path.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Validate BST</strong><p>Use valid lower and upper bounds while traversing.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Lowest Common Ancestor</strong><p>Find the deepest node that is an ancestor of both targets.</p></div>', 'mcq': [['Root-Left-Right is which traversal?', ['Preorder', 'Inorder', 'Postorder', 'Level order'], 0], ['Which traversal of a standard BST produces sorted order?', ['Inorder', 'Preorder', 'Postorder', 'Level order'], 0], ['Which structure is natural for level-order traversal?', ['Queue', 'Stack', 'Hash map', 'Set only'], 0], ['A node with zero children is called:', ['Leaf', 'Root', 'Edge', 'Parent'], 0], ['Searching a balanced BST is typically:', ['O(log n)', 'O(n²)', 'O(2ⁿ)', 'O(1) always'], 0]], 'interview': ['Why does inorder traversal of a BST produce sorted values?', 'What is the difference between height and depth?', 'How would you validate a BST?', 'When is BFS preferable to DFS on a tree?']}, 'Graphs': {'intro': 'Graphs model relationships between objects. Learn representation first, then BFS/DFS, then shortest paths and connectivity.', 'learn': '<h4>1. Graph Terminology</h4><ul><li>Vertex: a node.</li><li>Edge: a connection.</li><li>Directed graph: edges have direction.</li><li>Undirected graph: edges have no direction.</li><li>Weighted graph: edges have costs/weights.</li></ul>\n<h4>2. Representations</h4><p>Adjacency list is usually efficient for sparse graphs. An adjacency matrix uses O(V²) space and gives O(1) direct edge lookup.</p>', 'patterns': '<div class="learning-card"><strong>BFS</strong><p>Queue-based traversal. Useful for unweighted shortest paths and level-by-level exploration.</p></div>\n<div class="learning-card"><strong>DFS</strong><p>Recursion or an explicit stack. Useful for components, cycle exploration and many connectivity tasks.</p></div>\n<div class="learning-card"><strong>Visited Array</strong><p>Prevents processing the same vertex repeatedly and avoids infinite traversal in cyclic graphs.</p></div>\n<div class="learning-card"><strong>Shortest Path Choice</strong><p>Unweighted graph → BFS. Non-negative weighted edges → Dijkstra is a common choice.</p></div>', 'algorithms': '<h4>BFS</h4><div class="algorithm-step">1. Mark the starting vertex visited and enqueue it.</div><div class="algorithm-step">2. Remove a vertex from the queue.</div><div class="algorithm-step">3. Visit each unvisited neighbour and enqueue it.</div><div class="algorithm-step">4. Repeat until the queue is empty.</div><p><b>Adjacency list complexity:</b> O(V+E)</p>\n<h4>DFS</h4><div class="algorithm-step">1. Mark the current vertex visited.</div><div class="algorithm-step">2. Visit each unvisited neighbour recursively or with a stack.</div><div class="algorithm-step">3. Continue until all reachable vertices are processed.</div>', 'code': '<h4>BFS Traversal</h4><div class="code-box"><pre>void bfs(int start) {\n    queue&lt;int&gt; q;\n    visited[start] = true;\n    q.push(start);\n\n    while (!q.empty()) {\n        int u = q.front();\n        q.pop();\n\n        for (int v : graph[u]) {\n            if (!visited[v]) {\n                visited[v] = true;\n                q.push(v);\n            }\n        }\n    }\n}</pre></div>\n<div class="problem-card"><span class="difficulty">EASY</span><strong>Number of Connected Components</strong><p>Run BFS/DFS from every unvisited vertex.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Shortest Path in an Unweighted Graph</strong><p>Use BFS and store distances.</p></div>\n<div class="problem-card"><span class="difficulty">MEDIUM</span><strong>Detect a Cycle</strong><p>Choose the appropriate BFS/DFS cycle-detection method for directed or undirected graphs.</p></div>', 'mcq': [['Which traversal uses a queue?', ['BFS', 'DFS', 'Binary search', 'Merge sort'], 0], ['Which traversal naturally uses a stack or recursion?', ['DFS', 'BFS', 'Counting sort', 'Binary search'], 0], ['An adjacency matrix for V vertices requires:', ['O(V²) space', 'O(V) space always', 'O(E) only', 'O(log V)'], 0], ['For shortest paths in an unweighted graph, the usual choice is:', ['BFS', 'DFS', 'Quick sort', 'Heap sort'], 0], ['Why is a visited array important in cyclic graphs?', ['It prevents repeated traversal', 'It sorts vertices', 'It removes edges', 'It reduces V to 1'], 0]], 'interview': ['Compare adjacency list and adjacency matrix.', 'Why does BFS find shortest paths in an unweighted graph?', 'How do you detect a cycle in an undirected graph?', 'What changes when a graph is directed?']}};
+let currentTopic = "";
+
+function progressData(){try{return JSON.parse(localStorage.getItem("gapmind_dsa_progress")||"{}")}catch(e){return {}}}
+
+function updatePhase2Progress(){
+  const p=progressData(), topics=Object.keys(phase2Data);
+  let completed=0;
+  topics.forEach(t=>{
+    const done = p[t] === true || Number(p[t]||0) >= 1;
+    const bar=document.getElementById("bar-"+t), label=document.getElementById("topic-"+t);
+    if(bar) bar.style.width = done ? "100%" : "0%";
+    if(label) label.textContent = done ? "1 / 1 assessment" : "0 / 1 assessment";
+    if(done) completed++;
+  });
+  const el=document.getElementById("dsaOverallProgress");
+  if(el) el.textContent=Math.round(completed/topics.length*100)+"%";
+}
+
+function openTopic(topic){
+  currentTopic=topic;
+  const d=phase2Data[topic];
+  document.getElementById("topicLabel").textContent="PHASE 02 • "+topic.toUpperCase();
+  document.getElementById("topicTitle").textContent=topic;
+  document.getElementById("topicIntro").textContent=d.intro;
+  document.getElementById("topic-learn").innerHTML=d.learn;
+  document.getElementById("topic-patterns").innerHTML=d.patterns;
+  document.getElementById("topic-algorithms").innerHTML=d.algorithms;
+  document.getElementById("topic-code").innerHTML=d.code;
+  document.getElementById("topic-interview").innerHTML=d.interview.map((x,i)=>`<div class="learning-card"><strong>${i+1}. ${x}</strong><p>Think through the approach, complexity and edge cases before checking your solution.</p></div>`).join("");
+  document.getElementById("topic-mcq").innerHTML=d.mcq.map((q,i)=>`
+    <div class="mcq-card">
+      <strong>${i+1}. ${q[0]}</strong>
+      ${q[1].map((o,j)=>`<label><input type="radio" name="mcq${i}" value="${j}"> ${String.fromCharCode(65+j)}) ${o}</label>`).join("")}
+    </div>`).join("")+`<button class="submit-topic" onclick="submitTopic()">Submit ${topic} Test</button>`;
+  showTopicTab("learn",document.querySelector(".topic-tab"));
+  document.getElementById("topicModal").classList.add("open");
+}
+
+function showTopicTab(tab,btn){
+  ["learn","patterns","algorithms","code","mcq","interview"].forEach(x=>{
+    const el=document.getElementById("topic-"+x);
+    if(el) el.style.display=x===tab?"block":"none";
+  });
+  document.querySelectorAll(".topic-tab").forEach(x=>x.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+}
+
+function submitTopic(){
+  const qs=phase2Data[currentTopic].mcq;
+  let score=0;
+  for(let i=0;i<qs.length;i++){
+    const a=document.querySelector(`input[name="mcq${i}"]:checked`);
+    if(!a){alert("Please answer all 5 questions.");return;}
+    if(Number(a.value)===qs[i][2]) score++;
+  }
+  const p=progressData();
+  // The six tabs are learning/practice sections. Only the MCQ assessment counts toward topic completion.
+  p[currentTopic] = true;
+  localStorage.setItem("gapmind_dsa_progress",JSON.stringify(p));
+  try {
+    const scores = JSON.parse(localStorage.getItem("gapmind_dsa_mcq_scores") || "{}");
+    scores[currentTopic] = score;
+    localStorage.setItem("gapmind_dsa_mcq_scores", JSON.stringify(scores));
+  } catch(e) {}
+  updatePhase2Progress();
+  closeTopic();
+  alert(currentTopic+" test completed: "+score+"/5");
+}
+
+function closeTopic(){document.getElementById("topicModal").classList.remove("open");}
+
+document.addEventListener("DOMContentLoaded",updatePhase2Progress);
+</script>
+<style id="phase2-tab-fix">
+.topic-panel { display:none !important; }
+.topic-panel.topic-visible { display:block !important; }
+.topic-tab { position:relative; z-index:2; }
+.topic-tabs { position:relative; z-index:3; }
+</style>
+<script id="phase2-tab-fix-script">
+(function () {
+  const TABS = ["learn","patterns","algorithms","code","mcq","interview"];
+
+  window.showTopicTab = function(tab, btn) {
+    TABS.forEach(function(name) {
+      const panel = document.getElementById("topic-" + name);
+      if (panel) {
+        panel.classList.toggle("topic-visible", name === tab);
+      }
+    });
+
+    document.querySelectorAll(".topic-tab").forEach(function(button) {
+      button.classList.remove("active");
+    });
+
+    if (btn) btn.classList.add("active");
+  };
+
+  window.openTopic = function(topic) {
+    window.currentTopic = topic;
+
+    const data = typeof phase2Data !== 'undefined' && phase2Data[topic];
+    if (!data) {
+      console.error("No Phase 2 data found for:", topic);
+      return;
+    }
+
+    const label = document.getElementById("topicLabel");
+    const title = document.getElementById("topicTitle");
+    const intro = document.getElementById("topicIntro");
+
+    if (label) label.textContent = "PHASE 02 • " + topic.toUpperCase();
+    if (title) title.textContent = topic;
+    if (intro) intro.textContent = data.intro || "";
+
+    const content = {
+      learn: data.learn || "<p>Learning content coming soon.</p>",
+      patterns: data.patterns || "<p>Pattern content coming soon.</p>",
+      algorithms: data.algorithms || "<p>Algorithm content coming soon.</p>",
+      code: data.code || "<p>Code examples coming soon.</p>"
+    };
+
+    Object.keys(content).forEach(function(name) {
+      const panel = document.getElementById("topic-" + name);
+      if (panel) panel.innerHTML = content[name];
+    });
+
+    const interviewPanel = document.getElementById("topic-interview");
+    if (interviewPanel) {
+      interviewPanel.innerHTML = (data.interview || []).map(function(q, i) {
+        return '<div class="learning-card">' +
+          '<strong>' + (i + 1) + '. ' + q + '</strong>' +
+          '<p>Think through the approach, complexity and edge cases before checking your solution.</p>' +
+          '</div>';
+      }).join("");
+    }
+
+    const mcqPanel = document.getElementById("topic-mcq");
+    if (mcqPanel) {
+      mcqPanel.innerHTML = (data.mcq || []).map(function(q, i) {
+        return '<div class="mcq-card">' +
+          '<strong>' + (i + 1) + '. ' + q[0] + '</strong>' +
+          q[1].map(function(option, j) {
+            return '<label><input type="radio" name="mcq' + i +
+              '" value="' + j + '"> ' +
+              String.fromCharCode(65 + j) + ') ' + option + '</label>';
+          }).join("") +
+          '</div>';
+      }).join("") +
+      '<button class="submit-topic" onclick="submitTopic()">Submit ' +
+      topic + ' Test</button>';
+    }
+
+    // Always open Learn first.
+    const firstTab = document.querySelector(".topic-tab");
+    window.showTopicTab("learn", firstTab);
+
+    const modal = document.getElementById("topicModal");
+    if (modal) modal.classList.add("open");
+  };
+
+  window.submitTopic = function() {
+    const data = phase2Data[window.currentTopic];
+    const qs = data.mcq || [];
+    let score = 0;
+
+    for (let i = 0; i < qs.length; i++) {
+      const answer = document.querySelector(
+        'input[name="mcq' + i + '"]:checked'
+      );
+
+      if (!answer) {
+        alert("Please answer all " + qs.length + " questions.");
+        return;
+      }
+
+      if (Number(answer.value) === qs[i][2]) score++;
+    }
+
+    let progress = {};
+    try {
+      progress = JSON.parse(
+        localStorage.getItem("gapmind_dsa_progress") || "{}"
+      );
+    } catch (e) {}
+
+    // Only the MCQ assessment counts as completion. Learn/Patterns/Algorithms/Code/Interview are study or practice.
+    progress[window.currentTopic] = true;
+
+    localStorage.setItem(
+      "gapmind_dsa_progress",
+      JSON.stringify(progress)
+    );
+
+    try {
+      const scores = JSON.parse(localStorage.getItem("gapmind_dsa_mcq_scores") || "{}");
+      scores[window.currentTopic] = score;
+      localStorage.setItem("gapmind_dsa_mcq_scores", JSON.stringify(scores));
+    } catch (e) {}
+
+    if (typeof window.updatePhase2Progress === "function") {
+      window.updatePhase2Progress();
+    }
+
+    if (typeof window.closeTopic === "function") {
+      window.closeTopic();
+    } else {
+      const modal = document.getElementById("topicModal");
+      if (modal) modal.classList.remove("open");
+    }
+
+    alert(window.currentTopic + " test completed: " + score + "/" + qs.length);
+  };
+
+  window.closeTopic = function() {
+    const modal = document.getElementById("topicModal");
+    if (modal) modal.classList.remove("open");
+  };
+
+  // Prevent any later script from leaving all panels visible/hidden incorrectly.
+  document.addEventListener("DOMContentLoaded", function() {
+    const tabs = document.querySelectorAll(".topic-tab");
+
+    tabs.forEach(function(button, index) {
+      button.addEventListener("click", function() {
+        window.showTopicTab(TABS[index], button);
+      });
+    });
+
+    // Do not force Code open. Learn is the default.
+    window.showTopicTab("learn", tabs[0]);
+  });
+})();
+</script>
+<script id="phase2-card-click-fallback">
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".topic-card").forEach(function(card) {
+    const onclick = card.getAttribute("onclick") || "";
+    const match = onclick.match(/openTopic\(['"]([^'"]+)['"]\)/);
+    if (!match) return;
+
+    const topic = match[1];
+    card.addEventListener("click", function (event) {
+      // The inline onclick already calls openTopic; this fallback only runs
+      // if the modal did not open.
+      setTimeout(function () {
+        const modal = document.getElementById("topicModal");
+        if (modal && !modal.classList.contains("open")) {
+          window.openTopic(topic);
+        }
+      }, 50);
+    });
+  });
+});
+</script>
+<style id="array-problem-fix">
+.problem-card { cursor:pointer; }
+.problem-card:hover { transform: translateY(-2px); }
+.problem-viewer {
+  margin-top:18px; padding:22px; border:1px solid rgba(255,255,255,.12);
+  border-radius:14px; background:rgba(255,255,255,.04);
+}
+.problem-viewer pre {
+  overflow:auto; padding:16px; border-radius:10px;
+  background:rgba(0,0,0,.25);
+}
+.problem-viewer .close-problem {
+  float:right; cursor:pointer; border:0; background:transparent;
+  color:inherit; font-size:20px;
+}
+</style>
+<script id="array-problem-fix-script">
+(function () {
+  const ARRAY_PROBLEMS = {
+    "Two Sum": {
+      difficulty:"EASY",
+      description:"Find two indexes whose values add up to a target.",
+      approach:"Use a hash map to store previously seen values and check whether target - current value already exists.",
+      code:`vector<int> twoSum(vector<int>& a, int target) {
+    unordered_map<int,int> seen;
+
+    for (int i = 0; i < a.size(); i++) {
+        int need = target - a[i];
+
+        if (seen.count(need))
+            return {seen[need], i};
+
+        seen[a[i]] = i;
+    }
+    return {};
+}`,
+      complexity:"O(n) average time, O(n) space."
+    },
+    "Reverse an Array": {
+      difficulty:"EASY",
+      description:"Reverse an array in-place using two pointers.",
+      approach:"Keep one pointer at the beginning and one at the end. Swap the elements and move both pointers inward.",
+      code:`void reverseArray(vector<int>& a) {
+    int left = 0, right = a.size() - 1;
+
+    while (left < right) {
+        swap(a[left], a[right]);
+        left++;
+        right--;
+    }
+}`,
+      complexity:"O(n) time, O(1) extra space."
+    },
+    "Maximum Subarray": {
+      difficulty:"MEDIUM",
+      description:"Find the maximum possible sum of a contiguous subarray.",
+      approach:"Use Kadane's algorithm. At each position, decide whether to extend the current subarray or start a new one.",
+      code:`int maxSubArray(vector<int>& a) {
+    int current = a[0];
+    int best = a[0];
+
+    for (int i = 1; i < a.size(); i++) {
+        current = max(a[i], current + a[i]);
+        best = max(best, current);
+    }
+
+    return best;
+}`,
+      complexity:"O(n) time, O(1) extra space."
+    },
+    "Rotate Array": {
+      difficulty:"MEDIUM",
+      description:"Rotate an array efficiently using the reversal technique.",
+      approach:"Reverse the whole array, then reverse the first k elements and finally reverse the remaining elements.",
+      code:`void rotate(vector<int>& a, int k) {
+    int n = a.size();
+    k %= n;
+
+    reverse(a.begin(), a.end());
+    reverse(a.begin(), a.begin() + k);
+    reverse(a.begin() + k, a.end());
+}`,
+      complexity:"O(n) time, O(1) extra space."
+    }
+  };
+
+  function showProblem(name) {
+    const p = ARRAY_PROBLEMS[name];
+    if (!p) return;
+
+    let viewer = document.getElementById("arrayProblemViewer");
+    if (!viewer) {
+      viewer = document.createElement("div");
+      viewer.id = "arrayProblemViewer";
+      const codePanel = document.getElementById("topic-code");
+      if (codePanel) codePanel.appendChild(viewer);
+    }
+
+    viewer.className = "problem-viewer";
+    viewer.innerHTML =
+      '<button class="close-problem" onclick="closeArrayProblem()">×</button>' +
+      '<span class="card-label">ARRAY PROBLEM</span>' +
+      '<h3>' + name + '</h3>' +
+      '<p><strong>' + p.difficulty + '</strong> — ' + p.description + '</p>' +
+      '<h4>Approach</h4><p>' + p.approach + '</p>' +
+      '<h4>Code</h4><pre><code>' + escapeHtml(p.code) + '</code></pre>' +
+      '<p><strong>Complexity:</strong> ' + p.complexity + '</p>';
+
+    viewer.scrollIntoView({behavior:"smooth", block:"nearest"});
+  }
+
+  function escapeHtml(text) {
+    return text.replace(/&/g,"&amp;")
+               .replace(/</g,"&lt;")
+               .replace(/>/g,"&gt;");
+  }
+
+  window.closeArrayProblem = function () {
+    const viewer = document.getElementById("arrayProblemViewer");
+    if (viewer) viewer.remove();
+  };
+
+  window.openArrayProblem = showProblem;
+
+  function wireArrayCards() {
+    const codePanel = document.getElementById("topic-code");
+    if (!codePanel) return;
+
+    // Locate headings/text in the current Arrays Code panel and make the
+    // corresponding problem card clickable without changing other topics.
+    const names = Object.keys(ARRAY_PROBLEMS);
+    const all = codePanel.querySelectorAll("*");
+
+    names.forEach(function(name) {
+      all.forEach(function(el) {
+        if (el.children.length !== 0) return;
+        if (el.textContent.trim() !== name) return;
+
+        let card = el;
+        for (let i=0; i<4 && card.parentElement; i++) {
+          card = card.parentElement;
+          if (card.classList.contains("problem-card") ||
+              card.classList.contains("learning-card") ||
+              card.classList.contains("code-card")) break;
+        }
+
+        card.classList.add("problem-card");
+        card.setAttribute("data-array-problem", name);
+        card.onclick = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          showProblem(name);
+        };
+      });
+    });
+  }
+
+  // Run after topic content is rendered and whenever Code is opened.
+  const oldShow = window.showTopicTab;
+  if (typeof oldShow === "function" && !oldShow.__arrayProblemWrapped) {
+    const wrapped = function(tab, btn) {
+      const result = oldShow.apply(this, arguments);
+      if (tab === "code") setTimeout(wireArrayCards, 0);
+      return result;
+    };
+    wrapped.__arrayProblemWrapped = true;
+    window.showTopicTab = wrapped;
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(wireArrayCards, 100);
+  });
+
+  // Expose for manual use/debugging.
+  window.wireArrayCards = wireArrayCards;
+})();
+</script>
+<style id="phase2-all-problem-fix">
+.problem-card {
+  cursor: pointer !important;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.problem-card:hover {
+  transform: translateY(-2px);
+}
+.phase2-problem-viewer {
+  margin-top: 20px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+}
+.phase2-problem-viewer pre {
+  white-space: pre-wrap;
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.25);
+}
+.phase2-problem-viewer .problem-close {
+  float: right;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 22px;
+  cursor: pointer;
+}
+</style>
+<script id="phase2-all-problem-fix">
+(function () {
+  function escapeHTML(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function cleanText(el) {
+    return el ? el.textContent.trim() : "";
+  }
+
+  function getProblemTitle(card) {
+    const strong = card.querySelector("strong");
+    if (strong && cleanText(strong)) return cleanText(strong);
+
+    const h = card.querySelector("h3,h4,h5");
+    if (h && cleanText(h)) return cleanText(h);
+
+    const clone = card.cloneNode(true);
+    clone.querySelectorAll(".difficulty,.card-label,.badge,.tag").forEach(x => x.remove());
+    return cleanText(clone).split("\n")[0].trim();
+  }
+
+  function openProblem(card, topic, codePanel) {
+    const title = getProblemTitle(card);
+    if (!title) return;
+
+    // Remove an older viewer in this panel.
+    const old = codePanel.querySelector(".phase2-problem-viewer");
+    if (old) old.remove();
+
+    const description = cleanText(card.querySelector("p"));
+    const difficulty = cleanText(card.querySelector(".difficulty,.badge,.tag"));
+
+    // Some existing cards have only a short description. We keep that original
+    // content and provide a useful generic explanation rather than duplicating it.
+    const viewer = document.createElement("div");
+    viewer.className = "phase2-problem-viewer";
+
+    viewer.innerHTML =
+      '<button class="problem-close" type="button" aria-label="Close">×</button>' +
+      '<span class="card-label">' + escapeHTML(topic.toUpperCase()) + ' • PROBLEM</span>' +
+      '<h3>' + escapeHTML(title) + '</h3>' +
+      (difficulty ? '<p><strong>' + escapeHTML(difficulty) + '</strong></p>' : '') +
+      (description ? '<p>' + escapeHTML(description) + '</p>' : '') +
+      '<h4>How to approach</h4>' +
+      '<p>Understand the input and output first, identify the required pattern, ' +
+      'then choose the data structure or algorithm that gives the required time and space complexity.</p>' +
+      '<h4>Existing solution</h4>' +
+      '<pre>' + escapeHTML(card.innerText.trim()) + '</pre>';
+
+    viewer.querySelector(".problem-close").addEventListener("click", function () {
+      viewer.remove();
+    });
+
+    codePanel.appendChild(viewer);
+    viewer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function wireTopicProblems() {
+    const codePanel = document.getElementById("topic-code");
+    const topic = window.currentTopic || document.getElementById("topicTitle")?.textContent || "";
+    if (!codePanel || !topic) return;
+
+    codePanel.querySelectorAll(".problem-card").forEach(function (card) {
+      if (card.dataset.phase2ProblemWired === "1") return;
+
+      card.dataset.phase2ProblemWired = "1";
+      card.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        openProblem(card, topic, codePanel);
+      });
+    });
+  }
+
+  // The existing showTopicTab renders the selected topic's content.
+  const originalShowTopicTab = window.showTopicTab;
+  if (typeof originalShowTopicTab === "function" &&
+      !originalShowTopicTab.__phase2GenericProblemFix) {
+    const wrappedShowTopicTab = function (tab, btn) {
+      const result = originalShowTopicTab.apply(this, arguments);
+      if (tab === "code") {
+        setTimeout(wireTopicProblems, 0);
+        setTimeout(wireTopicProblems, 100);
+      }
+      return result;
+    };
+    wrappedShowTopicTab.__phase2GenericProblemFix = true;
+    window.showTopicTab = wrappedShowTopicTab;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(wireTopicProblems, 300);
+  });
+
+  // Also expose it so the page can refresh handlers after dynamic rendering.
+  window.wireTopicProblems = wireTopicProblems;
+})();
+</script>
+<style id="phase-progression-fix">
+.phase-unlocked .phase-status { color: #ff7a00 !important; }
+.phase-unlocked { cursor: pointer; }
+</style>
+<script id="phase-progression-fix-script">
+(function () {
+  const TOPICS = ["Arrays", "Strings", "Recursion", "Trees", "Graphs"];
+
+  function getProgress() {
+    try { return JSON.parse(localStorage.getItem("gapmind_dsa_progress") || "{}"); }
+    catch (e) { return {}; }
+  }
+
+  function phase2Complete() {
+    const p = getProgress();
+    return TOPICS.every(t => p[t] === true || Number(p[t] || 0) >= 1);
+  }
+
+  function updateRoadmap() {
+    const items = document.querySelectorAll(".roadmap-item");
+    if (items.length < 4) return;
+
+    const phase2 = items[1];
+    const phase3 = items[2];
+    const phase4 = items[3];
+    const complete = phase2Complete();
+
+    // Keep Phase 2 progress synchronized with the five topic MCQs.
+    const p = getProgress();
+    const completed = TOPICS.filter(t => p[t] === true || Number(p[t] || 0) >= 1).length;
+    const percent = Math.round(completed / TOPICS.length * 100);
+    if (phase2) {
+      const bar = phase2.querySelector(".purple-progress");
+      const label = phase2.querySelector(".phase-progress span");
+      if (bar) bar.style.width = percent + "%";
+      if (label) label.textContent = percent + "%";
+    }
+
+    if (phase3) {
+      const status = phase3.querySelector(".phase-status");
+      if (status) status.textContent = complete ? "UNLOCKED" : "LOCKED";
+      phase3.classList.toggle("phase-unlocked", complete);
+      phase3.setAttribute("aria-disabled", complete ? "false" : "true");
+      const companySection = document.getElementById("companyPreparation");
+      if (companySection) companySection.style.display = complete ? "block" : "none";
+    }
+
+    // Phase 4 remains locked until Phase 3 is actually completed.
+    if (phase4) {
+      const status = phase4.querySelector(".phase-status");
+      if (status) status.textContent = "LOCKED";
+    }
+  }
+
+  const oldOpen = window.openRoadmapPhase;
+  if (typeof oldOpen === "function" && !oldOpen.__progressionWrapped) {
+    const wrapped = function (phase) {
+      if (Number(phase) === 3 && !phase2Complete()) {
+        const p = getProgress();
+        const done = TOPICS.filter(t => p[t] === true || Number(p[t] || 0) >= 1).length;
+        alert("Complete all 5 Phase 2 topic MCQs first. Progress: " + done + "/5.");
+        return;
+      }
+      if (Number(phase) === 4 && !(window.phase3Complete && window.phase3Complete())) {
+        alert("Complete all 4 Phase 3 tracks first.");
+        return;
+      }
+      return oldOpen.apply(this, arguments);
+    };
+    wrapped.__progressionWrapped = true;
+    window.openRoadmapPhase = wrapped;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    updateRoadmap();
+    setTimeout(updateRoadmap, 250);
+  });
+
+  // Re-check after every Phase 2 assessment submission.
+  const oldUpdate = window.updatePhase2Progress;
+  if (typeof oldUpdate === "function" && !oldUpdate.__roadmapSync) {
+    const wrappedUpdate = function () {
+      const result = oldUpdate.apply(this, arguments);
+      setTimeout(updateRoadmap, 0);
+      return result;
+    };
+    wrappedUpdate.__roadmapSync = true;
+    window.updatePhase2Progress = wrappedUpdate;
+  }
+
+  window.updateRoadmapPhaseProgress = updateRoadmap;
+})();
+</script>
+<script id="phase3-company-script">
+(function(){
+  const TRACKS=['aptitude','coding','cs','resume'];
+  const KEY='gapmind_phase3_progress';
+  function getP(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+  function saveP(p){localStorage.setItem(KEY,JSON.stringify(p));}
+  window.togglePhase3Panel=function(id){const el=document.getElementById(id);if(!el)return;el.classList.toggle('open');};
+  window.submitPhase3Quiz=function(track,names,total){
+    const p=getP();
+    if(p[track]){alert('This assessment is already completed.');return;}
+    let score=0, answered=0;
+    names.forEach(n=>{const a=document.querySelector('input[name="'+n+'"]:checked');if(a){answered++;score+=Number(a.value)||0;}});
+    if(answered<names.length){alert('Please answer all questions before submitting.');return;}
+    const percent=Math.round(score/total*100);
+    p[track]={completed:true,score:score,total:total,percent:percent,completedAt:new Date().toISOString()};
+    saveP(p); updatePhase3();
+    alert('Assessment submitted: '+score+'/'+total+' ('+percent+'%).');
+  };
+  function updatePhase3(){
+    const p=getP(); const done=TRACKS.filter(t=>p[t]&&p[t].completed).length; const pct=Math.round(done/TRACKS.length*100);
+    const companySection=document.getElementById('companyPreparation');
+    if(companySection){
+      const phase2Done=(typeof window.phase2Complete === 'function') ? window.phase2Complete() : true;
+      companySection.style.display=phase2Done ? 'block' : 'none';
+    }
+    const text=document.getElementById('phase3ProgressText'),fill=document.getElementById('phase3ProgressFill'),per=document.getElementById('phase3ProgressPercent');
+    if(text)text.textContent=done+' / 4 tracks'; if(fill)fill.style.width=pct+'%'; if(per)per.textContent=pct+'%';
+    TRACKS.forEach(t=>{const status=document.getElementById('status-'+t),card=document.querySelector('.phase3-card[data-track="'+t+'"]'); if(p[t]&&p[t].completed){if(status)status.textContent='Completed ✓  Score: '+p[t].score+'/'+p[t].total+' ('+p[t].percent+'%)'; if(card)card.classList.add('completed');} });
+    updateRoadmapPhase3();
+  }
+  function phase3Complete(){const p=getP();return TRACKS.every(t=>p[t]&&p[t].completed);}
+  function updateRoadmapPhase3(){
+    const items=document.querySelectorAll('.roadmap-item'); if(items.length<4)return; const phase3=items[2],phase4=items[3];
+    const done=TRACKS.filter(t=>{const p=getP();return p[t]&&p[t].completed}).length; const pct=Math.round(done/4*100);
+    const bar=phase3.querySelector('.cyan-progress'),label=phase3.querySelector('.phase-progress span'),status=phase3.querySelector('.phase-status');
+    const phase2Done=(typeof window.phase2Complete === 'function') ? window.phase2Complete() : true;
+    if(bar)bar.style.width=pct+'%'; if(label)label.textContent=pct+'%'; if(status)status.textContent=!phase2Done?'LOCKED':(done===4?'COMPLETED':'UNLOCKED');
+    if(phase4){const s=phase4.querySelector('.phase-status');s.textContent=phase3Complete()?'UNLOCKED':'LOCKED';phase4.classList.toggle('phase-unlocked',phase3Complete());}
+  }
+  window.phase3Complete=phase3Complete;
+  document.addEventListener('DOMContentLoaded',()=>{updatePhase3();setTimeout(updatePhase3,300);});
+})();
+</script>
+<!-- PHASE 4: INTERVIEW READINESS -->
+<style>
+#interviewReadiness{display:none;margin:48px auto 80px;max-width:1180px;padding:0 24px}
+#interviewReadiness .phase4-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:24px}
+#interviewReadiness .phase4-kicker{color:#ff7a18;font-size:12px;font-weight:800;letter-spacing:1.5px}
+#interviewReadiness h2{margin:6px 0;font-size:32px;color:#fff}
+#interviewReadiness .phase4-sub{color:#9ca3af;max-width:700px;line-height:1.6}
+.phase4-progress-wrap{min-width:220px;text-align:right}
+.phase4-progress-bar{height:8px;background:#272727;border-radius:20px;overflow:hidden;margin-top:8px}
+#phase4ProgressFill{height:100%;width:0%;background:#ff7a18;border-radius:20px;transition:width .3s}
+#phase4ProgressText{font-size:13px;color:#b7b7b7}
+.phase4-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.phase4-card{background:#111;border:1px solid #292929;border-radius:18px;padding:24px;min-height:190px;transition:.2s}
+.phase4-card:hover{border-color:#555;transform:translateY(-2px)}
+.phase4-card.completed{border-color:#ff7a18}
+.phase4-icon{font-size:26px;margin-bottom:12px}
+.phase4-card h3{margin:0 0 8px;color:#fff;font-size:20px}
+.phase4-card p{color:#9ca3af;line-height:1.55;margin:0 0 15px}
+.phase4-list{margin:0 0 18px;padding-left:19px;color:#c7c7c7;line-height:1.7;font-size:14px}
+.phase4-actions{display:flex;gap:10px;flex-wrap:wrap}
+.phase4-btn{border:1px solid #3a3a3a;background:#1a1a1a;color:#fff;border-radius:10px;padding:10px 14px;cursor:pointer;text-decoration:none;font-size:13px}
+.phase4-btn.primary{background:#ff7a18;border-color:#ff7a18;color:#111;font-weight:800}
+.phase4-status{font-size:12px;color:#ff9b52;margin-top:12px;font-weight:700}
+@media(max-width:800px){.phase4-grid{grid-template-columns:1fr}.phase4-head{flex-direction:column!important;align-items:flex-start!important}.phase4-progress-wrap{width:100%;text-align:left}}
+</style>
+<section id="interviewReadiness">
+<div class="phase4-head">
+<div>
+<div class="phase4-kicker">PHASE 04 · INTERVIEW READINESS</div>
+<h2>Turn preparation into confidence.</h2>
+<p class="phase4-sub">Practice technical answers, HR questions, communication and realistic mock interviews before you face a real recruiter.</p>
+</div>
+<div class="phase4-progress-wrap">
+<div id="phase4ProgressText">0 / 4 tracks</div>
+<div class="phase4-progress-bar"><div id="phase4ProgressFill"></div></div>
+</div>
+</div>
+<div class="phase4-grid">
+<article class="phase4-card" data-track="technical">
+<div class="phase4-icon">💻</div><h3>Technical Interview</h3>
+<p>Prepare to explain DSA, DBMS, OS, OOP and project decisions clearly.</p>
+<ul class="phase4-list"><li>Technical question bank</li><li>Project explanation practice</li><li>AI interview simulator</li></ul>
+<div class="phase4-actions"><a class="phase4-btn primary" href="interview.html">Start AI Interview →</a><button class="phase4-btn" onclick="markPhase4('technical')">Mark Preparation Done</button></div>
+<div class="phase4-status" id="phase4-status-technical">Not completed</div>
+</article>
+<article class="phase4-card" data-track="hr">
+<div class="phase4-icon">🤝</div><h3>HR Interview</h3>
+<p>Build natural, structured answers for the questions recruiters ask most often.</p>
+<ul class="phase4-list"><li>Tell me about yourself</li><li>Strengths and weaknesses</li><li>Why should we hire you?</li></ul>
+<div class="phase4-actions"><button class="phase4-btn primary" onclick="showPhase4Guide('HR Interview','Use STAR: Situation → Task → Action → Result. Keep answers specific and honest.')">Study HR Guide</button><button class="phase4-btn" onclick="markPhase4('hr')">Mark Preparation Done</button></div>
+<div class="phase4-status" id="phase4-status-hr">Not completed</div>
+</article>
+<article class="phase4-card" data-track="communication">
+<div class="phase4-icon">🗣️</div><h3>Communication</h3>
+<p>Improve clarity, structure, confidence and the way you explain technical ideas.</p>
+<ul class="phase4-list"><li>60-second introduction</li><li>Explain a project simply</li><li>Think aloud while solving</li></ul>
+<div class="phase4-actions"><button class="phase4-btn primary" onclick="showPhase4Guide('Communication Practice','Answer out loud. Start with the main point, explain your reasoning, then finish with a concise conclusion.')">Practice Guide</button><button class="phase4-btn" onclick="markPhase4('communication')">Mark Preparation Done</button></div>
+<div class="phase4-status" id="phase4-status-communication">Not completed</div>
+</article>
+<article class="phase4-card" data-track="mock">
+<div class="phase4-icon">🎯</div><h3>Mock Interviews</h3>
+<p>Simulate the pressure of a real placement round and identify your final weak areas.</p>
+<ul class="phase4-list"><li>Timed interview rounds</li><li>Technical + HR mix</li><li>Final self-review</li></ul>
+<div class="phase4-actions"><a class="phase4-btn primary" href="interview.html">Start Mock Round →</a><button class="phase4-btn" onclick="markPhase4('mock')">Mark Preparation Done</button></div>
+<div class="phase4-status" id="phase4-status-mock">Not completed</div>
+</article>
+</div>
+</section>
+<script id="phase4-readiness-script">
+(function(){
+  const KEY='gapmind_phase4_progress';
+  const TRACKS=['technical','hr','communication','mock'];
+  function getP(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+  function saveP(p){localStorage.setItem(KEY,JSON.stringify(p));}
+  function phase3Done(){return typeof window.phase3Complete==='function' ? window.phase3Complete() : false;}
+  function update(){
+    const section=document.getElementById('interviewReadiness');
+    const p=getP();
+    const done=TRACKS.filter(t=>p[t]===true).length;
+    const pct=Math.round(done/TRACKS.length*100);
+    if(section) section.style.display=phase3Done()?'block':'none';
+    const fill=document.getElementById('phase4ProgressFill'), text=document.getElementById('phase4ProgressText');
+    if(fill) fill.style.width=pct+'%';
+    if(text) text.textContent=done+' / 4 tracks'+(done===4?' · Phase 4 Complete ✓':'');
+    TRACKS.forEach(t=>{
+      const card=document.querySelector('.phase4-card[data-track="'+t+'"]'), st=document.getElementById('phase4-status-'+t);
+      if(p[t]===true){if(card)card.classList.add('completed');if(st)st.textContent='Completed ✓';}
+    });
+    const items=document.querySelectorAll('.roadmap-item');
+    if(items.length>=4){const item=items[3];const status=item.querySelector('.phase-status');const bar=item.querySelector('.orange-progress');const label=item.querySelector('.phase-progress span');
+      if(status)status.textContent=!phase3Done()?'LOCKED':(done===4?'COMPLETED':'UNLOCKED');
+      if(bar)bar.style.width=pct+'%'; if(label)label.textContent=pct+'%'; item.classList.toggle('phase-unlocked',phase3Done());
+    }
+  }
+  window.markPhase4=function(track){const p=getP();p[track]=true;saveP(p);update();};
+  window.showPhase4Guide=function(title,msg){alert(title+'\n\n'+msg);};
+  const oldOpen=window.openRoadmapPhase;
+  if(typeof oldOpen==='function' && !oldOpen.__phase4Wrapped){
+    const wrapped=function(phase){
+      if(Number(phase)===4 && !phase3Done()){alert('Complete all 4 Phase 3 tracks first.');return;}
+      return oldOpen.apply(this,arguments);
+    };
+    wrapped.__phase4Wrapped=true; window.openRoadmapPhase=wrapped;
+  }
+  document.addEventListener('DOMContentLoaded',function(){update();setTimeout(update,350);});
+})();
+</script>
+</body>
+</html>

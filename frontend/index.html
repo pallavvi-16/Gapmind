@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GapMind | AI Student Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            Gap<span>Mind</span>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="#">
+                How It Works
+            </a>
+
+            <a href="#">
+                Features
+            </a>
+
+            <a href="#">
+                Placement
+            </a>
+
+            <a href="#"
+               class="login"
+               onclick="openLogin(event)">
+                Login
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                AI-POWERED STUDENT INTELLIGENCE
+            </div>
+
+
+            <h1>
+
+                Know Your Gaps.<br>
+
+                <span class="gradient-text">
+                    Build Your Future.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                An intelligent platform that understands
+                your academic performance, technical skills
+                and placement preparation — then tells you
+                exactly what to improve next.
+
+            </p>
+
+
+            <div class="buttons">
+
+                <a href="onboarding.html"
+                   class="primary-btn">
+
+                    Get Started →
+
+                </a>
+
+
+                <a href="#"
+                   class="secondary-btn">
+
+                    Explore GapMind
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- AI Visual -->
+
+        <div class="ai-visual">
+
+            <div class="floating-card card-one">
+                AI Gap Detection
+            </div>
+
+
+            <div class="floating-card card-two">
+                Placement Intelligence
+            </div>
+
+
+            <div class="floating-card card-three">
+                Adaptive Learning
+            </div>
+
+
+            <div class="orb"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Features -->
+
+    <section class="features">
+
+        <div class="section-title">
+
+            <h2>
+                More Than A Study App.
+            </h2>
+
+
+            <p>
+
+                GapMind connects learning,
+                skill development and placement
+                preparation into one intelligent system.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🧠
+                </div>
+
+
+                <h3>
+                    AI Gap Detection
+                </h3>
+
+
+                <p>
+
+                    Identify the concepts behind
+                    your mistakes instead of simply
+                    labeling a subject as weak.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎯
+                </div>
+
+
+                <h3>
+                    Placement Intelligence
+                </h3>
+
+
+                <p>
+
+                    Understand your readiness for
+                    technical roles and discover
+                    the skills you need to improve.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎤
+                </div>
+
+
+                <h3>
+                    AI Interview Simulator
+                </h3>
+
+
+                <p>
+
+                    Practice technical and HR
+                    interviews with adaptive
+                    feedback based on your performance.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         LOGIN MODAL
+    =========================================== -->
+
+    <div class="login-overlay"
+         id="loginOverlay"
+         onclick="closeLoginOutside(event)">
+
+
+        <div class="login-modal">
+
+
+            <button
+                class="login-close"
+                onclick="closeLogin()">
+
+                ×
+
+            </button>
+
+
+            <div class="badge">
+                GAPMIND LOGIN
+            </div>
+
+
+            <h2>
+                Welcome Back.
+            </h2>
+
+
+            <p class="login-subtitle">
+
+                Continue your journey with GapMind.
+
+            </p>
+
+
+
+            <form
+                id="loginForm"
+                onsubmit="loginStudent(event)"
+            >
+
+
+                <div class="login-input-group">
+
+                    <label for="loginEmail">
+                        Email Address
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Enter your registered email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <p
+                    id="loginMessage"
+                    class="login-message"
+                ></p>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-btn login-submit"
+                >
+
+                    Login →
+
+                </button>
+
+
+            </form>
+
+
+
+            <div class="login-register">
+
+                <span>
+                    Don't have an account?
+                </span>
+
+
+                <a href="onboarding.html">
+                    Create one
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 GapMind — Student Intelligence Platform
+
+    </footer>
+
+
+
+    <!-- ==========================================
+         LOGIN JAVASCRIPT
+    =========================================== -->
+
+    <script>
+
+
+        /* ==========================================
+           OPEN LOGIN
+        ========================================== */
+
+        function openLogin(event) {
+
+            event.preventDefault();
+
+
+            document
+                .getElementById("loginOverlay")
+                .classList.add("show");
+
+
+            document
+                .getElementById("loginEmail")
+                .focus();
+
+        }
+
+
+
+        /* ==========================================
+           CLOSE LOGIN
+        ========================================== */
+
+        function closeLogin() {
+
+            document
+                .getElementById("loginOverlay")
+                .classList.remove("show");
+
+
+            document
+                .getElementById("loginMessage")
+                .textContent = "";
+
+        }
+
+
+
+        /* ==========================================
+           CLOSE WHEN CLICKING OUTSIDE
+        ========================================== */
+
+        function closeLoginOutside(event) {
+
+            if (
+                event.target ===
+                document.getElementById("loginOverlay")
+            ) {
+
+                closeLogin();
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           LOGIN STUDENT
+        ========================================== */
+
+        async function loginStudent(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById("loginEmail")
+                    .value
+                    .trim();
+
+
+            const message =
+                document.getElementById(
+                    "loginMessage"
+                );
+
+
+            message.textContent =
+                "Checking your account...";
+
+
+            message.className =
+                "login-message";
+
+
+
+            try {
+
+
+                const response =
+                    await fetch(
+                        "http://127.0.0.1:5000/api/login",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    email: email
+
+                                })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+
+                /* ----------------------------------
+                   ACCOUNT NOT FOUND
+                ---------------------------------- */
+
+                if (!response.ok) {
+
+                    message.textContent =
+                        data.error ||
+                        "Account not found.";
+
+                    message.classList.add(
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+
+                /* ----------------------------------
+                   SAVE STUDENT ID
+                ---------------------------------- */
+
+                localStorage.setItem(
+                    "student_id",
+                    data.student_id
+                );
+
+
+
+                /* ----------------------------------
+                   SUCCESS
+                ---------------------------------- */
+
+                message.textContent =
+                    "Login successful! Redirecting...";
+
+
+                message.classList.add(
+                    "success"
+                );
+
+
+
+                setTimeout(
+                    () => {
+
+                        window.location.href =
+                            "dashboard.html";
+
+                    },
+                    700
+                );
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "LOGIN ERROR:",
+                    error
+                );
+
+
+                message.textContent =
+                    "Unable to connect to GapMind server.";
+
+                message.classList.add(
+                    "error"
+                );
+
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2181 @@
+! GAPMIND !
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GapMind | Skill Assessment</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION
+    =========================================== -->
+
+    <nav>
+
+        <div class="logo">
+            Gap<span>Mind</span>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="assessment.html"
+               class="active">
+                Assessment
+            </a>
+
+            <a href="placement.html">
+                Placement
+            </a>
+
+            <a href="interview.html">
+                AI Interview
+            </a>
+
+            <a href="index.html"
+               class="login">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         MAIN
+    =========================================== -->
+
+    <main class="assessment-page">
+
+
+        <!-- ==========================================
+             INTRO
+        =========================================== -->
+
+        <section
+            class="assessment-header"
+            id="assessmentIntro"
+        >
+
+            <div>
+
+                <div class="badge">
+                    GAPMIND SKILL INTELLIGENCE
+                </div>
+
+
+                <h1>
+
+                    Find Your
+
+                    <span class="gradient-text">
+                        Knowledge Gaps.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    This assessment helps GapMind understand
+                    what you know, what you don't know, and
+                    where you should focus next.
+
+                </p>
+
+            </div>
+
+
+            <div class="assessment-info">
+
+                <div>
+
+                    <span>
+                        QUESTIONS
+                    </span>
+
+                    <strong id="questionCount">
+                        10
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        TIME
+                    </span>
+
+                    <strong>
+                        15 min
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             SKILL SELECTION
+        =========================================== -->
+
+        <section
+            class="assessment-selection"
+            id="skillSelection"
+        >
+
+
+            <div class="assessment-section-title">
+
+                <span class="card-label">
+                    STEP 01
+                </span>
+
+
+                <h2>
+                    Choose what you want to assess
+                </h2>
+
+
+                <p>
+
+                    Select one or more areas.
+                    GapMind will generate questions
+                    based on your selection.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="assessment-skills">
+
+
+                <!-- PROGRAMMING -->
+
+                <label class="assessment-skill">
+
+                    <input
+                        type="checkbox"
+                        name="assessment-skill"
+                        value="programming"
+                    >
+
+                    <div class="assessment-skill-content">
+
+                        <div class="assessment-skill-icon orange">
+                            &lt;/&gt;
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Programming
+                            </h3>
+
+                            <p>
+                                C, Java, Python & logic
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+
+                <!-- DSA -->
+
+                <label class="assessment-skill">
+
+                    <input
+                        type="checkbox"
+                        name="assessment-skill"
+                        value="dsa"
+                    >
+
+                    <div class="assessment-skill-content">
+
+                        <div class="assessment-skill-icon purple">
+                            ◈
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Data Structures
+                            </h3>
+
+                            <p>
+                                Arrays, trees, graphs & algorithms
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+
+                <!-- DBMS -->
+
+                <label class="assessment-skill">
+
+                    <input
+                        type="checkbox"
+                        name="assessment-skill"
+                        value="dbms"
+                    >
+
+                    <div class="assessment-skill-content">
+
+                        <div class="assessment-skill-icon cyan">
+                            ◉
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                DBMS
+                            </h3>
+
+                            <p>
+                                SQL, normalization & transactions
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+
+                <!-- OS -->
+
+                <label class="assessment-skill">
+
+                    <input
+                        type="checkbox"
+                        name="assessment-skill"
+                        value="os"
+                    >
+
+                    <div class="assessment-skill-content">
+
+                        <div class="assessment-skill-icon orange">
+                            ▣
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Operating Systems
+                            </h3>
+
+                            <p>
+                                Processes, memory & scheduling
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+
+                <!-- NETWORKS -->
+
+                <label class="assessment-skill">
+
+                    <input
+                        type="checkbox"
+                        name="assessment-skill"
+                        value="networks"
+                    >
+
+                    <div class="assessment-skill-content">
+
+                        <div class="assessment-skill-icon purple">
+                            ◎
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Computer Networks
+                            </h3>
+
+                            <p>
+                                Protocols, networking & security
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+
+                <!-- APTITUDE -->
+
+                <label class="assessment-skill">
+
+                    <input
+                        type="checkbox"
+                        name="assessment-skill"
+                        value="aptitude"
+                    >
+
+                    <div class="assessment-skill-content">
+
+                        <div class="assessment-skill-icon cyan">
+                            ∑
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Aptitude
+                            </h3>
+
+                            <p>
+                                Quantitative & logical reasoning
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </label>
+
+
+            </div>
+
+
+
+            <div class="assessment-start">
+
+                <p id="selectionMessage">
+
+                    You can change your selection later.
+
+                </p>
+
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    onclick="startAssessment()"
+                >
+
+                    Start Assessment →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             QUESTION AREA
+        =========================================== -->
+
+        <section
+            class="question-area"
+            id="questionArea"
+        >
+
+
+            <div class="question-top">
+
+                <div>
+
+                    <span
+                        class="card-label"
+                        id="questionNumber"
+                    >
+                        QUESTION 01 / 10
+                    </span>
+
+
+                    <h2 id="questionText">
+                        Question
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="question-timer"
+                    id="timer"
+                >
+                    15:00
+                </div>
+
+            </div>
+
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-line">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+
+            </div>
+
+
+
+            <!-- OPTIONS -->
+
+            <div
+                class="question-options"
+                id="questionOptions"
+            ></div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="question-actions">
+
+                <button
+                    class="secondary-btn"
+                    type="button"
+                    id="previousButton"
+                    onclick="previousQuestion()"
+                >
+
+                    ← Previous
+
+                </button>
+
+
+                <button
+                    class="primary-btn"
+                    type="button"
+                    id="nextButton"
+                    onclick="nextQuestion()"
+                >
+
+                    Next Question →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             RESULT
+        =========================================== -->
+
+        <section
+            class="assessment-result"
+            id="assessmentResult"
+        >
+
+
+            <div class="badge">
+                ASSESSMENT COMPLETE
+            </div>
+
+
+            <h1>
+
+                Your Skill
+
+                <span class="gradient-text">
+                    Snapshot.
+                </span>
+
+            </h1>
+
+
+            <p id="resultMessage">
+
+                Your assessment has been completed.
+
+            </p>
+
+
+
+            <div class="result-score">
+
+                <span>
+                    YOUR SCORE
+                </span>
+
+
+                <strong id="finalScore">
+                    0%
+                </strong>
+
+            </div>
+
+
+
+            <div
+                class="result-stats"
+                id="resultStats"
+            ></div>
+
+
+
+            <div class="result-actions">
+
+                <a
+                    href="dashboard.html"
+                    class="secondary-btn"
+                >
+
+                    ← Dashboard
+
+                </a>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="restartAssessment()"
+                >
+
+                    Retake Assessment →
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer>
+
+        © 2026 GapMind — Student Intelligence Platform
+
+    </footer>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script>
+
+
+        /* ==========================================
+           QUESTION BANK
+        ========================================== */
+
+        const questionBank = {
+
+
+            programming: [
+
+                {
+                    question:
+                        "Which keyword is used to create an object in Java?",
+
+                    options: [
+                        "class",
+                        "new",
+                        "this",
+                        "object"
+                    ],
+
+                    answer: 1
+                },
+
+
+                {
+                    question:
+                        "Which data type is used to store true or false?",
+
+                    options: [
+                        "int",
+                        "String",
+                        "boolean",
+                        "char"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "Which loop is guaranteed to execute at least once?",
+
+                    options: [
+                        "for",
+                        "while",
+                        "do-while",
+                        "foreach"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "Which symbol is used for equality comparison in Java?",
+
+                    options: [
+                        "=",
+                        "==",
+                        "!=",
+                        "=>"
+                    ],
+
+                    answer: 1
+                }
+
+            ],
+
+
+
+            dsa: [
+
+                {
+                    question:
+                        "What is the time complexity of binary search?",
+
+                    options: [
+                        "O(n)",
+                        "O(log n)",
+                        "O(n²)",
+                        "O(1)"
+                    ],
+
+                    answer: 1
+                },
+
+
+                {
+                    question:
+                        "Which data structure follows FIFO?",
+
+                    options: [
+                        "Stack",
+                        "Queue",
+                        "Tree",
+                        "Graph"
+                    ],
+
+                    answer: 1
+                },
+
+
+                {
+                    question:
+                        "Which data structure follows LIFO?",
+
+                    options: [
+                        "Queue",
+                        "Array",
+                        "Stack",
+                        "Graph"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "Which traversal visits the root between left and right subtrees?",
+
+                    options: [
+                        "Preorder",
+                        "Postorder",
+                        "Inorder",
+                        "Level order"
+                    ],
+
+                    answer: 2
+                }
+
+            ],
+
+
+
+            dbms: [
+
+                {
+                    question:
+                        "Which SQL command is used to retrieve data?",
+
+                    options: [
+                        "INSERT",
+                        "UPDATE",
+                        "SELECT",
+                        "DELETE"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "Which normal form removes partial dependency?",
+
+                    options: [
+                        "1NF",
+                        "2NF",
+                        "3NF",
+                        "BCNF"
+                    ],
+
+                    answer: 1
+                },
+
+
+                {
+                    question:
+                        "Which property of transactions means all-or-nothing?",
+
+                    options: [
+                        "Consistency",
+                        "Isolation",
+                        "Durability",
+                        "Atomicity"
+                    ],
+
+                    answer: 3
+                },
+
+
+                {
+                    question:
+                        "Which key uniquely identifies a row?",
+
+                    options: [
+                        "Foreign key",
+                        "Primary key",
+                        "Candidate value",
+                        "Reference key"
+                    ],
+
+                    answer: 1
+                }
+
+            ],
+
+
+
+            os: [
+
+                {
+                    question:
+                        "Which component manages processes and hardware resources?",
+
+                    options: [
+                        "Compiler",
+                        "Operating System",
+                        "Database",
+                        "Browser"
+                    ],
+
+                    answer: 1
+                },
+
+
+                {
+                    question:
+                        "Which scheduling algorithm uses a time quantum?",
+
+                    options: [
+                        "FCFS",
+                        "SJF",
+                        "Round Robin",
+                        "Priority"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "Which memory management technique uses fixed-size pages?",
+
+                    options: [
+                        "Paging",
+                        "Segmentation",
+                        "Compaction",
+                        "Spooling"
+                    ],
+
+                    answer: 0
+                },
+
+
+                {
+                    question:
+                        "A process waiting for CPU execution is in which state?",
+
+                    options: [
+                        "Running",
+                        "Ready",
+                        "Terminated",
+                        "Blocked"
+                    ],
+
+                    answer: 1
+                }
+
+            ],
+
+
+
+            networks: [
+
+                {
+                    question:
+                        "Which protocol is used to transfer web pages securely?",
+
+                    options: [
+                        "HTTP",
+                        "FTP",
+                        "HTTPS",
+                        "SMTP"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "Which device connects different networks?",
+
+                    options: [
+                        "Switch",
+                        "Router",
+                        "Hub",
+                        "Repeater"
+                    ],
+
+                    answer: 1
+                },
+
+
+                {
+                    question:
+                        "How many layers are present in the OSI model?",
+
+                    options: [
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "Which protocol translates domain names to IP addresses?",
+
+                    options: [
+                        "DNS",
+                        "DHCP",
+                        "FTP",
+                        "ARP"
+                    ],
+
+                    answer: 0
+                }
+
+            ],
+
+
+
+            aptitude: [
+
+                {
+                    question:
+                        "If 5x = 25, what is x?",
+
+                    options: [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "What is 20% of 200?",
+
+                    options: [
+                        "20",
+                        "30",
+                        "40",
+                        "50"
+                    ],
+
+                    answer: 2
+                },
+
+
+                {
+                    question:
+                        "What comes next: 2, 4, 8, 16, ?",
+
+                    options: [
+                        "20",
+                        "24",
+                        "30",
+                        "32"
+                    ],
+
+                    answer: 3
+                },
+
+
+                {
+                    question:
+                        "If a train travels 60 km in 1 hour, how far does it travel in 3 hours?",
+
+                    options: [
+                        "120 km",
+                        "150 km",
+                        "180 km",
+                        "200 km"
+                    ],
+
+                    answer: 2
+                }
+
+            ]
+
+        };
+
+
+
+        /* ==========================================
+           VARIABLES
+        ========================================== */
+
+        let questions = [];
+
+        let currentQuestion = 0;
+
+        let answers = [];
+
+        let timerSeconds = 15 * 60;
+
+        let timerInterval = null;
+
+
+
+        /* ==========================================
+           START ASSESSMENT
+        ========================================== */
+
+        function startAssessment() {
+
+
+            const selected =
+                document.querySelectorAll(
+                    'input[name="assessment-skill"]:checked'
+                );
+
+
+            if (selected.length === 0) {
+
+                document.getElementById(
+                    "selectionMessage"
+                ).textContent =
+                    "Please select at least one skill to continue.";
+
+
+                document.getElementById(
+                    "selectionMessage"
+                ).style.color =
+                    "#ff7070";
+
+
+                return;
+
+            }
+
+
+
+            /* --------------------------------------
+               COLLECT QUESTIONS
+            -------------------------------------- */
+
+            questions = [];
+
+
+            selected.forEach(skill => {
+
+                const skillQuestions =
+                    questionBank[skill.value] || [];
+
+
+                skillQuestions.forEach(question => {
+
+                    questions.push({
+
+                        ...question,
+
+                        skill: skill.value
+
+                    });
+
+                });
+
+            });
+
+
+
+            /*
+             * Keep maximum 10 questions.
+             */
+
+            questions =
+                questions.slice(0, 10);
+
+
+            answers =
+                new Array(
+                    questions.length
+                ).fill(null);
+
+
+            currentQuestion = 0;
+
+
+
+            /* --------------------------------------
+               QUESTION COUNT
+            -------------------------------------- */
+
+            document.getElementById(
+                "questionCount"
+            ).textContent =
+                questions.length;
+
+
+
+            /* --------------------------------------
+               SHOW QUESTION AREA
+            -------------------------------------- */
+
+            document.getElementById(
+                "assessmentIntro"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "skillSelection"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "questionArea"
+            ).classList.add("show");
+
+
+            document.getElementById(
+                "questionArea"
+            ).scrollIntoView({
+
+                behavior:
+                    "smooth"
+
+            });
+
+
+
+            /* --------------------------------------
+               START TIMER
+            -------------------------------------- */
+
+            timerSeconds =
+                15 * 60;
+
+
+            startTimer();
+
+
+            renderQuestion();
+
+        }
+
+
+
+        /* ==========================================
+           RENDER QUESTION
+        ========================================== */
+
+        function renderQuestion() {
+
+
+            if (!questions.length) {
+
+                return;
+
+            }
+
+
+            const question =
+                questions[currentQuestion];
+
+
+
+            /* QUESTION NUMBER */
+
+            document.getElementById(
+                "questionNumber"
+            ).textContent =
+
+                `QUESTION ${String(
+                    currentQuestion + 1
+                ).padStart(2, "0")} / ${questions.length}`;
+
+
+
+            /* QUESTION TEXT */
+
+            document.getElementById(
+                "questionText"
+            ).textContent =
+                question.question;
+
+
+
+            /* PROGRESS */
+
+            const progress =
+                ((currentQuestion + 1) /
+                    questions.length) * 100;
+
+
+            document.getElementById(
+                "progressFill"
+            ).style.width =
+                `${progress}%`;
+
+
+
+            /* OPTIONS */
+
+            const container =
+                document.getElementById(
+                    "questionOptions"
+                );
+
+
+            container.innerHTML =
+                "";
+
+
+
+            question.options.forEach(
+                (option, index) => {
+
+
+                    const label =
+                        document.createElement(
+                            "label"
+                        );
+
+
+                    label.className =
+                        "question-option";
+
+
+                    if (
+                        answers[currentQuestion] ===
+                        index
+                    ) {
+
+                        label.classList.add(
+                            "selected"
+                        );
+
+                    }
+
+
+
+                    label.innerHTML = `
+
+                        <input
+                            type="radio"
+                            name="answer"
+                            value="${index}"
+                            ${
+                                answers[currentQuestion] === index
+                                    ? "checked"
+                                    : ""
+                            }
+                        >
+
+                        <span class="option-letter">
+
+                            ${String.fromCharCode(
+                                65 + index
+                            )}
+
+                        </span>
+
+                        <span>
+
+                            ${escapeHTML(option)}
+
+                        </span>
+
+                    `;
+
+
+
+                    label
+                        .querySelector("input")
+                        .addEventListener(
+                            "change",
+                            function () {
+
+
+                                answers[
+                                    currentQuestion
+                                ] =
+                                    index;
+
+
+                                document
+                                    .querySelectorAll(
+                                        ".question-option"
+                                    )
+                                    .forEach(
+                                        item =>
+                                            item.classList
+                                                .remove(
+                                                    "selected"
+                                                )
+                                    );
+
+
+                                label.classList.add(
+                                    "selected"
+                                );
+
+                            }
+                        );
+
+
+                    container.appendChild(
+                        label
+                    );
+
+                }
+            );
+
+
+
+            /* BUTTON STATE */
+
+            document.getElementById(
+                "previousButton"
+            ).disabled =
+                currentQuestion === 0;
+
+
+
+            const nextButton =
+                document.getElementById(
+                    "nextButton"
+                );
+
+
+            if (
+                currentQuestion ===
+                questions.length - 1
+            ) {
+
+                nextButton.textContent =
+                    "Submit Assessment →";
+
+            } else {
+
+                nextButton.textContent =
+                    "Next Question →";
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           NEXT QUESTION
+        ========================================== */
+
+        function nextQuestion() {
+
+
+            if (
+                answers[currentQuestion] ===
+                null
+            ) {
+
+                alert(
+                    "Please select an answer before continuing."
+                );
+
+                return;
+
+            }
+
+
+
+            if (
+                currentQuestion <
+                questions.length - 1
+            ) {
+
+                currentQuestion++;
+
+                renderQuestion();
+
+            } else {
+
+                finishAssessment();
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           PREVIOUS QUESTION
+        ========================================== */
+
+        function previousQuestion() {
+
+
+            if (
+                currentQuestion > 0
+            ) {
+
+                currentQuestion--;
+
+                renderQuestion();
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           TIMER
+        ========================================== */
+
+        function startTimer() {
+
+
+            clearInterval(
+                timerInterval
+            );
+
+
+            updateTimer();
+
+
+            timerInterval =
+                setInterval(
+                    () => {
+
+
+                        timerSeconds--;
+
+
+                        updateTimer();
+
+
+                        if (
+                            timerSeconds <= 0
+                        ) {
+
+
+                            clearInterval(
+                                timerInterval
+                            );
+
+
+                            finishAssessment(
+                                true
+                            );
+
+                        }
+
+                    },
+                    1000
+                );
+
+        }
+
+
+
+        function updateTimer() {
+
+
+            const minutes =
+                Math.floor(
+                    timerSeconds / 60
+                );
+
+
+            const seconds =
+                timerSeconds % 60;
+
+
+            document.getElementById(
+                "timer"
+            ).textContent =
+
+                `${String(minutes).padStart(
+                    2,
+                    "0"
+                )}:${String(seconds).padStart(
+                    2,
+                    "0"
+                )}`;
+
+
+            if (
+                timerSeconds <= 60
+            ) {
+
+                document.getElementById(
+                    "timer"
+                ).classList.add(
+                    "timer-warning"
+                );
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           FINISH ASSESSMENT
+        ========================================== */
+
+        async function finishAssessment(
+            timeUp = false
+        ) {
+
+
+            clearInterval(
+                timerInterval
+            );
+
+
+
+            let correct = 0;
+
+
+            questions.forEach(
+                (question, index) => {
+
+                    if (
+                        answers[index] ===
+                        question.answer
+                    ) {
+
+                        correct++;
+
+                    }
+
+                }
+            );
+
+
+
+            const total =
+                questions.length;
+
+
+            const score =
+                total > 0
+
+                    ? Math.round(
+                        (correct / total) * 100
+                    )
+
+                    : 0;
+
+
+
+            /* --------------------------------------
+               SKILLS
+            -------------------------------------- */
+
+            const assessedSkills =
+                [
+                    ...new Set(
+                        questions.map(
+                            question =>
+                                question.skill
+                        )
+                    )
+                ];
+
+            /* --------------------------------------
+               SKILL-WISE PERFORMANCE
+            -------------------------------------- */
+
+            const skillPerformance = {};
+
+            questions.forEach(
+                (question, index) => {
+
+                    const skill =
+                        question.skill;
+
+                    if (!skill) {
+                        return;
+                    }
+
+                    if (!skillPerformance[skill]) {
+                        skillPerformance[skill] = {
+                            questions_attempted: 0,
+                            correct_answers: 0
+                        };
+                    }
+
+                    skillPerformance[skill].questions_attempted++;
+
+                    if (
+                        answers[index] ===
+                        question.answer
+                    ) {
+                        skillPerformance[skill].correct_answers++;
+                    }
+                }
+            );
+
+            Object.keys(
+                skillPerformance
+            ).forEach(skill => {
+
+                const performance =
+                    skillPerformance[skill];
+
+                performance.accuracy =
+                    performance.questions_attempted > 0
+                        ? Math.round(
+                            (
+                                performance.correct_answers /
+                                performance.questions_attempted
+                            ) * 100
+                        )
+                        : 0;
+
+                performance.gap_level =
+                    performance.accuracy < 50
+                        ? "High"
+                        : performance.accuracy < 75
+                            ? "Moderate"
+                            : "Low";
+            });
+
+            /* --------------------------------------
+               STUDENT ID
+            -------------------------------------- */
+
+            const studentId =
+                localStorage.getItem(
+                    "student_id"
+                );
+
+
+
+            /* --------------------------------------
+               HIDE QUESTION
+            -------------------------------------- */
+
+            document.getElementById(
+                "questionArea"
+            ).classList.remove(
+                "show"
+            );
+
+
+
+            /* --------------------------------------
+               SHOW RESULT
+            -------------------------------------- */
+
+            document.getElementById(
+                "assessmentResult"
+            ).classList.add(
+                "show"
+            );
+
+
+            document.getElementById(
+                "finalScore"
+            ).textContent =
+                `${score}%`;
+
+
+            document.getElementById(
+                "resultMessage"
+            ).textContent =
+                timeUp
+
+                    ? "Time is up. Here's your current skill snapshot."
+
+                    : "Assessment complete. Here's your current skill snapshot.";
+
+
+
+            /* --------------------------------------
+               RESULT STATS
+            -------------------------------------- */
+
+            document.getElementById(
+                "resultStats"
+            ).innerHTML = `
+
+                <div class="result-stat">
+
+                    <span>
+                        CORRECT
+                    </span>
+
+                    <strong>
+                        ${correct}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <strong>
+                        ${total}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    <span>
+                        SKILLS
+                    </span>
+
+                    <strong>
+                        ${assessedSkills.length}
+                    </strong>
+
+                </div>
+
+            `;
+
+
+
+            /* --------------------------------------
+               SAVE RESULT TO MYSQL
+            -------------------------------------- */
+
+            if (!studentId) {
+
+                console.error(
+                    "Student ID not found."
+                );
+
+                document.getElementById(
+                    "resultMessage"
+                ).textContent =
+                    "Assessment complete, but your student ID could not be found.";
+
+            } else {
+
+
+                try {
+
+
+                    const response =
+                        await fetch(
+                            "http://127.0.0.1:5000/api/assessment-results",
+                            {
+
+                                method:
+                                    "POST",
+
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json"
+
+                                },
+
+
+                                body:
+                                    JSON.stringify({
+
+                                        student_id:
+                                            Number(
+                                                studentId
+                                            ),
+
+                                        score:
+                                            score,
+
+                                        correct_answers:
+                                            correct,
+
+                                        total_questions:
+                                            total,
+
+                                        skills_assessed:
+                                            assessedSkills.join(
+                                                ", "
+                                            ),
+
+                                        skill_performance:
+                                            skillPerformance,
+
+                                        time_up:
+                                            timeUp
+
+                                    })
+
+                            }
+                        );
+
+
+
+                    const result =
+                        await response.json();
+
+
+
+                    if (
+                        !response.ok
+                    ) {
+
+                        throw new Error(
+                            result.error ||
+                            "Unable to save assessment result."
+                        );
+
+                    }
+
+
+
+                    console.log(
+                        "Assessment result saved:",
+                        result
+                    );
+
+
+                    document.getElementById(
+                        "resultMessage"
+                    ).textContent =
+                        "Assessment complete. Your result has been saved to your GapMind profile.";
+
+
+                } catch (
+                    error
+                ) {
+
+
+                    console.error(
+                        "Assessment save error:",
+                        error
+                    );
+
+
+                    document.getElementById(
+                        "resultMessage"
+                    ).textContent =
+                        "Assessment complete. Your score is shown above.";
+
+                }
+
+            }
+
+
+
+            /* --------------------------------------
+               SCROLL TO RESULT
+            -------------------------------------- */
+
+            document.getElementById(
+                "assessmentResult"
+            ).scrollIntoView({
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+
+
+
+        /* ==========================================
+           RESTART
+        ========================================== */
+
+        function restartAssessment() {
+
+
+            clearInterval(
+                timerInterval
+            );
+
+
+            document.getElementById(
+                "assessmentResult"
+            ).classList.remove(
+                "show"
+            );
+
+
+            document.getElementById(
+                "questionArea"
+            ).classList.remove(
+                "show"
+            );
+
+
+            document.getElementById(
+                "assessmentIntro"
+            ).style.display =
+                "";
+
+
+            document.getElementById(
+                "skillSelection"
+            ).style.display =
+                "";
+
+
+            document.querySelectorAll(
+                'input[name="assessment-skill"]'
+            ).forEach(
+                checkbox =>
+                    checkbox.checked =
+                        false
+            );
+
+
+            document.getElementById(
+                "selectionMessage"
+            ).textContent =
+                "You can change your selection later.";
+
+
+            document.getElementById(
+                "selectionMessage"
+            ).style.color =
+                "";
+
+
+            questions = [];
+
+            answers = [];
+
+            currentQuestion = 0;
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+
+
+
+        /* ==========================================
+           HTML ESCAPING
+        ========================================== */
+
+        function escapeHTML(
+            value
+        ) {
+
+            return String(
+                value
+            )
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+    </script>
+
+
+
+<script id="gapmind-random-assessment">
+/*
+ GAPMIND RANDOM ASSESSMENT
+ - Large question bank grouped by topic and type
+ - New mix on every attempt
+ - Avoids the previous attempt where possible
+ - Keeps the existing assessment UI/result system intact
+*/
+(function(){
+  const BANK = {
+    Programming: [
+      {t:"concept",q:"Which approach finds a pair with a target sum in O(n) average time on an unsorted array?",o:["Hash map","Nested loops only","Bubble sort","DFS"],a:0},
+      {t:"code",q:"What is printed? int x=5; cout << ++x;",o:["5","6","4","Compilation error"],a:1},
+      {t:"complexity",q:"What is the time complexity of binary search on a sorted array?",o:["O(n)","O(log n)","O(n log n)","O(1)"],a:1},
+      {t:"scenario",q:"A program repeatedly needs the smallest element from a changing set. Which structure is the best fit?",o:["Priority queue","Stack","Plain array only","String"],a:0},
+      {t:"algorithm",q:"Which algorithm is commonly used to find a maximum contiguous subarray sum in O(n)?",o:["Kadane's algorithm","Dijkstra","Kruskal","Floyd-Warshall"],a:0},
+      {t:"concept",q:"Which OOP feature allows one interface to represent different implementations?",o:["Polymorphism","Encapsulation","Compilation","Indexing"],a:0},
+      {t:"code",q:"What is the value of sum after: int sum=0; for(int i=1;i<=3;i++) sum+=i;",o:["3","5","6","9"],a:2},
+      {t:"scenario",q:"You need to prevent direct modification of an object's internal state. Which principle is most relevant?",o:["Encapsulation","Recursion","Hashing","Traversal"],a:0}
+    ],
+    DBMS: [
+      {t:"concept",q:"Which normal form removes partial dependency on a composite key?",o:["1NF","2NF","3NF","BCNF"],a:1},
+      {t:"concept",q:"Which SQL clause filters rows before grouping?",o:["WHERE","HAVING","ORDER BY","GROUP BY"],a:0},
+      {t:"code",q:"SELECT COUNT(*) FROM Student WHERE marks >= 90; What does it return?",o:["Sum of marks","Number of matching rows","Highest mark","All student rows"],a:1},
+      {t:"scenario",q:"Two transactions must not interfere while updating the same row. Which area handles this?",o:["Concurrency control","Normalization","DDL","Views"],a:0},
+      {t:"concept",q:"Which ACID property means a transaction happens completely or not at all?",o:["Atomicity","Consistency","Isolation","Durability"],a:0},
+      {t:"algorithm",q:"Which index structure is widely used for ordered database indexes and range queries?",o:["B+ tree","Stack","Queue","Linked list"],a:0},
+      {t:"concept",q:"Which SQL command permanently removes a table definition?",o:["DELETE","DROP","UPDATE","SELECT"],a:1},
+      {t:"scenario",q:"You need a reusable virtual table based on a query without storing a separate copy of its rows. What should you use?",o:["View","Trigger","Index","Bucket"],a:0}
+    ],
+    "Operating Systems": [
+      {t:"concept",q:"Which scheduling algorithm can suffer from starvation if priorities are not adjusted?",o:["Priority scheduling","Round Robin","FCFS only","FIFO page replacement"],a:0},
+      {t:"scenario",q:"A process is waiting forever because lower-priority processes keep getting CPU time. What is this called?",o:["Starvation","Thrashing","Deadlock","Paging"],a:0},
+      {t:"concept",q:"Which page replacement algorithm removes the page that has not been used for the longest time?",o:["LRU","FIFO","FCFS","SJF"],a:0},
+      {t:"code",q:"If a process has arrived but is waiting for CPU allocation, which state is it in?",o:["Ready","Running","Terminated","New only"],a:0},
+      {t:"concept",q:"Which condition is necessary for deadlock?",o:["Circular wait","Compilation","Indexing","Sorting"],a:0},
+      {t:"scenario",q:"A system spends most of its time swapping pages rather than executing useful work. This is:",o:["Thrashing","Spooling","Starvation","Fragmentation"],a:0},
+      {t:"concept",q:"Round Robin scheduling is primarily designed for:",o:["Time-sharing systems","Database indexing","File compression","Deadlock prevention only"],a:0},
+      {t:"complexity",q:"What does a context switch primarily do?",o:["Changes CPU from one process/thread to another","Deletes a process","Formats memory","Sorts the ready queue"],a:0}
+    ],
+    OOP: [
+      {t:"concept",q:"Which concept hides internal implementation details and exposes a necessary interface?",o:["Abstraction","Inheritance","Overloading","Iteration"],a:0},
+      {t:"concept",q:"Same method name with different parameter lists is:",o:["Method overloading","Method overriding","Encapsulation","Aggregation"],a:0},
+      {t:"code",q:"If class B extends class A, B is the:",o:["Base class","Derived class","Compiler","Interface only"],a:1},
+      {t:"scenario",q:"A subclass provides its own implementation of a parent method with the same signature. This is:",o:["Overriding","Overloading","Constructor chaining only","Indexing"],a:0},
+      {t:"concept",q:"Which OOP principle bundles data and methods together?",o:["Encapsulation","Recursion","Searching","Normalization"],a:0},
+      {t:"concept",q:"Which relationship represents an 'is-a' relationship?",o:["Inheritance","Composition only","Indexing","Aggregation only"],a:0},
+      {t:"code",q:"A constructor is mainly called when:",o:["An object is created","A loop ends","A class is deleted from source","A method is overridden"],a:0},
+      {t:"scenario",q:"You want multiple subclasses to respond differently to the same method call. Which feature helps?",o:["Polymorphism","Primary key","Paging","Hashing"],a:0}
+    ],
+    DSA: [
+      {t:"concept",q:"Which data structure follows LIFO order?",o:["Stack","Queue","Heap","Graph"],a:0},
+      {t:"concept",q:"Which data structure follows FIFO order?",o:["Queue","Stack","Tree","Hash map"],a:0},
+      {t:"complexity",q:"What is the average lookup time for a hash table?",o:["O(1)","O(log n)","O(n log n)","O(n²)"],a:0},
+      {t:"algorithm",q:"Which traversal is commonly used for shortest paths in an unweighted graph?",o:["BFS","DFS","Inorder","Postorder"],a:0},
+      {t:"concept",q:"Which traversal of a standard BST gives values in sorted order?",o:["Inorder","Preorder","Postorder","Level order"],a:0},
+      {t:"scenario",q:"You need to repeatedly get the highest-priority item from a dynamic set. Which structure is appropriate?",o:["Heap/Priority Queue","Stack only","Array index only","String"],a:0},
+      {t:"algorithm",q:"Which technique solves many maximum-subarray problems in linear time?",o:["Kadane's algorithm","Binary tree rotation","Dijkstra","BFS"],a:0},
+      {t:"concept",q:"Which technique uses a left and right boundary to process a contiguous range efficiently?",o:["Sliding window","Deadlock","Normalization","Inheritance"],a:0}
+    ],
+    Cloud: [
+      {t:"concept",q:"Which cloud service model provides virtual machines, storage and networking?",o:["IaaS","PaaS","SaaS","DBMS"],a:0},
+      {t:"concept",q:"Which cloud property automatically adds/removes resources based on demand?",o:["Elasticity","Normalization","Inheritance","Compilation"],a:0},
+      {t:"scenario",q:"A developer wants to deploy an application without managing the underlying OS. Which model fits best?",o:["PaaS","IaaS","Bare metal only","Assembly"],a:0},
+      {t:"concept",q:"Which technology packages an application and dependencies into an isolated unit?",o:["Containerization","Indexing","Deadlock","Normalization"],a:0},
+      {t:"concept",q:"Which tool is commonly associated with container orchestration?",o:["Kubernetes","MySQL","JDBC","Git"],a:0},
+      {t:"scenario",q:"A company wants to reduce cloud cost by choosing a smaller instance that still meets workload needs. This is:",o:["Rightsizing","Overprovisioning","Replication","Compilation"],a:0},
+      {t:"concept",q:"TCO stands for:",o:["Total Cost of Ownership","Technical Cloud Operation","Transfer Cost Output","Total Compute Object"],a:0},
+      {t:"concept",q:"Which deployment model is dedicated to a single organization?",o:["Private cloud","Public cloud","Community internet","Hybrid only"],a:0}
+    ]
+  };
+
+  const topicAliases = {
+    "Programming":"Programming","programming":"Programming",
+    "DBMS":"DBMS","dbms":"DBMS",
+    "Operating Systems":"Operating Systems","Operating System":"Operating Systems","OS":"Operating Systems","os":"Operating Systems",
+    "OOP":"OOP","oop":"OOP",
+    "DSA":"DSA","Data Structures":"DSA","data structures":"DSA",
+    "Cloud":"Cloud","Cloud Computing":"Cloud","cloud computing":"Cloud"
+  };
+
+  const KEY = "gapmind_assessment_history_v2";
+
+  function shuffle(arr){
+    const x=arr.slice();
+    for(let i=x.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [x[i],x[j]]=[x[j],x[i]];
+    }
+    return x;
+  }
+
+  function getHistory(){
+    try{return JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){return []}
+  }
+
+  function chooseQuestions(){
+    const history=getHistory();
+    const previousIds = new Set((history[history.length-1]||[]).map(x=>x.id));
+    let all=[];
+    Object.keys(BANK).forEach(topic=>{
+      BANK[topic].forEach((q,i)=>all.push({...q,topic,id:topic+"-"+i}));
+    });
+
+    // Prefer questions not seen in the immediately previous assessment.
+    let fresh=all.filter(q=>!previousIds.has(q.id));
+    if(fresh.length<10) fresh=all;
+
+    // Balanced topic mix: one from each core topic, then fill randomly.
+    let selected=[];
+    Object.keys(BANK).forEach(topic=>{
+      const pool=shuffle(fresh.filter(q=>q.topic===topic));
+      if(pool[0]) selected.push(pool[0]);
+    });
+    selected=shuffle(selected);
+
+    const used=new Set(selected.map(q=>q.id));
+    const remaining=shuffle(fresh.filter(q=>!used.has(q.id)));
+    while(selected.length<10 && remaining.length) selected.push(remaining.shift());
+
+    selected=shuffle(selected).slice(0,10);
+    return selected;
+  }
+
+  // Expose a clean API so the existing assessment page can use it.
+  window.GapMindAssessment = {
+    newAttempt: function(){
+      const questions=chooseQuestions();
+      const history=getHistory();
+      history.push(questions.map(q=>({id:q.id,topic:q.topic,type:q.t})));
+      // Keep recent attempts only; old attempts are not needed for rotation.
+      localStorage.setItem(KEY,JSON.stringify(history.slice(-10)));
+      return questions;
+    },
+    bank: BANK
+  };
+
+  // If the existing page has a globally accessible question array, replace it
+  // on assessment start. This hook covers common function names without breaking
+  // the rest of the application.
+  function hook(){
+    const names=["startAssessment","beginAssessment","loadAssessment","startTest","beginTest"];
+    names.forEach(name=>{
+      const fn=window[name];
+      if(typeof fn==="function" && !fn.__gapmindWrapped){
+        const wrapped=function(){
+          const qs=GapMindAssessment.newAttempt();
+          window.gapMindCurrentQuestions=qs;
+          // Store a simple current set for any existing renderer to consume.
+          window.currentAssessmentQuestions=qs;
+          return fn.apply(this,arguments);
+        };
+        wrapped.__gapmindWrapped=true;
+        window[name]=wrapped;
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded",function(){
+    hook();
+    // Make the question generator available even if the existing UI
+    // reads it later.
+    setTimeout(hook,300);
+    setTimeout(hook,1000);
+  });
+})();
+</script>
+
+</body>
+
+</html>

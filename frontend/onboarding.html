@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GapMind | Create Profile</title>
+
+    <!-- Main GapMind CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <main class="onboarding-container">
+
+
+        <!-- ==========================================
+             HEADER
+        =========================================== -->
+
+        <div class="onboarding-header">
+
+            <div class="logo">
+                <span>Gap</span><strong>Mind</strong>
+            </div>
+
+
+            <h1>
+
+                Build your<br>
+
+                placement profile.
+
+            </h1>
+
+
+            <p>
+
+                Tell GapMind about yourself. We'll use your
+                skills, education and career goals to build
+                a preparation path designed around you.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             FORM
+        =========================================== -->
+
+        <form
+            class="profile-form"
+            id="onboardingForm"
+        >
+
+
+            <!-- ==========================================
+                 01 PERSONAL INFORMATION
+            =========================================== -->
+
+            <section class="form-section">
+
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        01
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Personal Information
+                        </h2>
+
+                        <p>
+                            Basic information about you.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="input-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- COLLEGE -->
+
+                    <div class="input-group">
+
+                        <label for="college">
+                            College
+                        </label>
+
+                        <input
+                            type="text"
+                            id="college"
+                            name="college"
+                            placeholder="Enter your college name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- BRANCH -->
+
+                    <div class="input-group">
+
+                        <label for="branch">
+                            Branch
+                        </label>
+
+                        <input
+                            type="text"
+                            id="branch"
+                            name="branch"
+                            placeholder="e.g. Computer Science"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==========================================
+                 02 EDUCATION
+            =========================================== -->
+
+            <section class="form-section">
+
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        02
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Education
+                        </h2>
+
+                        <p>
+                            Help us understand your academic background.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-grid">
+
+
+                    <!-- DEGREE -->
+
+                    <div class="input-group">
+
+                        <label for="degree">
+                            Degree
+                        </label>
+
+
+                        <select
+                            id="degree"
+                            name="degree"
+                            required
+                        >
+
+                            <option
+                                value=""
+                                selected
+                                disabled
+                            >
+                                Select your degree
+                            </option>
+
+
+                            <option value="B.Tech">
+                                B.Tech
+                            </option>
+
+
+                            <option value="B.E">
+                                B.E
+                            </option>
+
+
+                            <option value="BCA">
+                                BCA
+                            </option>
+
+
+                            <option value="B.Sc">
+                                B.Sc
+                            </option>
+
+
+                            <option value="MCA">
+                                MCA
+                            </option>
+
+
+                            <option value="M.Tech">
+                                M.Tech
+                            </option>
+
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- GRADUATION YEAR -->
+
+                    <div class="input-group">
+
+                        <label for="graduation_year">
+                            Graduation Year
+                        </label>
+
+
+                        <select
+                            id="graduation_year"
+                            name="graduation_year"
+                            required
+                        >
+
+                            <option
+                                value=""
+                                selected
+                                disabled
+                            >
+                                Select graduation year
+                            </option>
+
+
+                            <option value="2026">
+                                2026
+                            </option>
+
+                            <option value="2027">
+                                2027
+                            </option>
+
+                            <option value="2028">
+                                2028
+                            </option>
+
+                            <option value="2029">
+                                2029
+                            </option>
+
+                            <option value="2030">
+                                2030
+                            </option>
+
+                            <option value="2031">
+                                2031
+                            </option>
+
+                            <option value="2032">
+                                2032
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- CGPA -->
+
+                    <div class="input-group">
+
+                        <label for="cgpa">
+                            Current CGPA
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="cgpa"
+                            name="cgpa"
+                            placeholder="e.g. 8.50"
+                            min="0"
+                            max="10"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==========================================
+                 03 CURRENT SKILLS
+            =========================================== -->
+
+            <section class="form-section">
+
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        03
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Current Skills
+                        </h2>
+
+                        <p>
+                            Select the technologies and concepts you already know.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="skills-container">
+
+
+                    <!-- C -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="C"
+                        >
+
+                        <span>
+                            C
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- C++ -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="C++"
+                        >
+
+                        <span>
+                            C++
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- JAVA -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="Java"
+                        >
+
+                        <span>
+                            Java
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- PYTHON -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="Python"
+                        >
+
+                        <span>
+                            Python
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- JAVASCRIPT -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="JavaScript"
+                        >
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- HTML CSS -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="HTML/CSS"
+                        >
+
+                        <span>
+                            HTML / CSS
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- REACT -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="React"
+                        >
+
+                        <span>
+                            React
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- SQL -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="SQL"
+                        >
+
+                        <span>
+                            SQL
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- MYSQL -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="MySQL"
+                        >
+
+                        <span>
+                            MySQL
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- DATA STRUCTURES -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="Data Structures"
+                        >
+
+                        <span>
+                            Data Structures
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- GIT -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="Git"
+                        >
+
+                        <span>
+                            Git
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- MACHINE LEARNING -->
+
+                    <label class="skill-option">
+
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="Machine Learning"
+                        >
+
+                        <span>
+                            Machine Learning
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==========================================
+                 04 PLACEMENT GOALS
+            =========================================== -->
+
+            <section class="form-section">
+
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        04
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Placement Goals
+                        </h2>
+
+                        <p>
+                            Select up to 3 roles you're interested in.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="roles-container">
+
+
+                    <!-- SOFTWARE DEVELOPER -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Software Developer"
+                        >
+
+                        <span>
+                            Software Developer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- FULL STACK -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Full Stack Developer"
+                        >
+
+                        <span>
+                            Full Stack Developer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- BACKEND -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Backend Developer"
+                        >
+
+                        <span>
+                            Backend Developer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- FRONTEND -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Frontend Developer"
+                        >
+
+                        <span>
+                            Frontend Developer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- DATA ANALYST -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Data Analyst"
+                        >
+
+                        <span>
+                            Data Analyst
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- DATA SCIENTIST -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Data Scientist"
+                        >
+
+                        <span>
+                            Data Scientist
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- AI ML -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="AI/ML Engineer"
+                        >
+
+                        <span>
+                            AI / ML Engineer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- CLOUD -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Cloud Engineer"
+                        >
+
+                        <span>
+                            Cloud Engineer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- DEVOPS -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="DevOps Engineer"
+                        >
+
+                        <span>
+                            DevOps Engineer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- CYBERSECURITY -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Cybersecurity Engineer"
+                        >
+
+                        <span>
+                            Cybersecurity Engineer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- MOBILE -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Mobile App Developer"
+                        >
+
+                        <span>
+                            Mobile App Developer
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- DATABASE -->
+
+                    <label class="role-option">
+
+                        <input
+                            type="checkbox"
+                            name="target_roles"
+                            value="Database Developer"
+                        >
+
+                        <span>
+                            Database Developer
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+
+                <p
+                    id="roleMessage"
+                    class="role-message"
+                ></p>
+
+
+
+                <!-- PREPARATION LEVEL -->
+
+                <div
+                    class="input-group preparation-field"
+                >
+
+                    <label for="preparation_level">
+
+                        Current Preparation Level
+
+                    </label>
+
+
+                    <select
+                        id="preparation_level"
+                        name="preparation_level"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            disabled
+                            selected
+                        >
+                            Select your level
+                        </option>
+
+
+                        <option value="Beginner">
+                            Beginner
+                        </option>
+
+
+                        <option value="Intermediate">
+                            Intermediate
+                        </option>
+
+
+                        <option value="Advanced">
+                            Advanced
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==========================================
+                 SUBMIT
+            =========================================== -->
+
+            <div class="form-submit">
+
+
+                <p>
+
+                    Your profile helps GapMind identify
+                    what you already know and what you
+                    should focus on next.
+
+                </p>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                    id="submitButton"
+                >
+
+                    Create My Profile →
+
+                </button>
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="message"
+                class="form-message"
+            ></div>
+
+
+        </form>
+
+
+    </main>
+
+
+
+    <script>
+
+
+        /* ==========================================
+           TARGET ROLE LIMIT
+        =========================================== */
+
+        const roleCheckboxes =
+            document.querySelectorAll(
+                'input[name="target_roles"]'
+            );
+
+
+        const roleMessage =
+            document.getElementById(
+                "roleMessage"
+            );
+
+
+        roleCheckboxes.forEach(
+            checkbox => {
+
+                checkbox.addEventListener(
+                    "change",
+                    () => {
+
+
+                        const selected =
+                            document.querySelectorAll(
+                                'input[name="target_roles"]:checked'
+                            );
+
+
+                        /*
+                         * Maximum 3 roles
+                         */
+
+                        if (
+                            selected.length >= 3
+                        ) {
+
+                            roleCheckboxes.forEach(
+                                box => {
+
+                                    if (
+                                        !box.checked
+                                    ) {
+
+                                        box.disabled =
+                                            true;
+
+                                    }
+
+                                }
+                            );
+
+                        } else {
+
+                            roleCheckboxes.forEach(
+                                box => {
+
+                                    box.disabled =
+                                        false;
+
+                                }
+                            );
+
+                        }
+
+
+                        /*
+                         * Role counter
+                         */
+
+                        if (
+                            selected.length === 0
+                        ) {
+
+                            roleMessage.textContent =
+                                "";
+
+                        } else {
+
+                            roleMessage.textContent =
+                                `${selected.length}/3 roles selected`;
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* ==========================================
+           FORM ELEMENTS
+        =========================================== */
+
+        const form =
+            document.getElementById(
+                "onboardingForm"
+            );
+
+
+        const button =
+            document.getElementById(
+                "submitButton"
+            );
+
+
+        const message =
+            document.getElementById(
+                "message"
+            );
+
+
+
+        /* ==========================================
+           FORM SUBMISSION
+        =========================================== */
+
+        form.addEventListener(
+            "submit",
+            async event => {
+
+
+                event.preventDefault();
+
+
+                /* --------------------------------------
+                   GET TARGET ROLES
+                -------------------------------------- */
+
+                const selectedRoles =
+                    Array.from(
+                        document.querySelectorAll(
+                            'input[name="target_roles"]:checked'
+                        )
+                    ).map(
+                        role => role.value
+                    );
+
+
+                if (
+                    selectedRoles.length === 0
+                ) {
+
+                    message.textContent =
+                        "Please select at least one target role.";
+
+                    message.className =
+                        "form-message error";
+
+                    return;
+
+                }
+
+
+
+                /* --------------------------------------
+                   GET SKILLS
+                -------------------------------------- */
+
+                const selectedSkills =
+                    Array.from(
+                        document.querySelectorAll(
+                            'input[name="skills"]:checked'
+                        )
+                    ).map(
+                        skill => skill.value
+                    );
+
+
+
+                /* --------------------------------------
+                   CREATE STUDENT DATA
+                -------------------------------------- */
+
+                const studentData = {
+
+                    name:
+                        document
+                            .getElementById(
+                                "name"
+                            )
+                            .value
+                            .trim(),
+
+
+                    email:
+                        document
+                            .getElementById(
+                                "email"
+                            )
+                            .value
+                            .trim(),
+
+
+                    college:
+                        document
+                            .getElementById(
+                                "college"
+                            )
+                            .value
+                            .trim(),
+
+
+                    branch:
+                        document
+                            .getElementById(
+                                "branch"
+                            )
+                            .value
+                            .trim(),
+
+
+                    degree:
+                        document
+                            .getElementById(
+                                "degree"
+                            )
+                            .value,
+
+
+                    graduation_year:
+                        document
+                            .getElementById(
+                                "graduation_year"
+                            )
+                            .value,
+
+
+                    cgpa:
+                        document
+                            .getElementById(
+                                "cgpa"
+                            )
+                            .value,
+
+
+                    skills:
+                        selectedSkills.join(
+                            ", "
+                        ),
+
+
+                    target_role:
+                        selectedRoles.join(
+                            ", "
+                        ),
+
+
+                    preparation_level:
+                        document
+                            .getElementById(
+                                "preparation_level"
+                            )
+                            .value
+
+                };
+
+
+
+                /* --------------------------------------
+                   BUTTON STATE
+                -------------------------------------- */
+
+                button.disabled =
+                    true;
+
+
+                button.textContent =
+                    "Creating Profile...";
+
+
+                message.textContent =
+                    "";
+
+
+
+                /* --------------------------------------
+                   SEND TO FLASK
+                -------------------------------------- */
+
+                try {
+
+
+                    const response =
+                        await fetch(
+                            "http://127.0.0.1:5000/api/students",
+                            {
+
+                                method:
+                                    "POST",
+
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json"
+
+                                },
+
+
+                                body:
+                                    JSON.stringify(
+                                        studentData
+                                    )
+
+                            }
+                        );
+
+
+
+                    /* --------------------------------------
+                       READ RESPONSE
+                    -------------------------------------- */
+
+                    const result =
+                        await response.json();
+
+
+
+                    /* --------------------------------------
+                       HANDLE ERROR
+                    -------------------------------------- */
+
+                    if (
+                        !response.ok
+                    ) {
+
+                        throw new Error(
+                            result.error ||
+                            "Unable to create profile."
+                        );
+
+                    }
+
+
+
+                    /* --------------------------------------
+                       SUCCESS MESSAGE
+                    -------------------------------------- */
+
+                    message.textContent =
+                        "Profile created successfully!";
+
+
+                    message.className =
+                        "form-message success";
+
+
+
+                    /* --------------------------------------
+                       SAVE STUDENT ID
+                       
+                       IMPORTANT:
+                       Using localStorage so the
+                       assessment page can access it.
+                    -------------------------------------- */
+
+                    localStorage.setItem(
+                        "student_id",
+                        result.student_id
+                    );
+
+
+
+                    /* --------------------------------------
+                       OPTIONAL:
+                       ALSO KEEP SESSION STORAGE
+                       
+                       This keeps compatibility with
+                       any older GapMind pages.
+                    -------------------------------------- */
+
+                    sessionStorage.setItem(
+                        "student_id",
+                        result.student_id
+                    );
+
+
+
+                    /* --------------------------------------
+                       REDIRECT TO DASHBOARD
+                    -------------------------------------- */
+
+                    setTimeout(
+                        () => {
+
+                            window.location.href =
+                                "dashboard.html";
+
+                        },
+                        800
+                    );
+
+
+                } catch (
+                    error
+                ) {
+
+
+                    console.error(
+                        error
+                    );
+
+
+                    message.textContent =
+                        error.message ||
+                        "Unable to connect to GapMind.";
+
+
+                    message.className =
+                        "form-message error";
+
+
+                    button.disabled =
+                        false;
+
+
+                    button.textContent =
+                        "Create My Profile →";
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
